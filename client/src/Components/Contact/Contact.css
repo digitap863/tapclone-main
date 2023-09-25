@@ -1,0 +1,307 @@
+.contactSection {
+  /* margin-left: 6%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.contactImage {
+  width: 27rem;
+  margin-top: 2rem;
+}
+.subContact {
+  margin-top: 15%;
+}
+.contactInputs {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20%;
+}
+.getIntouch p {
+  font-size: 4.5rem;
+  line-height: 1;
+  font-weight: bold;
+  margin-left: 21% !important;
+  text-shadow: black -5px 0px 0px, rgb(180 176 176) -5px 0px 2px;
+}
+.getIntouch {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 4%;
+}
+.contactInputs input {
+  outline: none;
+  border: none;
+  margin-top: 2rem;
+  font-size: 1.3rem;
+  width: 32rem;
+  background: #130f0f;
+  color: white;
+  border-radius: 10px;
+  height: 4rem;
+  padding-left: 1rem;
+  caret-color: white;
+  border: solid 1px #392e2e;
+}
+.contactInputs label {
+  color: rgb(178, 136, 136);
+  font-size: 1.15rem;
+  position: absolute;
+  top: 2.5rem;
+  left: 1rem;
+  transition: 0.2s ease-in-out;
+}
+.contactInputs .input-group input:focus ~ label {
+  top: 6px;
+  font-size: 0.8rem;
+  color: rgb(178, 136, 136);
+}
+.contactInputs .input-group input:valid ~ label {
+  top: -2px;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 2px;
+}
+
+.input-group .getIn-name {
+  position: relative;
+}
+.input-group .getIn-message {
+  position: relative;
+}
+
+.input-group span {
+  color: rgb(253, 101, 101);
+  font-size: 80%;
+  letter-spacing: 0.15rem;
+  /* border: 0.1px solid rgba(253, 101, 101, 0.281); */
+  box-sizing: border-box;
+  padding: 0.5% 1%;
+  padding-left: 15%;
+  border-radius: 8px;
+  width: 95%;
+  background-color: rgba(253, 101, 101, 0.112);
+}
+
+.input-group input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+.input-group .getIn-nameErr {
+  position: absolute;
+  bottom: -32%;
+  left: 2%;
+}
+.input-group .getIn-emailErr {
+  position: absolute;
+  bottom: -32%;
+  left: 2%;
+}
+.sendButton {
+  margin-top: -15rem;
+  margin-left: -2%;
+  animation: orbitSpin 0.7s ease-in-out infinite alternate-reverse;
+}
+.sendShakeBtn {
+  animation: shakeY 0.25s ease-in-out infinite;
+}
+@keyframes shakeY {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translate(-5px);
+  }
+  75% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.sendButton img {
+  width: 26.4rem;
+}
+.address1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  position: relative;
+  margin-top: 5%;
+}
+
+.address1 .address-1 {
+  font-weight: 600;
+  font-size: 2rem;
+  position: absolute;
+  top: 36%;
+}
+.address1 .address-2 {
+  font-weight: 500;
+  font-size: 1.43rem;
+  line-height: 1;
+  position: absolute;
+  text-transform: uppercase;
+  top: 50%;
+  text-align: center;
+}
+.address1 span {
+  color: #726767;
+  font-weight: 600;
+  font-size: 1.75rem;
+  margin-top: 5%;
+}
+
+.addressContact {
+  margin-top: 10%;
+}
+
+.detailSection {
+  margin-top: 9rem;
+}
+
+.detailSection .bg-image-2 {
+  background-image: url(../../assets/contact/Group\ 184.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+.address1 .kochi-address {
+  position: absolute;
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1;
+  bottom: 0;
+  align-items: center;
+  left: 0;
+  padding: 2rem;
+  padding-left: 4rem;
+  display: flex;
+}
+.address1 .Kozhikode-address {
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  right: 7%;
+  display: flex;
+  padding: 2rem;
+}
+.contact-width {
+  width: 40% !important;
+}
+.Ellipse1 {
+  position: absolute;
+  right: 9rem;
+  top: 2rem;
+}
+.Ellipse2 {
+  position: absolute;
+  left: 11rem;
+  bottom: 9rem;
+}
+.Ellipse {
+  position: absolute;
+  bottom: 0;
+  right: 5rem;
+}
+
+
+@media(max-width:992px){
+  .getIntouch p{
+    font-size: 3.5rem;
+  }
+  .address1 .address-1{
+    top: 30%;
+  }
+  .address1 .address-2{
+    margin-top: 0.5rem;
+    line-height: 1rem;
+    font-size: 0.8rem;
+    top: 45%;
+  }
+  .sendButton img{
+    width:18rem
+  }
+  .address1 .kochi-address{
+    font-size: 1.1rem;
+    left:-4rem;
+  }
+  .address1 .Kozhikode-address{
+    font-size: 1.1rem;
+    right: -3rem;
+
+  }
+}
+@media(max-width:480px){
+  .getIntouch p{
+    margin-left: 0!important;
+
+  }
+  .contactInputs{
+    margin-left: 0;
+  }
+  .contactInputs input{
+    width: auto;
+  }
+  .subContact{
+    /* align-items: center; */
+    justify-content: center;
+  }
+  .sendButton{
+    margin-top: -3rem;
+  }
+  .sendButton img {
+    width: 14rem;
+  }
+  .address1{
+    margin-top: 5rem;
+  }
+  .address1 .address-1{
+    font-size: 1.2rem;
+  }
+  .address1 span{
+    position: absolute;
+    font-size: 1rem;
+    top: 12.5rem;
+  }
+  .phone-contact{
+    margin-top: 1rem;
+  }
+  .detailSection .bg-image-2{
+    flex-direction: column;
+  }
+  .address1{
+    width: 65% !important;
+  }
+  .address1 .address-2{
+    font-size: 0.65rem;
+  }
+  .Ellipse{
+    bottom: 6rem;
+    right: 0rem
+  }
+  .Ellipse1 {
+    top: 0;
+  }
+  .Ellipse2{
+    left: 2rem ;
+  }
+  .address1 .kochi-address{
+    font-size: 0.9rem;
+  }
+  .address1 .Kozhikode-address{
+    font-size: 0.9rem;
+  }
+}

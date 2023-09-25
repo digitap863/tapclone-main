@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    img, video {
+      max-width: initial;
+      height: initial;
+    }
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    src: local('Poppins'), url('./font/Poppins-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }

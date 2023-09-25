@@ -1,0 +1,7 @@
+<svg width="120" height="50" viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path  class='path1'  d="M2 2L25 25L2 48" stroke="white" stroke-width="3"/>
+<path  class='path2' d="M25 2L48 25L25 48" stroke="white" stroke-width="3"/>
+<path class='path3'  d="M48 2L71 25L48 48" stroke="white" stroke-width="3"/>
+<path class='path4'  d="M71 2L94 25L71 48" stroke="white" stroke-width="3"/>
+<path  class='path5' d="M94 2L117 25L94 48" stroke="white" stroke-width="3"/>
+</svg>

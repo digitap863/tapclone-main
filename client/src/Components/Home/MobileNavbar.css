@@ -1,0 +1,116 @@
+.mobile-nav {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 0 6% 0 2%;
+  height: 90px;
+  background-color: #000;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-date {
+  color: rgba(254, 252, 252, 0.639);
+  font-size: 1.2rem;
+}
+#nav-toggle {
+  position: absolute;
+  display: hidden;
+  top: -100px;
+}
+
+/* nav .icon-burger {
+  display: none;
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+} */
+
+nav .icon-burger .line {
+  width: 30px;
+  height: 5px;
+  background-color: #fff;
+  margin: 5px;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.mobile-nav .logo h2 {
+  font-size: 2.5rem;
+}
+@media(max-width:992px){
+  .mobile-nav{
+    width:98%
+  }
+}
+@media(max-width:480px){
+  .mobile-nav {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 0 9% 0 2%;
+    height: 90px;
+    background-color: #000;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .mobile-nav .logo h2 {
+    font-size: 1.5rem;
+  }
+}
+.mobnav-links li {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+.mobnav-links li a {
+  display: block;
+  padding: 1em;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+nav .mobnav-links {
+  position: fixed;
+  z-index: 9;
+  left: 0;
+  right: 0;
+  top: 76px;
+  bottom: 100%;
+  width: auto;
+  /* width: 100%; */
+  height: auto;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: all 0.5s ease-in-out;
+}
+
+nav :checked ~ .mobnav-links {
+  bottom: 0;
+  padding-top: 2rem;
+}
+
+nav :checked ~ .icon-burger .line:nth-child(1) {
+  transform: translateY(10px) rotate(225deg);
+}
+nav :checked ~ .icon-burger .line:nth-child(3) {
+  transform: translateY(-10px) rotate(-225deg);
+}
+nav :checked ~ .icon-burger .line:nth-child(2) {
+  opacity: 0;
+}

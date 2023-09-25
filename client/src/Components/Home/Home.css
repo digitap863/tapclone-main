@@ -1,0 +1,1988 @@
+/* preLoader */
+.preloader-container {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  /* background: #161616; */
+  background: #000;
+}
+.atom {
+  position: relative;
+  display: flex;
+  width: 300px;
+  height: 300px;
+  align-items: center;
+  justify-content: center;
+}
+
+.atom::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  box-shadow: inset 0 0 10px #fff;
+  border-radius: 50%;
+}
+
+.line {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0.7;
+}
+
+.line-1 {
+  --color: #686ffd;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border-bottom: 10px solid var(--color);
+  border-top: 10px solid var(--color);
+  animation: line1 2s linear infinite;
+  filter: drop-shadow(0 0 10px var(--color));
+}
+
+@keyframes line1 {
+  0% {
+    transform: rotateY(70deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateY(70deg) rotateZ(360deg);
+  }
+}
+
+.line-2 {
+  --color: #0ff;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border-right: 10px solid var(--color);
+  border-left: 10px solid var(--color);
+  animation: line2 3s linear infinite;
+  filter: drop-shadow(0 0 10px var(--color));
+}
+
+@keyframes line2 {
+  0% {
+    transform: rotateX(80deg) rotateY(25deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(80deg) rotateY(25deg) rotateZ(360deg);
+  }
+}
+
+.line-3 {
+  --color: #c096ff;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border-right: 10px solid var(--color);
+  border-left: 10px solid var(--color);
+  animation: line3 3s linear infinite;
+  filter: drop-shadow(0 0 10px var(--color));
+}
+
+@keyframes line3 {
+  0% {
+    transform: rotateX(-80deg) rotateY(25deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(-80deg) rotateY(25deg) rotateZ(360deg);
+  }
+}
+
+/* preloader end */
+
+.star {
+  --size: 20vmin;
+  --holes: calc(var(--size) * 0.495);
+  width: var(--size);
+  aspect-ratio: 1/1;
+  position: fixed;
+  background: white;
+  --mask: radial-gradient(
+      var(--holes) at var(--holes) var(--holes),
+      #0000 99%,
+      #000
+    )
+    calc(var(--holes) * -1) calc(var(--holes) * -1);
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  border-radius: 50%;
+  /* animation: sparkle 3s linear forwards; */
+  z-index: 0;
+}
+
+.star-nav {
+  --size: 20vmin;
+  --holes: calc(var(--size) * 0.495);
+  width: var(--size);
+  aspect-ratio: 1/1;
+  position: fixed;
+  background: white;
+  --mask: radial-gradient(
+      var(--holes) at var(--holes) var(--holes),
+      #0000 99%,
+      #000
+    )
+    calc(var(--holes) * -1) calc(var(--holes) * -1);
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  border-radius: 50%;
+  /* animation: GFG  4s linear infinite; */
+  z-index: 0;
+}
+
+.orbit-container {
+  width: 50%;
+  height: 60%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.orbit-container .orbit {
+  width: 100%;
+  height: 100%;
+  animation: orbitSpin 2s linear alternate-reverse 1s infinite;
+}
+
+@keyframes orbitSpin {
+  from {
+    transform: translateY(-5px);
+  }
+  to {
+    transform: translateY(5px);
+  }
+}
+.orbit-container .nav-planet {
+  position: absolute;
+  width: 20%;
+  left: 42%;
+  top: 22%;
+  animation: orbitSpin 2s linear alternate-reverse 2s infinite;
+}
+
+.orbit-container .orbitngPlanet {
+  position: absolute;
+  left: 20%;
+  top: 47%;
+  width: 7%;
+  animation: orbitSpin 3s linear alternate-reverse 2s infinite;
+}
+
+@keyframes sparkle {
+  0% {
+    transform: scale(-0.2);
+    opacity: 1;
+  }
+  15% {
+    opacity: 0.8;
+    transform: scale(0);
+  }
+  25% {
+    opacity: 0.7;
+    transform: scale(0.8);
+  }
+  35% {
+    opacity: 0.6;
+    transform: scale(0.7);
+  }
+  45% {
+    opacity: 0.5;
+    transform: scale(0.6);
+  }
+  55% {
+    opacity: 0.4;
+    transform: scale(0.5);
+  }
+  65% {
+    opacity: 0.3;
+    transform: scale(0.4);
+  }
+  65% {
+    opacity: 0.2;
+    transform: scale(0.3);
+  }
+  75% {
+    opacity: 0.1;
+    transform: scale(0.2);
+  }
+  100% {
+    opacity: 0.1;
+    transform: scale(0.1);
+  }
+}
+
+@keyframes GFG {
+  0% {
+    opacity: 0.3;
+    transform: rotate(0deg) translateY(10px) rotate(0deg);
+  }
+  25% {
+    opacity: 0.4;
+    transform: rotate(90deg) translateY(10px) rotate(-90deg);
+  }
+  50% {
+    opacity: 0.7;
+    transform: rotate(180deg) translateY(10px) rotate(-180deg);
+  }
+  75% {
+    opacity: 0.9;
+    transform: rotate(270deg) translateY(10px) rotate(-270deg);
+  }
+  100% {
+    opacity: 1;
+    transform : rotate(360deg) translateY(10px) rotate(-360deg);
+  }
+}
+
+/* @keyframes blinkStar {
+        0% { transform: scale(0); }
+        25% { opacity: 1; }
+        100% { opacity: 0; }
+} */
+.homeMain {
+  background-color: black;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.homeMain .mobile-nav {
+  display: none;
+}
+
+.navBar {
+  height: 100vh;
+  /* height: 100%; */
+  overflow-y: hidden;
+  width: 4%;
+  background-color: #140d19;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  padding-left: 1%;
+  z-index: 10;
+  transition: all linear 0.5s;
+  overflow-x: hidden;
+}
+.navBar .logoIcon{
+  margin-left: ;
+width: 3rem;
+margin-top: 1rem;
+}
+.navBtn {
+  display: grid;
+  width: 10px;
+  grid-template-columns: auto auto;
+  column-gap: 8px;
+  justify-self: center;
+  cursor: pointer;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+}
+
+/* .line1,
+.line2 {
+  width: 2px;
+  height: 35px;
+  background-color: white;
+} */
+
+.navBtn:hover .line1 {
+  animation: lineAnimation 0.5s infinite ease alternate;
+}
+
+.navBtn:hover .line2 {
+  animation: lineAnimation 0.5s infinite ease alternate;
+  animation-delay: 0.1s;
+}
+
+@keyframes lineAnimation {
+  50% {
+    height: 30px;
+  }
+
+  100% {
+    height: 45px;
+  }
+}
+
+.header {
+  height: 12vh;
+  margin-left: 6%;
+  display: flex;
+}
+
+.logoSection {
+  width: 50%;
+  display: flex;
+  align-items: start;
+  padding: 15px;
+  padding-left: 5px;
+}
+
+.logoSection h1 {
+  font-family: "Monument Extended Bold";
+}
+
+.dateSection {
+  display: flex;
+  justify-content: end;
+
+  padding: 15px;
+  width: 50%;
+  transform: translateX(5rem);
+  opacity: 0;
+  animation: dateView ease forwards;
+  animation-delay: 3s;
+  animation-duration: 0.5s;
+}
+
+@keyframes dateView {
+  to {
+    transform: translateX(0rem);
+    opacity: 1;
+  }
+}
+
+.dateSection img {
+  width: 2rem;
+}
+
+.section1 {
+  height: 90vh;
+  margin-left: 6%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+}
+
+.quoteBtn svg {
+  position: absolute;
+  bottom: 15%;
+  left: 7%;
+  transform: translateX(-3rem);
+  opacity: 0;
+  animation: loadHeroSection 1s ease-in-out 1.5s forwards,
+    flickerAnimation 1.4s infinite;
+  /* animation-duration: 1s; */
+  animation-delay: 1.5s;
+}
+
+@keyframes flickerAnimation {
+  /* flame pulses */
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.01, 0.99);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.heroText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 69%;
+  z-index: 4;
+  margin-left: 5rem;
+  height: inherit;
+  transform: translateX(-3rem);
+  opacity: 0;
+  animation: loadHeroSection ease-in-out forwards;
+  animation-duration: 1s;
+  /* animation-delay: 1.5s; */
+}
+
+@keyframes loadHeroSection {
+  100% {
+    transform: translateX(0rem);
+    opacity: 1;
+  }
+}
+
+.heroText p {
+  color: white;
+  font-size: 5rem;
+  font-family: "Monument Extended Ultrabold";
+  font-weight: 800;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  animation: textStroke ease-out forwards;
+  animation-duration: 0.5s;
+  animation-delay: 2.5s;
+  display: inline-block;
+  margin-bottom: 8rem;
+}
+
+@keyframes textStroke {
+  to {
+    text-shadow: black 0px 9.9px 0, rgb(180 176 176) 0px 10.6px 1px;
+  }
+}
+.sales-hero-text p{
+  color: white;
+  font-size: 5rem;
+  font-family: "poppins";
+  font-weight: 800;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  animation: textStrokeSales ease-out forwards;
+  animation-duration: 0.5s;
+  animation-delay: 2.5s;
+  display: inline-block;
+  margin-bottom: 8rem;
+}
+
+@keyframes textStrokeSales {
+  to {
+    text-shadow: #df51c7 -2px 7.9px 0, rgb(180 176 176) -2px 7.6px 1px;
+  }
+}
+
+.sales-text-2 p {
+  color: #E56FD2;
+  font-size: 4rem;
+  font-family: "poppins";
+  font-weight: 800;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  animation: textStroke ease-out forwards;
+  animation-duration: 0.5s;
+  animation-delay: 2.5s;
+  display: inline-block;
+}
+
+@keyframes textStroke {
+  to {
+    text-shadow: black 0px 5px 0, rgb(180 176 176) 0px 5.8px 1px;
+  }
+}
+
+
+.dateSection p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.circle {
+  width: 55%;
+  height: inherit;
+  position: relative;
+  transform: translateX(-3rem);
+  opacity: 0;
+  animation: loadHeroSection ease-in-out forwards;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  z-index: 2;
+}
+
+.mainCircle {
+  width: 135%;
+  margin-left: 16%;
+  margin-top: -14%;
+  animation: rotateOpposite 10s linear infinite;
+}
+
+@keyframes rotateOpposite {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.circleBorder {
+  border: 1px solid white;
+  position: absolute;
+  width: 143%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  top: -18%;
+  left: 11%;
+  animation: rotate 15s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.circleBorderCircle {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  top: 100%;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  border-radius: 50%;
+  top: 13%;
+  left: 12%;
+}
+
+.layer {
+  width: 100%;
+  position: absolute;
+  top: 98%;
+}
+
+.section2 {
+  margin-top: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.puzzlePop {
+  width: 45%;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  opacity: 0;
+  /* transition: all ease 2s; */
+  z-index: 5;
+}
+
+.puzzlePop img {
+  margin-right: 8%;
+  offset-path: path(
+    "M123.95739,170.56804c26.5387-5.30774,49.00966-21.96839,78.9507-16.52456c36.0163,6.54842,61.11311,32.00088,99.14738,9.18031"
+  );
+  animation: astroMove 27s ease infinite alternate-reverse;
+}
+
+@keyframes astroMove {
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+.puzzle {
+  width: 55%;
+}
+
+.Contents {
+  width: 32%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  height: inherit;
+  position: relative;
+  /* padding-left: 3px; */
+  margin-right: 2rem;
+  opacity: 0;
+}
+
+.contentPop {
+  /* animation-delay: 0.8s !important; */
+  animation-duration: 0.1s !important;
+  animation: contentPop ease forwards;
+}
+
+@keyframes contentPop {
+  to {
+    opacity: 1;
+  }
+}
+
+.section2 .Contents h1 {
+  color: white;
+  font-size: 6rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.83;
+  letter-spacing: 0.96px;
+}
+
+.section2 .Contents p {
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.24px;
+  text-align: left;
+  line-height: 1.52;
+}
+
+.shadow {
+  -webkit-text-stroke: 0.8px rgb(255 255 255 / 35%);
+  color: black !important;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transition-delay: 1.5s !important;
+  transition: all ease 1s;
+}
+
+.section3 {
+  margin-left: 6%;
+  height: 5%;
+  aspect-ratio: 1/0.5;
+  display: flex;
+}
+
+.section3 .ufo {
+  width: 55%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.section3 .ufo img {
+  margin-right: 15%;
+  position: relative;
+  z-index: 2;
+}
+
+.section3 .ufoPlanet {
+  width: 45%;
+  display: flex;
+  align-items: center;
+}
+
+.section3 .ufoPlanet img {
+  width: 35%;
+  margin-left: 15%;
+  position: relative;
+  z-index: 2;
+}
+
+.servicesSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6%;
+  height: 100vh;
+  perspective: 1000px;
+  position: relative;
+  z-index: 2;
+}
+
+.servicesSection div {
+  border: solid white 1px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  position: absolute;
+}
+.servicesSection .div0,
+.servicesSection .div1,
+.servicesSection .div2 {
+  opacity: 1;
+  background-color: transparent;
+}
+.div3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  opacity: 1;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  position: relative;
+  border: none !important;
+}
+
+.rotateText {
+  width: 28rem;
+}
+
+.front {
+  position: absolute !important;
+  /* top: 1.5%; */
+  /* right: 7.5%; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid white !important; */
+  /* backface-visibility: hidden; */
+  opacity: 0;
+  overflow-y: hidden;
+  transition: box-shadow ease 0.5s;
+  perspective: 1000px;
+  border: none !important;
+  overflow: hidden;
+}
+.front img {
+  width: 68%;
+  transform: rotate(12deg);
+}
+
+.back {
+  position: absolute !important;
+  width: 100%;
+  height: 100%;
+  border: 1px solid white !important;
+  backface-visibility: hidden;
+  color: white !important;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+}
+
+@keyframes div3 {
+  to {
+    opacity: 1;
+  }
+}
+
+.div3::-webkit-scrollbar {
+  display: none;
+}
+.div0 {
+  background-color: #000;
+  width: 72%;
+  animation: rotateOpposite 25s linear infinite;
+}
+/* .div0 img {
+} */
+
+.div2 {
+  width: 36%;
+  animation: rotation 10s linear infinite;
+  animation-delay: 2s;
+  opacity: 0;
+  transition: all 1s ease;
+  transition-delay: 0.5s;
+}
+
+.div1 {
+  background-color: #000;
+  width: 52%;
+  animation: rotation 20s linear infinite;
+  animation-delay: 2s;
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.rotateText {
+  animation: rotatText 40s linear infinite;
+}
+
+.servicesSection .div3 h1 {
+  font-family: "Monument Extended Ultrabold";
+  transition: all ease 0.8s;
+  transition-delay: 2s;
+  transform: translateY(-5rem);
+  opacity: 0;
+}
+
+.circle1,
+.circle2 {
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+}
+
+.circle1 {
+  top: 5%;
+  left: 20%;
+}
+
+.circle2 {
+  bottom: 5%;
+  right: 20%;
+}
+
+.planet {
+  height: 50px;
+  width: 50px;
+  top: 3%;
+  left: 20%;
+  border: none !important;
+}
+
+.servicePlanet {
+  width: 17%;
+  position: absolute;
+  top: 98%;
+  left: -8%;
+}
+
+@keyframes rotation {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotatText {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* .div3:hover .front {
+  box-shadow: 0px 0px 20px 1px rgb(114, 147, 179) inset;
+} */
+
+body::-webkit-scrollbar {
+  display: none;
+}
+.ufoPlanet-section {
+  height: 32rem;
+}
+
+.ufoPath {
+  position: absolute;
+  width: 56.5%;
+  right: 3.5%;
+  margin-top: 1.5rem;
+  opacity: 0;
+  border: 2px solid white;
+}
+
+.ufoPlanet {
+  position: absolute;
+  left: -2%;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-2px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(2px, 0, 0);
+  }
+}
+
+.brandSection {
+  text-align: center;
+  margin-left: 6%;
+  perspective: 1000px;
+}
+
+.brandSection h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 4.125rem;
+  line-height: 1.21;
+  letter-spacing: 0.04125rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1;
+  -webkit-text-stroke: 1px rgb(255 255 255 / 100%);
+  color: transparent;
+}
+
+.brandSection span {
+  -webkit-text-stroke: transparent;
+}
+
+.brandSectionUfo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.brandSectionUfo img:nth-child(1) {
+  width: 8%;
+  margin-top: 5%;
+}
+.brandSectionUfo img:nth-child(2) {
+  width: 21%;
+  margin-top: -4%;
+}
+
+.brandSectionLayer {
+  margin-top: 5%;
+  height: 60vh;
+  position: relative;
+}
+
+.brandSectionLayer .astroHi {
+  width: 25%;
+  /* aspect-ratio: 1/0.2; */
+  position: absolute;
+  right: -80%;
+  top: -2%;
+  /* margin-top: -2%; */
+}
+
+.brandSectionLayer .astroHiPath {
+  width: 90%;
+  position: absolute;
+  right: 2%;
+  top: -98%;
+  z-index: -2;
+  opacity: 0.15;
+  transform: rotateX(40deg);
+}
+
+.countriesServe {
+  margin-left: 3rem;
+  margin-top: 10%;
+}
+
+.countriesServe h1 {
+  text-align: center;
+  font-weight: bold;
+  font-family: "Poppins";
+  text-transform: uppercase;
+  line-height: 4rem;
+  letter-spacing: 0.63px;
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+
+.map-button-container {
+  display: flex;
+  min-width: 50%;
+  flex-direction: column;
+  align-items: center;
+}
+.map-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.map-row button {
+  margin: 0.5rem;
+  border: 1.3px solid #fff;
+  font-size: 1rem;
+  color: #fff;
+  background-color: transparent;
+  border-radius: 5rem;
+  padding: 1rem 1.25rem;
+  margin-right: 0.95rem;
+  transition: 0.3s ease;
+}
+.map-row .active-map-btn {
+  border: none;
+  background-color: #96f64a;
+  color: #000;
+}
+
+.map-img-wrap {
+  max-width: 80rem;
+  margin-top: 3.8rem;
+  position: relative;
+}
+/* .map-img-wrap .world-map{
+  z-index: -3 !important;
+} */
+.map-img-wrap .map-dot {
+  /* position: absolute; */
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.map-img-wrap .INDIA {
+  position: absolute;
+  top: 39%;
+  left: 71%;
+}
+.map-img-wrap .AUSTRALIA {
+  position: absolute;
+  top: 78%;
+  right: 10%;
+}
+.map-img-wrap .SINGAPORE {
+  position: absolute;
+  top: 62%;
+  right: 16%;
+}
+.map-img-wrap .NEW {
+  position: absolute;
+  top: 68%;
+  right: 4%;
+}
+.map-img-wrap .NETHERLANDS {
+  position: absolute;
+  top: 16%;
+  left: 50%;
+}
+
+.map-img-wrap .SHARJA {
+  position: absolute;
+  top: 38%;
+  left: 62%;
+}
+.map-img-wrap .map-dot-active {
+  background-color: #96f64a;
+  /* animation: mapDotBlink 0.6s infinite; */
+}
+
+.ripple-1,
+.ripple-2,
+.ripple-3,
+.ripple-4,
+.ripple-5 {
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  left: 9px;
+  top: 6.5px;
+  background-color: #96f64a;
+  border-radius: 50%;
+  transform: translate3d(-50%, 50%, 0);
+  animation-name: ripple;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  will-change: transform, opacity;
+}
+
+.ripple-1 {
+  animation-delay: 0;
+}
+
+.ripple-2 {
+  animation-delay: 1s;
+}
+
+.ripple-3 {
+  animation-delay: 2s;
+}
+
+.ripple-4 {
+  animation-delay: 3s;
+}
+
+.ripple-4 {
+  animation-delay: 4s;
+}
+
+.ripple-5 {
+  animation-delay: 5s;
+}
+
+@keyframes ripple {
+  0% {
+    transform: translate3d(-50%, 50%, 0) scale(0);
+    opacity: 0.33;
+  }
+  100% {
+    transform: translate3d(-50%, 50%, 0) scale(60);
+    opacity: 0;
+  }
+}
+
+/* @keyframes mapDotBlink {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 3px white;
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.3);
+    box-shadow: 0 0 10px white;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 3px white;
+  }
+} */
+
+.projectSection {
+  margin-left: 6%;
+  margin-top: 7%;
+}
+
+.latestProjs-wrap {
+  height: 80vh;
+}
+
+.projects-prevSlid {
+  height: 104vh;
+}
+
+.projectSection h1 {
+  text-align: center;
+  font-weight: 800;
+  font-family: "Monument Extended Ultrabold";
+  line-height: 1;
+  letter-spacing: 0.54px;
+  font-size: 3.375rem;
+}
+.packagesSection h1 {
+  font-family: "Monument Extended Ultrabold";
+}
+.contactSection {
+  margin-left: 6%;
+  margin-top: 6rem;
+  perspective: 1000px;
+  margin-bottom: 18rem;
+}
+.contactSection h1 {
+  font-size: 5.5rem;
+  /* font-family: "Poppins"; */
+  line-height: 1;
+  margin-bottom: 5rem;
+}
+.contactSection .contactButton {
+  background-color: #e0e673;
+  /* width: 30%; */
+  width: 35.81rem;
+  font-size: 3rem;
+  height: 7.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transform-style: preserve-3d;
+  transform: rotateX(60deg);
+  position: relative;
+}
+.contactSection .contactButton span {
+  color: black;
+  font-weight: 800;
+  font-size: 1.5rem;
+  position: absolute;
+  transform: rotateX(-60deg) translateZ(20px);
+}
+.contactSection .contactButton::after {
+  content: "";
+  background-color: #60662f;
+  width: 98%;
+  height: 25%;
+  transform: rotateX(-100deg) translateZ(0px);
+  position: absolute;
+  top: 100%;
+}
+
+.knowMoreLayer {
+  margin-left: 3.8rem;
+}
+
+section {
+  position: relative !important;
+  z-index: 2 !important;
+}
+.logoSlider .brandSliderDiv {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.logoSlider {
+  width: 90%;
+  margin: 3% 0;
+}
+
+/* .slick-list{
+    padding: 0px 70px !important;
+} */
+.logoSlider .brandSliderDiv img {
+  /* width: 9rem; */
+  width: 11.8rem;
+  aspect-ratio: 1/0.5;
+  object-fit: contain;
+}
+.logoSlider .brandSliderDiv {
+  transform: scale(0.5);
+  opacity: 0.4;
+  transition: 0.2s ease;
+}
+
+.activeSlide {
+  transform: scale(1.5) !important;
+  opacity: 1 !important;
+  transition: 0.2s ease;
+}
+.logoSlider .slick-slide {
+  display: flex !important;
+  justify-content: center !important;
+  height: 10rem;
+  align-items: center;
+}
+.activeSlide::after {
+  content: "";
+  display: block;
+  background-color: #d9d9d9;
+  border-radius: 100%;
+  width: 40%;
+  height: 5px;
+  position: absolute;
+  top: 6rem;
+  opacity: 0.2;
+}
+.orangePlanet {
+  position: absolute;
+  offset-path: path(
+    "M123.95739,170.56804c26.5387-5.30774,49.00966-21.96839,78.9507-16.52456c36.0163,6.54842,61.11311,32.00088,99.14738,9.18031"
+  );
+  animation: ufoPlanetMove 10s ease alternate-reverse;
+  width: 8.5%;
+  right: 20%;
+  top: 6%;
+}
+.violetCircle {
+  position: absolute;
+  width: 10%;
+  right: 4%;
+  top: 35%;
+}
+.violetSmallCircle {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100%;
+  right: 17%;
+  top: 39%;
+}
+.planet7 {
+  position: absolute;
+  width: 15%;
+  top: 80%;
+  right: 7%;
+  animation: ufoPlanetMove 10s ease infinite alternate-reverse;
+  offset-path: path(
+    "M123.95739,170.56804c26.5387-5.30774,49.00966-21.96839,78.9507-16.52456c36.0163,6.54842,61.11311,32.00088,99.14738,9.18031"
+  );
+}
+.planet1 {
+  position: absolute;
+  width: 10%;
+  top: 0%;
+  left: 7%;
+  animation: ufoPlanetMove 10s ease infinite alternate-reverse;
+  offset-path: path(
+    "M123.95739,170.56804c26.5387-5.30774,49.00966-21.96839,78.9507-16.52456c36.0163,6.54842,61.11311,32.00088,99.14738,9.18031"
+  );
+}
+.warpedGrid {
+  width: 100%;
+  position: absolute;
+  z-index: -2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+}
+.navs {
+  margin-left: 7rem;
+  margin-top: 8rem;
+}
+.navs p {
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  /* font-size: 2.5rem; */
+  font-size: 3rem;
+  transition: 0.5s;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.navs p a {
+  text-decoration: none;
+}
+.navs p:hover {
+  transform: scale(1.05);
+}
+.connectLinks {
+  /* margin-top: 13rem; */
+  margin-top: 20rem;
+  margin-left: 33rem;
+}
+.menuTyping {
+  font-size: 8.5rem;
+  transform: scale(1.3, 1.1);
+  font-weight: 600;
+  -webkit-text-stroke: 1px #666666;
+  color: transparent;
+  font-family: "Monument Extended Bold";
+  position: absolute;
+  bottom: -6%;
+  right: 11rem;
+  line-height: 1.6;
+  letter-spacing: 4px;
+}
+.navBar::-webkit-scrollbar {
+  display: none;
+}
+
+/* responsive 768px */
+/* section 1 */
+.heroText .swipe-btn {
+  display: none;
+}
+.heroText .quoteBtn {
+  display: none;
+}
+
+@keyframes swipeAnimation {
+  0% {
+    transform: rotate(90deg) translateX(0);
+  }
+  50% {
+    transform: rotate(90deg) translateX(10px);
+  }
+  100% {
+    transform: rotate(90deg) translateX(0);
+  }
+}
+
+/* media queries */
+@media (max-width: 1300px) {
+  .orbit-container {
+    width: 40%;
+    height: 50%;
+  }
+
+  .connectLinks {
+    margin-left: 20rem;
+    margin-top: 17rem;
+  }
+
+  .connectLinks p {
+    margin: 0.7rem;
+  }
+
+  .menuTyping {
+    font-size: 6.5rem;
+    right: 8rem;
+  }
+
+  .circleBorder {
+    width: 110%;
+    top: -7%;
+    left: 28%;
+  }
+  .circle {
+    width: 40%;
+  }
+
+  .mainCircle {
+    width: 100%;
+    margin-left: 41%;
+    margin-top: -2%;
+    animation: rotateOpposite 10s linear infinite;
+  }
+  .quoteBtn svg {
+    bottom: 20%;
+  }
+  .section1 .rocketPath {
+    width: 140rem;
+    height: 92rem;
+    left: -17rem;
+  }
+
+  .heroText {
+    align-items: center;
+    width: 55%;
+    margin-left: 3rem;
+  }
+
+  .heroText p {
+    font-size: 3.5rem;
+    margin-left: 3rem;
+    margin-bottom: 10rem;
+  }
+  .section2 {
+    margin-top: 13%;
+  }
+
+  .section2 .Contents h1 {
+    font-size: 2.5rem;
+  }
+
+  .ufoPlanet-section {
+    height: 26.5rem;
+  }
+
+  .ufoPath {
+    position: absolute;
+    width: 54.5%;
+    right: 4.5%;
+  }
+
+  .brandSection h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: 2.5rem;
+  }
+
+  .latestProjs-wrap .projectsSlider {
+    width: 67%;
+    justify-content: space-between;
+  }
+
+  .projects-prevSlid .projectsPrevSlider {
+    width: 70%;
+    margin-top: 4rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .homeMain .navBar {
+    display: none;
+  }
+  .homeMain .mobile-nav {
+    display: flex;
+  }
+  .homeMain .header {
+    display: none;
+  }
+  .section1 {
+    /* margin-top: 5rem; */
+    height: 100rem;
+    margin-left: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .heroText {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-direction: column;
+    position: relative;
+    margin-left: 0;
+  }
+
+  .heroText .swipe-btn {
+    display: block;
+    margin-top: 1.8rem;
+    background-color: transparent;
+    color: #fff;
+    padding: 1rem 1.3rem;
+    border: 1.6px solid #fff;
+    border-radius: 25px;
+  }
+
+  .heroText .quoteBtn {
+    position: absolute;
+    display: block;
+    right: 48%;
+    bottom: 25%;
+    width: 4rem;
+    animation: swipeAnimation 1.3s ease-in-out infinite;
+    transform: rotate(89deg);
+  }
+
+  .heroText .quoteBtn svg {
+    width: 100%;
+  }
+
+  .heroText p {
+    font-size: 2.5rem;
+    text-align: center;
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+
+  .circle .circleBorder {
+    display: none;
+  }
+
+  .circle .mainCircle {
+    margin-left: 0;
+  }
+  .circle {
+    width: 115%;
+  }
+
+  .section2 p {
+    font-size: 1.3rem;
+    margin-top: 4rem;
+  }
+  .section2 .Contents {
+    width: 70%;
+    text-align: center;
+    justify-content: center;
+
+  }
+
+  .section2 .Contents h1 {
+    font-size: 3.5rem;
+    text-align: center;
+    line-height: 4rem;
+    /* padding-left: 20%; */
+    width: 100%;
+  }
+
+  .section1 .rocketPath {
+    width: 118rem;
+    height: 96rem;
+    left: -57.5rem;
+    top: 35rem;
+    /* transform: rotate(45deg); */
+  }
+
+  .puzzlePop {
+    position: absolute;
+  }
+
+  .puzzlePop img {
+    position: absolute;
+    top: -30rem;
+  }
+
+  /* service section */
+  .servicesSection .div0 {
+    opacity: 1;
+    width: 128%;
+  }
+
+  .servicesSection .div1 {
+    opacity: 1;
+    width: 109%;
+  }
+
+  .servicesSection .div2 {
+    opacity: 1;
+    width: 76%;
+  }
+
+  .div3 {
+    opacity: 1;
+    width: 90%;
+  }
+  .div3 .front img {
+    width: 30%;
+  }
+
+  /* ufoPlanet section */
+  .ufoPlanet-section {
+    visibility: hidden;
+    height: 5rem;
+    margin-top: 3rem;
+  }
+
+  .servicePlanet {
+    top: 98%;
+    left: -20%;
+  }
+
+  .servicePlanet img {
+    width: 100%;
+  }
+  .ufoPlanet {
+    width: 7rem;
+  }
+
+  .ufoPath {
+    opacity: 1;
+    width: 50%;
+    right: 8.5%;
+  }
+
+  /* brand Section */
+  .brandSection {
+    margin-left: 0;
+  }
+
+  .brandSection h1 {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+
+  .logoSlider {
+    width: 97%;
+    margin-top: 2%;
+  }
+  .brandSectionLayer {
+    height: 60vh;
+  }
+
+  .brandSectionLayer .astroHiPath {
+    top: -15%;
+  }
+  .orangePlanet {
+    right: 50%;
+    width: 15%;
+  }
+
+  /* latest Projects */
+  .projectSection {
+    margin-left: 0;
+  }
+
+  .projectsSlider {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .latestProjs-wrap {
+    height: 65rem;
+  }
+
+  .latestProjs-wrap .projectsSlider .projSlider1 {
+    width: 30.5rem;
+  }
+  .latestProjs-wrap .projectsSlider .projSlider2 {
+    width: 30.5rem;
+  }
+
+  /* peview of projects */
+  .projects-prevSlid {
+    height: 30rem;
+  }
+
+  .projects-prevSlid .projectsPrevSlider {
+    width: 80%;
+  }
+
+  /* country serve */
+  .countriesServe {
+    margin-left: 0;
+    margin-top: 10%;
+  }
+
+  .countriesServe h1 {
+    font-size: 2.5rem;
+  }
+
+  .map-row button {
+    margin: 0.3rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  /* contact section */
+  .contactSection {
+    margin-left: 0;
+  }
+
+  .contactSection h1 {
+    font-size: 2.5rem;
+  }
+
+  .contactSection .contactButton {
+    height: 6rem;
+    width: 40%;
+    transform: rotateX(65deg);
+  }
+
+  .knowMoreLayer {
+    margin-left: 0;
+  }
+
+  /* footer */
+  .navLinksDiv {
+    display: none;
+  }
+  .footerMain {
+    margin-left: 0;
+    padding-top: 2.2rem;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
+    grid-gap: 1rem;
+  }
+
+  .logoDiv,
+  .addressDiv,
+  .contactDiv {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* mobile-nav */
+  .homeMain nav .icon-burger .line {
+    width: 20px;
+    height: 3.5px;
+  }
+
+  .homeMain nav .logo h2 {
+    font-size: 1.7rem;
+    margin-right: 1rem;
+  }
+  .heroText {
+    margin-left: 0;
+    width: 75%;
+    height: 40rem;
+    /* align-items: center; */
+  }
+  .heroText p {
+    font-size: 1.83rem;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+
+  .heroText .swipe-btn {
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.8rem;
+  }
+  .heroText .quoteBtn {
+    width: 3.5rem;
+    margin-bottom: 0rem;
+    bottom: 5rem;
+  }
+
+  .section1 {
+    height: 65rem;
+  }
+  .section2 .Contents {
+    width: 75%;
+    margin-right: 0;
+  }
+  .section3 .ufo img {
+    width: 40%;
+  }
+  .section2 {
+    margin-top: -10%;
+  }
+  .section3 .ufoPlanet img{
+    width: 75%;
+  }
+  .section2 .Contents h1 {
+    font-size: 3rem;
+    /* padding-left: 10  %; */
+  }
+  .section2 p {
+    font-size: 1.3rem;
+    margin-top: 15rem;
+  }
+
+  .circle {
+    width: 120%;
+    height: 80%;
+
+  }
+  .circle .mainCircle {
+    margin-top: 8%;
+  }
+
+  .section1 .rocketPath {
+    width: 112rem;
+    height: 33rem;
+    left: -51.5rem;
+    top: 24.8rem;
+    /* transform: rotate(45deg); */
+  }
+
+  .puzzlePop {
+    width: 65%;
+  }
+
+  .servicesSection .div2 {
+    width: 86%;
+  }
+
+  .div3 .front img {
+    width: 45%;
+  }
+  .rotateText {
+    width: 25rem;
+  }
+
+  .servicesSection .div0 {
+    width: 135%;
+  }
+  .servicesSection {
+    margin-top: 3rem;
+    height: 90vh;
+  }
+  .servicePlanet {
+    top: 65%;
+    left: -80%;
+    width: 23%;
+  }
+
+  .ufoPlanet-section {
+    visibility: hidden;
+    height: 3rem;
+    margin-top: 0rem;
+  }
+
+  .brandSection h1 {
+    font-size: 2.2rem;
+    margin-top: 1rem;
+    padding: 0 1.3rem;
+  }
+
+  .logoSlider {
+    width: 113%;
+    margin-top: 2%;
+  }
+
+  .logoSlider .brandSliderDiv img {
+    width: 7rem;
+  }
+
+  .projectSection {
+    margin-top: 0;
+  }
+
+  .brandSectionLayer {
+    height: 30vh;
+  }
+
+  .brandSectionLayer .astroHiPath {
+    bottom: 80%;
+    width: 80%;
+  }
+  .brandSectionLayer .astroHi {
+    width: 25%;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .latestProjs-wrap {
+    height: 48rem;
+  }
+
+  .latestProjs-wrap .projectsSlider .projSlider1 {
+    width: 21.5rem;
+  }
+  .latestProjs-wrap .projectsSlider .projSlider2 {
+    width: 21.5rem;
+  }
+
+  .projectsPrevSlider .swiper-button-prev {
+    position: absolute;
+    left: -12%;
+    width: 5rem;
+  }
+  .projects-prevSlid {
+    height: 15rem;
+  }
+
+  .projectsPrevSlider .swiper-button-next {
+    display: none;
+  }
+  .projectsPrevSlider .swiper-button-prev {
+    display: none;
+  }
+  .projects-prevSlid .projectsPrevSlider {
+    width: 90%;
+  }
+
+  .countriesServe h1 {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .map-row button {
+    margin: 4px;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .map-img-wrap {
+    margin-top: 2.3rem;
+    width: 24rem;
+    margin-right: 1rem;
+  }
+
+  .contactSection {
+    margin-top: 2.5rem;
+     margin-bottom: 5rem;
+  }
+  .contactSection h1 {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+
+  .contactSection .contactButton {
+    width: 50%;
+    /* height: 7rem; */
+    /* transform: rotateX(60deg); */
+  }
+  .contactSection .contactButton span {
+   
+    font-weight: 800;
+    font-size: 1.5rem;
+  }
+  .contactSection .contactButton::after {
+    width: 100%;
+    height: 20%;
+  }
+  .puzzlePop img{
+    right: 5rem;
+  }
+
+  .knowMoreLayer {
+    aspect-ratio: 1/0.4;
+    height: 3.5rem;
+  }
+
+  .footerMain {
+    padding-top: 1.2rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 1rem 1.5rem;
+  }
+
+  .footerMain .logoDiv {
+    width: 100%;
+    justify-content: start;
+  }
+  .contactDiv {
+    justify-content: start;
+  }
+
+  .socialLinks {
+    justify-content: start;
+    align-items: start;
+  }
+
+  .contactDiv h2,
+  .addressDiv h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .planet7 {
+    top: 80%;
+    right: 7%;
+  }
+  .planet1 {
+    top: 0%;
+    left: 7%;
+  }
+
+  .map-img-wrap .map-dot {
+    /* position: absolute; */
+    width: 0.3rem;
+    height: 0.3rem;
+  }
+
+  .ripple-1,
+  .ripple-2,
+  .ripple-3,
+  .ripple-4,
+  .ripple-5 {
+    height: 1px;
+    width: 1px;
+    left: 4.5px;
+    top: 4.5px;
+  }
+
+  /* time component */
+  .homeMain .nav-date {
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,18 @@
+/* HorizontalSlider.css */
+
+/* Track color */
+.rangeslider .rangeslider__fill {
+    background-color: #9747FF !important; /* Change this to your desired color */
+  }
+  
+  /* Thumb color */
+  .rangeslider .rangeslider__handle {
+    background-color: #9747FF !important; /* Change this to your desired color */
+  }
+  .rangeslider .rangeslider__handle-tooltip {
+    background-color: white !important;
+    color: black !important;
+    width: 4rem !important; /* Change this to your desired width */
+    transition: background-color 0.3s, color 0.3s !important; /* Add a transition effect */
+  }
+  

@@ -1,0 +1,99 @@
+.rocketPath {
+  width: 110rem;
+  height: 106rem;
+  position: absolute;
+  opacity: 0.5;
+  z-index: 0;
+  left: -1.4%;
+  top: -10%;
+  /* transform: rotateX(-185deg); */
+}
+
+.rocketPath3 {
+  width: 64%;
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  transform: translate(-75%, 100%);
+  opacity: 0;
+}
+.rocketPath2 {
+  width: 40%;
+  position: absolute;
+  left: 15%;
+  transform: scaleY(-1) scaleX(1) rotate(70deg);
+  opacity: 0;
+}
+
+/* #pathBlack, */
+#pathBlack2,
+#pathBlack3,
+#pathBlack4 {
+  stroke-dasharray: 8;
+}
+
+/* #pathWhite, */
+#pathWhite2,
+#pathWhite3 {
+  stroke: rgb(185, 183, 183);
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 0;
+}
+#pathWhite4 {
+  stroke: rgb(185, 183, 183);
+  stroke-dasharray: 5500;
+  stroke-dashoffset: 0;
+}
+
+.rocket,
+.rocket2,
+.rocket3,
+.rocket4 {
+  position: absolute;
+  /* top: 5%;
+  right: 22%; */
+  width: 6rem;
+  /* opacity: 0; */
+  transform: rotate(130deg);
+  /* animation: loadHeroSectionRocket 1s ease forwards;
+  animation-delay: 3s !important; */
+  z-index: 1;
+}
+
+.section3 .ufo img {
+  animation: ufoMove 20s ease infinite alternate-reverse;
+  offset-path: path(
+    "M537.0715,102.63372c92.90813-6.19387,182.51603-1.83606,275.4094-1.83606c69.48425,0,149.14349-16.04493,214.81933,12.85244c48.57326,21.37223,131.7108,87.99492,113.83589,150.55714-26.73728,93.5805-143.3835,128.29095-229.50783,134.03258-54.5703,3.63802-107.25938-.65467-161.57352-3.67212-156.7786-8.70992-275.12248-9.98676-424.13048-67.93432-20.64764-8.02964-44.75133-11.39046-64.26219-22.03275-35.71892-19.48304-82.76478-35.02715-111.99982-64.26219C81.73559,172.41175,156.06376,99.433,219.43266,67.74855c47.12488-23.56244,115.298-32.49943,167.0817-23.86881c44.15992,7.35999,105.16645,28.43823,148.72108,11.01638"
+  );
+}
+
+@keyframes ufoMove {
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+.section3 .ufoPlanet img {
+  offset-path: path(
+    "M123.95739,170.56804c26.5387-5.30774,49.00966-21.96839,78.9507-16.52456c36.0163,6.54842,61.11311,32.00088,99.14738,9.18031"
+  );
+  animation: ufoPlanetMove 15s ease infinite alternate-reverse;
+}
+
+@keyframes ufoPlanetMove {
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+.servicePlanet {
+  border: none !important;
+  z-index: 2;
+}
+
+.servicePlanet img {
+  offset-path: path(
+    "M42.24324,219.07909c71.22551,71.22551,168.0674,16.94259,251.37616,1.79554c55.49545-10.09008,79.44181,39.01686,129.27917,46.68415c93.44146,14.37561,172.19624-33.25633,240.6029-87.98166c21.36773-17.09418,49.52274-17.20295,70.02622-37.70642"
+  );
+  animation: ufoPlanetMove 80s ease infinite alternate-reverse;
+}

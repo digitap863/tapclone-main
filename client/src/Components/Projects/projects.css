@@ -1,0 +1,194 @@
+.projectsMain {
+  margin-left: 6%;
+  margin-top: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.projectsListingMain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 5.5%;
+  width: 88%;
+  position: relative;
+}
+.projectListingHeader span {
+  -webkit-text-stroke: 0.5px rgba(255, 255, 255, 80%);
+  font-size: 1.687rem;
+  cursor: pointer;
+  font-weight: bold;
+  color: transparent;
+}
+
+.projectListingHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 4.31rem;
+}
+.projectListingContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: start;
+  width: 90%;
+  column-gap: 1rem;
+  row-gap: 1rem;
+  margin-top: 6%;
+  background: url("../../assets/projects/gird\ behind\ project\ gallery.svg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 5% 5%;
+  padding-bottom: 20%;
+  position: relative;
+}
+.glob-1 {
+  position: absolute;
+  left: -5rem;
+  top: 45%;
+  width: 6rem;
+  margin-left: 1rem;
+}
+.glob-2 {
+  position: absolute;
+  right: -4.5rem;
+  top: 59%;
+  width: 6rem;
+  margin-right: 1rem;
+}
+.glob-3 {
+  position: absolute;
+  right: -5rem;
+  top: 55%;
+  width: 2rem;
+  margin-right: 1rem;
+}
+.projectListingContainer .ani-left {
+  animation: leftAnim 2s linear 0.1s;
+  transform-style: preserve-3d;
+  transition: 1s ease-in-out;
+}
+@keyframes leftAnim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.projectListingContainer .ani-right {
+  animation: RightAnim 2s linear 0.1s;
+  transform-style: preserve-3d;
+  transition: 3s ease-in-out;
+}
+@keyframes RightAnim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.forward-arrow {
+  position: absolute;
+  bottom: 2%;
+  left: 52%;
+  width: 3rem;
+  cursor: pointer;
+}
+.back-arrow {
+  position: absolute;
+  bottom: 2%;
+  left: 46%;
+  width: 3rem;
+  cursor: pointer;
+}
+.projectsMain img {
+  animation: header 2s linear 0.1s;
+  transition: 1s ease-in-out;
+}
+@keyframes header {
+  0% {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.star-space {
+  width: 100%;
+  min-height: 17rem;
+}
+@media(max-width:992px){
+  .projectsMain{
+    margin-left: 0;
+  }
+  .back-arrow{
+    left: 43%;
+  }
+  .glob-2{
+    right: -2rem;
+  }
+  .glob-3{
+    right: -2rem;
+  }
+  .knowMoreText{
+    font-size: 3.5rem;
+  }
+  .callBtn{
+    width: 20rem;
+    height: 5rem;
+  }
+  .callBtn span{
+    font-size: 2rem;
+  }
+  .projectListingContainer .ani-left{
+    margin-top: 0 !important;
+  }
+}
+
+@media(max-width:480px){
+  .projectListingHeader{
+    column-gap: 2.3rem;
+  }
+  .projectListingHeader span{
+    font-size: 1rem;
+  }
+  .glob-1{
+    left: -1rem;
+    top: 45%;
+    width: 3rem;
+    margin-left: 0;
+  }
+  .glob-2{
+    width: 4rem;
+  }
+  .glob-3{
+    width: 2rem;
+  }
+  .forward-arrow{
+    width: 2rem;
+    left: 55%;
+  }
+  .back-arrow{
+    width: 2rem;
+  }
+  .knowMoreText{
+    font-size: 2.2rem;
+  }
+  .callBtn{
+    width: 12rem;
+    height: 4rem;
+  }
+  .callBtn span{
+    font-size: 1.5rem;
+  }
+}

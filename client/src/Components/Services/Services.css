@@ -1,0 +1,231 @@
+.serviceMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6%;
+}
+
+.serviceMain .service-head-wrap {
+  position: relative;
+}
+
+.service-head-wrap .servPath {
+  position: absolute;
+  top: -10%;
+  right: -88%;
+  width: 300%;
+  opacity: 0.5;
+  animation: orbitSpin 3s linear alternate-reverse 2s infinite;
+}
+
+.service-head-wrap .blue-planet {
+  position: absolute;
+  width: 18%;
+  top: -20%;
+  right: -25%;
+  border-radius: 140px;
+  animation: blueSpin 7s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes blueSpin {
+  from {
+    transform: rotate(10deg);
+  }
+  to {
+    transform: rotate(-60deg);
+  }
+}
+
+.serviceMain img {
+  transform-style: preserve-3d;
+  animation: header 2s linear 0.1s;
+  transition: 1s ease-in-out;
+}
+
+@keyframes header {
+  0% {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+.serviceDetails {
+  display: grid;
+  grid-template-columns: auto auto;
+  margin-top: 13%;
+  column-gap: 5%;
+  row-gap: 6%;
+  margin-bottom: 20%;
+  width: 88%;
+  place-items: center;
+  position: relative;
+}
+.serviceDetails div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  background: url("../../assets/services/grid\ behind\ icons.svg");
+  background-position: center center;
+  background-size: cover;
+  aspect-ratio: 1;
+  position: relative;
+}
+.serviceDetails h5 {
+  position: absolute;
+  font-family: "Poppins";
+  font-weight: bold;
+  font-size: 2.25rem;
+  line-height: 2.28rem;
+  letter-spacing: 0.36px;
+  bottom: 0;
+  text-align: center;
+}
+.serviceDetails .serv-4 .socialMedia {
+  padding-bottom: 7rem;
+}
+
+.serviceDetails .serv-1 img {
+  transition: 1s ease-in-out;
+  animation: lds-ellipsis2 10s linear 0.1s infinite;
+}
+.serviceDetails .serv-2 img {
+  transition: 1s ease-in-out;
+  animation: lds-ellipsis2 10s linear 2.6s infinite;
+}
+.serviceDetails .serv-3 img {
+  transition: 1s ease-in-out;
+  animation: lds-ellipsis2 10s linear 0.5s infinite;
+}
+.serviceDetails .serv-4 img {
+  width: 62%;
+  transition: 1s ease-in-out;
+  animation: lds-ellipsis2 10s linear 2s infinite;
+}
+.serviceDetails .serv-5 img {
+  transition: 1s ease-in-out;
+  animation: lds-ellipsis2 10s linear 2.5s infinite;
+}
+.serviceDetails .serv-6 img {
+  transition: 1s ease-in-out;
+  animation: lds-ellipsis2 10s linear 0.1s infinite;
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translateY(1rem);
+  }
+  50% {
+    transform: translateY(-1rem);
+  }
+  100% {
+    transform: translateY(1rem);
+  }
+}
+.serviceDetails div img {
+  width: 65%;
+  object-fit: contain;
+}
+.serviceDetails .planetImage1 {
+  position: absolute;
+  top: 34%;
+  left: -3rem;
+  width: 6rem;
+  margin-left: 2rem;
+}
+.serviceDetails .planetImage2 {
+  position: absolute;
+
+  top: 72.5%;
+  right: -2rem;
+  width: 8rem;
+}
+.knowMoreServices {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  perspective: 1000px;
+  flex-direction: column;
+  background: url("../../assets/services/pattern.svg");
+  padding: 12% 0;
+  background-position: center center;
+  background-size: cover;
+}
+.callBtn {
+  cursor: pointer;
+  background-color: #e0e673;
+  width: 35.8rem;
+  height: 8.68rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transform-style: preserve-3d;
+  transform: rotateX(60deg);
+  position: relative;
+  margin-top: 1%;
+}
+.callBtn span {
+  color: black;
+  font-weight: bold;
+  font-size: 3rem;
+  text-transform: uppercase;
+  position: absolute;
+  transform: rotateX(-60deg) translateZ(33px);
+}
+.callBtn::after {
+  content: "";
+  background-color: #60662f;
+  width: 99%;
+  height: 13%;
+  transform: rotateX(-100deg) translateZ(0px);
+  position: absolute;
+  top: 100%;
+}
+.knowMoreText {
+  font-size: 5.5rem;
+  text-align: center;
+  color: transparent;
+  -webkit-text-stroke: 3px rgb(255 255 255 / 80%);
+  line-height: 1;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 3px;
+}
+.knowMoreLayer {
+  background: url("../../assets/services/footer\ grid.svg");
+  width: 100%;
+  aspect-ratio: 1/0.1;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin-top: 5%;
+}
+.star-space {
+  width: 100%;
+  min-height: 17rem;
+}
+@media(max-width:992px){
+  .knowMoreLayer{
+    margin-left: 0;
+  }
+}
+
+@media(max-width:480px){
+  .serviceDetails{
+    margin-bottom: 0;
+  }
+  .serviceDetails .planetImage1{
+    width: 3rem;
+    top: -20rem;
+  }
+  .serviceDetails .planetImage2{
+    width: 3rem;
+    top: -1rem;
+  }
+}
