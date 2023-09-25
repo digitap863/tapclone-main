@@ -220,8 +220,8 @@ function SalesMain() {
     return (
         <>
             <div style={{ width: "100%", overflowX: "hidden" }}>
-                <MobileNavbar />
-                <NavBar />
+                {/* <MobileNavbar />
+                <NavBar /> */}
                 <div className="header">
                     <div className="logoSection">
                         {/* <h1 style={{ color: "white", margin: "0" }}>LOGO</h1> */}

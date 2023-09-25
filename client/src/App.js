@@ -22,7 +22,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<HomePage></HomePage>}></Route>
+          {/* <Route exact path="/" element={<HomePage></HomePage>}></Route> */}
           <Route
             exact
             path="/services"
@@ -42,7 +42,7 @@ function App() {
           ></Route>
           <Route
             exact
-            path="/sales"
+            path="/"
             element={<Sale></Sale>}
           ></Route>
         </Routes>
