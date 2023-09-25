@@ -4,11 +4,13 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ToastContainer } from "react-toastify";
+import {NextUIProvider} from "@nextui-org/react";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-<>
-<App />
+  
+  <NextUIProvider>
+    <App />
     <ToastContainer
       position="top-center"
       autoClose={5000}
@@ -21,7 +23,7 @@ root.render(
       pauseOnHover
       theme="dark"
     />
-</>
+  </NextUIProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

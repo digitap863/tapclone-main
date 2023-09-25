@@ -23,8 +23,11 @@ import TextTransition, { presets } from 'react-text-transition';
 import gsap from 'gsap';
 import MobileNavbar from '../Home/MobileNavbar';
 import NavBar from '../Home/NavBar';
+import { validateEmail, validateMobileNumber, validateName } from '../validations/validate';
+import { Tooltip } from '@nextui-org/react';
+import { useNavigate } from 'react-router-dom';
 
-const TEXTS = ['500 leads delivered within in a Month', '20K monthly users in 50+ websites', 'Cost per Lead acquired at ₹1'];
+const TEXTS = ['500 leads delivered within in a Month', '20K monthly users in 50+ websites', 'Highly effective lead campaigns at ₹1 CPA.'];
 
 
 function SalesMain() {
@@ -36,79 +39,124 @@ function SalesMain() {
         Official_Number: '',
         Website_Link: '',
         Service_Preferred: [],
-        Monthly_Budget:value,
-        // Grade:''
+        Monthly_Budget: value,
     });
-    function findGrade(){
+    const [errors, setErrors] = useState({});
+    function findGrade() {
         console.log("find grade called");
-        let Score = 0 
+        let Score = 0
         const email = formData.Official_Mail
         const emailTail = email.split('@')[1]
-        if(emailTail!=='gmail.com'&&emailTail!=='yahoo.com'&&emailTail!=='hotmail.com'&&emailTail!=='msn.com' ){
-            Score+=1
+        if (emailTail !== 'gmail.com' && emailTail !== 'yahoo.com' && emailTail !== 'hotmail.com' && emailTail !== 'msn.com') {
+            Score += 1
         }
-        if(formData.Website_Link){
-            Score+=1
+        if (formData.Website_Link) {
+            Score += 1
         }
-        if(formData.Monthly_Budget>40000){
-            Score+=3
-        }else if(formData.Monthly_Budget>20000){
-            Score+=2
-        }else if(formData.Monthly_Budget>15000){
-            Score+=1
+        if (formData.Monthly_Budget > 40000) {
+            Score += 3
+        } else if (formData.Monthly_Budget > 20000) {
+            Score += 2
+        } else if (formData.Monthly_Budget > 15000) {
+            Score += 1
         }
-        Score+=formData.Service_Preferred.length
+        Score += formData.Service_Preferred.length
         return Score
         // setFormData({ ...formData, Grade: Score })
     }
     const handleCheckboxChange = (e) => {
         const { name, checked } = e.target;
         if (checked) {
-            // // Add the selected service to the array
+            setErrors({ ...errors, Service_Preferred: null })
             setFormData((prevFormData) => ({
                 ...prevFormData,
                 Service_Preferred: [...prevFormData.Service_Preferred, name],
             }));
         } else {
-            // Remove the deselected service from the array
             setFormData((prevFormData) => ({
                 ...prevFormData,
                 Service_Preferred: prevFormData.Service_Preferred.filter((s) => s !== name),
             }));
         }
     };
+    function validateForm(formData) {
+        const newErrors = {};
 
+        if (!formData.Name) {
+            newErrors.Name = 'Name is required';
+        } else if (!validateName(formData.Name)) {
+            newErrors.Name = 'Enter a valid Name';
+        }
 
+        if (!formData.Company_Name) {
+            newErrors.Company_Name = 'Company Name is required';
+        } else if (!validateName(formData.Company_Name)) {
+            newErrors.Company_Name = 'Enter a valid Name';
+        }
+
+        if (!formData.Official_Mail) {
+            newErrors.Official_Mail = 'Official Email is required';
+        } else if (!validateEmail(formData.Official_Mail)) {
+            newErrors.Official_Mail = 'Please enter a valid email address';
+        }
+
+        if (!formData.Official_Number) {
+            newErrors.Official_Number = 'Official Number is required';
+        } else if (!validateMobileNumber(formData.Official_Number)) {
+            newErrors.Official_Number = 'Please enter a valid Mobile Number';
+        }
+        if (formData.Service_Preferred.length === 0) {
+            newErrors.Service_Preferred = 'Select atleast one service';
+        }
+        return newErrors;
+    }
+    const navigate = useNavigate()
     const handleFormSubmit = async (e) => {
         e.preventDefault();
+        const newErrors = validateForm(formData)
+        setErrors(newErrors)
+        console.log(newErrors);
+        if (Object.keys(newErrors).length > 0) {
+            return;
+        }
         const Grade = findGrade()
         console.log(formData);
         try {
             const params = {
                 ...formData,
                 Grade
-              };
-              const formBody = new URLSearchParams(params).toString();
+            };
+            const formBody = new URLSearchParams(params).toString();
             const response = await fetch(
                 'https://script.google.com/macros/s/AKfycbya9yaYVzvK6bEjs3b2KjKdKtzSxKIH8lwMYCGmZCNUiOeJVPX4h0G8TJR2_IrssWae/exec',
                 {
-                  method: 'POST',
-                  mode: 'no-cors', // Important for cross-origin requests to Google Apps Script
-                  headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                  },
-                  body: new URLSearchParams(formBody).toString(),
+                    method: 'POST',
+                    mode: 'no-cors', // Important for cross-origin requests to Google Apps Script
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams(formBody).toString(),
                 }
-              );
-                console.log(response);
-              if (response.ok) {
+            );
+           setFormData({
+            Name: '',
+            Company_Name: '',
+            Official_Mail: '',
+            Official_Number: '',
+            Website_Link: '',
+            Service_Preferred: [],
+            Monthly_Budget: value,
+        })
+            console.log(response);
+            navigate('/thankyou')
+            if (response.ok) {
                 // Handle success, e.g., show a success message
                 console.log('Data sent successfully');
-              } else {
+            } else {
                 // Handle the error
                 console.error('Error sending data');
-              }
-        } 
+            }
+        }
         catch (error) {
             // Handle errors (e.g., show error message)
             console.error('Error submitting form:', error);
@@ -249,108 +297,195 @@ function SalesMain() {
                         </h2>
                         <form onSubmit={handleFormSubmit}>
                             <div className='flex justify-between my-7 gap-3 xl:gap-8 2xl:gap-0'>
-                                <input
-                                    type='text'
-                                    placeholder='Name'
-                                    className='bg-[#3d3c4c] border border-gray-400 rounded-lg text-lg py-2 px-2 focus:border-[#9747FF] w-[50%] md:w-full lg:w-auto'
-                                    value={formData.Name}
-                                    name='Name'
-                                    onChange={(e) =>
-                                        setFormData({ ...formData, Name: e.target.value })
-                                    }
-                                />
-                                <input
-                                    type='text'
-                                    placeholder='Company Name'
-                                    className='bg-[#3d3c4c] border border-gray-400 rounded-lg text-lg py-2 px-2 focus:border-[#9747FF] w-[50%] md:w-full lg:w-auto'
-                                    value={formData.Company_Name}
-                                    name='Company_Name'
-                                    onChange={(e) =>
-                                        setFormData({ ...formData, Company_Name: e.target.value })
-                                    }
-                                />
+                                <Tooltip
+                                    showArrow
+                                    placement="left"
+                                    isOpen={errors.Name}
+                                    isDisabled={!errors.Name}
+                                    content={errors.Name}
+                                    classNames={{
+                                        base: "py-2 px-4 shadow-xl text-black bg-gradient-to-br from-white to-red-400 text-base",
+                                        arrow: "bg-red-400 dark:bg-white",
+                                    }}
+                                >
+                                    <input
+                                        type='text'
+                                        placeholder='Name'
+                                        className={`bg-[#3d3c4c] border border-gray-400 rounded-lg text-lg py-2 px-2 focus:border-[#9747FF] w-[50%] md:w-full lg:w-auto  ${errors.Name ? 'border-red-400 bg-black transition ease-in-out duration-500' : ''}`}
+                                        value={formData.Name}
+                                        name='Name'
+                                        onChange={(e) => {
+                                            setFormData({ ...formData, Name: e.target.value })
+                                            setErrors({
+                                                ...errors,
+                                                Name: null,
+                                            })
+                                        }
+                                        }
+                                    />
+                                </Tooltip>
+                                <Tooltip
+                                    showArrow
+                                    placement="top-end"
+                                    isOpen={errors.Company_Name}
+                                    isDisabled={!errors.Company_Name}
+                                    content={errors.Company_Name}
+                                    classNames={{
+                                        base: "py-2 px-4 shadow-xl text-black bg-gradient-to-br from-white to-red-400 text-base",
+                                        arrow: "bg-red-400 dark:bg-white",
+                                    }}
+                                >
+                                    <input
+                                        type='text'
+                                        placeholder='Company Name'
+                                        className={`bg-[#3d3c4c] border border-gray-400 rounded-lg text-lg py-2 px-2 focus:border-[#9747FF] w-[50%] md:w-full lg:w-auto  ${errors.Company_Name ? 'border-red-500 bg-black transition ease-in-out duration-500' : ''}`}
+                                        value={formData.Company_Name}
+                                        name='Company_Name'
+                                        onChange={(e) => {
+                                            setFormData({ ...formData, Company_Name: e.target.value })
+                                            setErrors({
+                                                ...errors,
+                                                Company_Name: null,
+                                            })
+                                        }
+                                        }
+                                    />
+                                </Tooltip>
                             </div>
                             <div className='flex justify-between my-7 gap-3 xl:gap-8 2xl:gap-0'>
-                                <input
-                                    type='text'
-                                    placeholder='Official Email'
-                                    className='bg-[#3d3c4c] border border-gray-400 rounded-lg text-lg py-2 px-2 focus:border-[#9747FF] w-[50%] md:w-full lg:w-auto'
-                                    value={formData.Official_Mail}
-                                    onChange={(e) =>
-                                        setFormData({ ...formData, Official_Mail: e.target.value })
-                                    }
-                                />
-                                <input
-                                    type='text'
-                                    placeholder='Official number'
-                                    className='bg-[#3d3c4c] border border-gray-400 rounded-lg text-lg py-2 px-2 focus:border-[#9747FF] w-[50%] md:w-full lg:w-auto'
-                                    value={formData.Official_Number}
-                                    onChange={(e) =>
-                                        setFormData({ ...formData, Official_Number: e.target.value })
-                                    }
-                                />
+                                <Tooltip
+                                    showArrow
+                                    placement="left"
+                                    isOpen={errors.Official_Mail}
+                                    isDisabled={!errors.Official_Mail}
+                                    content={errors.Official_Mail}
+                                    classNames={{
+                                        base: "py-2 px-4 shadow-xl text-black bg-gradient-to-br from-white to-red-400 text-base",
+                                        arrow: "bg-red-400 dark:bg-white",
+                                    }}
+                                >
+
+                                    <input
+                                        type='text'
+                                        placeholder='Official Email'
+                                        className={`bg-[#3d3c4c] border border-gray-400 rounded-lg text-lg py-2 px-2 focus:border-[#9747FF] w-[50%] md:w-full lg:w-auto  ${errors.Official_Mail ? 'border-red-500 bg-black transition ease-in-out duration-500' : ''}`}
+                                        value={formData.Official_Mail}
+                                        onChange={(e) => {
+                                            setFormData({ ...formData, Official_Mail: e.target.value })
+                                            setErrors({
+                                                ...errors,
+                                                Official_Mail: null,
+                                            })
+                                        }
+                                        }
+                                    />
+                                </Tooltip>
+                                <Tooltip
+                                    showArrow
+                                    placement="bottom-end"
+                                    isOpen={errors.Official_Number}
+                                    isDisabled={!errors.Official_Number}
+                                    content={errors.Official_Number}
+                                    classNames={{
+                                        base: "py-2 px-4 shadow-xl text-black bg-gradient-to-br from-white to-red-400 text-base",
+                                        arrow: "bg-red-400 dark:bg-white",
+                                    }}
+                                >
+
+                                    <input
+                                        type='text'
+                                        placeholder='Official number'
+                                        className={`bg-[#3d3c4c] border border-gray-400 rounded-lg text-lg py-2 px-2 focus:border-[#9747FF] w-[50%] md:w-full lg:w-auto  ${errors.Official_Number ? 'border-red-500 bg-black transition ease-in-out duration-500' : ''}`}
+                                        value={formData.Official_Number}
+                                        onChange={(e) => {
+                                            setFormData({ ...formData, Official_Number: e.target.value })
+                                            setErrors({
+                                                ...errors,
+                                                Official_Number: null,
+                                            })
+                                        }
+                                        }
+                                    />
+                                </Tooltip>
                             </div>
                             <input
                                 type='text'
                                 placeholder='Website Link'
-                                className='bg-[#3d3c4c] border border-gray-400 rounded-lg text-lg py-2 px-2 focus:border-[#9747FF] w-full'
+                                className={`bg-[#3d3c4c] border border-gray-400 rounded-lg text-lg py-2 px-2 focus:border-[#9747FF] w-full ${errors.Website_Link ? 'border-red-500 bg-black transition ease-in-out duration-500' : ''}`}
                                 value={formData.Website_Link}
-                                onChange={(e) =>
+                                onChange={(e) => {
                                     setFormData({ ...formData, Website_Link: e.target.value })
+                                    setErrors({
+                                        ...errors,
+                                        Website_Link: null,
+                                    })
+                                }
                                 }
                             />
-                            <div className='border w-full gap-10 border-gray-500 py-2 px-6 mt-8 rounded-lg flex'>
-                                <div className='w-[45%]'>
-                                    <div className='flex justify-between my-2'>
-                                        <label htmlFor='seo'>Seo</label>
-                                        <input
-                                            type='checkbox'
-                                            name='seo'
-                                            id='seo'
-                                            checked={formData.Service_Preferred.includes('seo')}
-                                            onChange={handleCheckboxChange}
-                                        />
+                            <Tooltip
+                                showArrow
+                                placement="top"
+                                isOpen={errors.Service_Preferred}
+                                isDisabled={!errors.Service_Preferred}
+                                content={errors.Service_Preferred}
+                                classNames={{
+                                    base: "py-2 px-4 shadow-xl text-black bg-gradient-to-br from-white to-red-400 text-base",
+                                    arrow: "bg-red-400 dark:bg-white",
+                                }}
+                            >
+                                <div className={`border w-full gap-10 border-gray-500 py-2 px-6 mt-8 rounded-lg flex ${errors.Service_Preferred ? "border-red-500 bg-black transition ease-in-out duration-500" : ''}`}>
+                                    <div className='w-[45%]'>
+                                        <div className='flex justify-between my-2'>
+                                            <label htmlFor='seo'>Seo</label>
+                                            <input
+                                                type='checkbox'
+                                                name='seo'
+                                                id='seo'
+                                                checked={formData.Service_Preferred.includes('seo')}
+                                                onChange={handleCheckboxChange}
+                                            />
+                                        </div>
+                                        <div className='flex justify-between my-2'>
+                                            <label htmlFor='gmb'>GMB</label>
+                                            <input
+                                                type='checkbox'
+                                                name='gmb'
+                                                id='gmb'
+                                                checked={formData.Service_Preferred.includes('gmb')}
+                                                onChange={handleCheckboxChange}
+                                            />
+                                        </div>
                                     </div>
-                                    <div className='flex justify-between my-2'>
-                                        <label htmlFor='gmb'>GMB</label>
-                                        <input
-                                            type='checkbox'
-                                            name='gmb'
-                                            id='gmb'
-                                            checked={formData.Service_Preferred.includes('gmb')}
-                                            onChange={handleCheckboxChange}
-                                        />
+                                    <div className='w-[45%]'>
+                                        <div className='flex justify-between my-2'>
+                                            <label htmlFor='socmed'>Social Media</label>
+                                            <input
+                                                type='checkbox'
+                                                name='socmed'
+                                                id='socmed'
+                                                checked={formData.Service_Preferred.includes('socmed')}
+                                                onChange={handleCheckboxChange}
+                                            />
+                                        </div>
+                                        <div className='flex justify-between my-2'>
+                                            <label htmlFor='webdev'>Website Development</label>
+                                            <input
+                                                type='checkbox'
+                                                name='webdev'
+                                                id='webdev'
+                                                checked={formData.Service_Preferred.includes('webdev')}
+                                                onChange={handleCheckboxChange}
+                                            />
+                                        </div>
                                     </div>
                                 </div>
-                                <div className='w-[45%]'>
-                                    <div className='flex justify-between my-2'>
-                                        <label htmlFor='socmed'>Social Media</label>
-                                        <input
-                                            type='checkbox'
-                                            name='socmed'
-                                            id='socmed'
-                                            checked={formData.Service_Preferred.includes('socmed')}
-                                            onChange={handleCheckboxChange}
-                                        />
-                                    </div>
-                                    <div className='flex justify-between my-2'>
-                                        <label htmlFor='webdev'>Website Development</label>
-                                        <input
-                                            type='checkbox'
-                                            name='webdev'
-                                            id='webdev'
-                                            checked={formData.Service_Preferred.includes('webdev')}
-                                            onChange={handleCheckboxChange}
-                                        />
-                                    </div>
-                                </div>
-                            </div>
+                            </Tooltip>
 
                             <div className='w-full'>
                                 <h5 className='text-center mb-7 mt-5 text-xl font-bold'>
                                     Monthly Budget
                                 </h5>
-                                <Horizontal  value={value} setValue={setValue} setFormData={setFormData} formData={formData}/>
+                                <Horizontal value={value} setValue={setValue} setFormData={setFormData} formData={formData} />
                             </div>
                             <div>
                                 <button type='submit'>

@@ -4,7 +4,7 @@
 // import './Sales.css'
 
 // const Horizontal = ({value,setValue,setFormData,formData}) => {
- 
+
 
 //   const handleChangeStart = () => {
 //     console.log('Change event started');
@@ -52,19 +52,13 @@ import Slider from 'react-slider'; // Import the Slider component from react-sli
 
 const Horizontal = ({ value, setValue, setFormData, formData }) => {
   const handleChange = (newValue) => {
-    setValue(newValue);
-    setFormData({ ...formData, Monthly_Budget: newValue }); // Update with newValue
+    setValue(newValue.target.value);
+    setFormData({ ...formData, Monthly_Budget: newValue.target.value }); // Update with newValue
   };
 
   return (
     <div className='slider'>
-      <Slider
-        min={10000}
-        max={50000}
-        value={value}
-        step={1000}
-        onChange={handleChange}
-      />
+      <input type="range" className='w-full' defaultValue={10000} value={value} min={10000} max={50000} step={1000} onChange={handleChange} />
       <div className='flex justify-between'>
         <p className='border-gray-400 p-2 rounded-md text-sm'>10000</p>
         <p className='border-gray-400 p-2 rounded-md text-sm'>50000+</p>

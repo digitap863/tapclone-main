@@ -9,6 +9,7 @@ import TeamPage from "./pages/TeamPage";
 import ContactPage from "./pages/ContactPage";
 import ProjectPage from "./pages/ProjectPage";
 import Sale from "./pages/Sale";
+import Thankyou from "./pages/Thankyou";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -44,6 +45,11 @@ function App() {
             exact
             path="/"
             element={<Sale></Sale>}
+          ></Route>
+           <Route
+            exact
+            path="/thankyou"
+            element={<Thankyou/>}
           ></Route>
         </Routes>
       </BrowserRouter>
