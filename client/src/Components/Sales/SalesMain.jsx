@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { createPortal } from "react-dom";
-import logoText from '../../assets/Shared/logoName.png'
+import logo from '../../assets/Shared/fulllogo.jpg'
 import './Sales.css'
 import Horizontal from './RangeSlider';
 import submit from '../../assets/Sales/submit.png'
@@ -26,6 +26,13 @@ import NavBar from '../Home/NavBar';
 import { validateEmail, validateMobileNumber, validateName } from '../validations/validate';
 import { Tooltip } from '@nextui-org/react';
 import { useNavigate } from 'react-router-dom';
+import img1 from '../../assets/testimonials/1.png'
+import img2 from '../../assets/testimonials/2.png'
+import img3 from '../../assets/testimonials/3.png'
+import img4 from '../../assets/testimonials/4.png'
+import img5 from '../../assets/testimonials/5.png'
+import img6 from '../../assets/testimonials/6.png'
+import Review from './Review';
 
 const TEXTS = ['500 leads delivered within in a Month', '20K monthly users in 50+ websites', 'Highly effective lead campaigns at ₹1 CPA.'];
 
@@ -138,15 +145,15 @@ function SalesMain() {
                     body: new URLSearchParams(formBody).toString(),
                 }
             );
-           setFormData({
-            Name: '',
-            Company_Name: '',
-            Official_Mail: '',
-            Official_Number: '',
-            Website_Link: '',
-            Service_Preferred: [],
-            Monthly_Budget: value,
-        })
+            setFormData({
+                Name: '',
+                Company_Name: '',
+                Official_Mail: '',
+                Official_Number: '',
+                Website_Link: '',
+                Service_Preferred: [],
+                Monthly_Budget: value,
+            })
             console.log(response);
             navigate('/thankyou')
             if (response.ok) {
@@ -213,6 +220,42 @@ function SalesMain() {
         );
         return () => clearTimeout(intervalId);
     }, []);
+    
+
+    const Testimonials = [
+        {
+            name: "Basant Nair",
+            review: "We have been working with Tapclone for our digital marketing services for about 4 years now and we are very happy with their services. Be it Instagram FB promotions or Google Ads or Google Maps they are very much meeting our expectations. I think I there shouldn’t be any doubt in giving them a Five Star rating. They deserve it very much. All the best and thank you Team Tapclone for your support in keeping Cindrebay No.1 in Kerala through your dedicated efforts.",
+            img: img1
+        },
+        {
+            name: "Ananthu Rajan",
+            review: "Very pleasant experience with the Tapclone team. Timely updations on every steps and the communication part; they clearly recognise our requirements and tailoring the website to meet our exact needs. Thanks for the support Team Tapclone.",
+            img: img2
+        },
+        {
+            name: "Meghna Margaret Carbello",
+            review: "Tapclone help us to develop our brand and also our promotional activities. And it's result oriented and Customer Friendly.",
+            img: img3
+        },
+        {
+            name: "Romy Palakkal",
+            review: "Best for Digital marketing services. Also very good support is given by the team",
+            img: img4
+        },
+        {
+            name: "Najeeb Abdulla",
+            review: "Best SEO and Digital Marketing Team. Thank you Mr. Shineesh for your support and advise on selecting digital marketing platforms and contents😊 also to your designing team. Good work. Sure to recommend Tapclone to my friends and associates.",
+            img: img5
+        },
+        {
+            name: "Jijesh MT",
+            review: "They are committed to helping us to grow our business in all aspects of digital marketing and Effective work on Google map promotions. The end result and their responsiveness is outstanding.",
+            img: img6
+        },
+
+    ]
+
     useEffect(() => {
         const motion4 = (astroHi, path) => {
             gsap
@@ -273,7 +316,7 @@ function SalesMain() {
                 <div className="header">
                     <div className="logoSection">
                         {/* <h1 style={{ color: "white", margin: "0" }}>LOGO</h1> */}
-                        <img src={logoText} alt='logotext' className='xl:w-[35%]' />
+                        <img src={logo} alt='logotext' className='xl:w-[35%]' />
                     </div>
                 </div>
                 <div className='w-full flex justify-center items-center'>
@@ -563,48 +606,16 @@ function SalesMain() {
                                 },
                             }}
                         >
-                            <SwiperSlide className='flex justify-center'><div className='border w-full py-12 border-gray-400 flex flex-col items-center p-5 rounded-xl'>
-                                <img src={testiProfile} alt="" className='rounded-full h-16 w-16 md:h-20 md:w-20 ' />
-                                <h5 className='font-semibold md:text-xl my-3'>Raymond Gary</h5>
-                                <img src={rating} alt="" className='mb-4' />
-                                <p className='md:w-[85%] text-xs md:text-base text-center '>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-                            </div></SwiperSlide>
-                            <SwiperSlide className='flex justify-center'><div className='border w-full py-12 border-gray-400 flex flex-col items-center p-5 rounded-xl'>
-                                <img src={testiProfile} alt="" className='rounded-full h-16 w-16 md:h-20 md:w-20 ' />
-                                <h5 className='font-semibold md:text-xl my-3'>Raymond Gary</h5>
-                                <img src={rating} alt="" className='mb-4' />
-                                <p className='md:w-[85%] text-xs md:text-base text-center '>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-                            </div></SwiperSlide>
-                            <SwiperSlide className='flex justify-center'><div className='border w-full py-12 border-gray-400 flex flex-col items-center p-5 rounded-xl'>
-                                <img src={testiProfile} alt="" className='rounded-full h-16 w-16 md:h-20 md:w-20 ' />
-                                <h5 className='font-semibold md:text-xl my-3'>Raymond Gary</h5>
-                                <img src={rating} alt="" className='mb-4' />
-                                <p className='md:w-[85%] text-xs md:text-base text-center '>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-                            </div></SwiperSlide>
-                            <SwiperSlide className='flex justify-center'><div className='border w-full py-12 border-gray-400 flex flex-col items-center p-5 rounded-xl'>
-                                <img src={testiProfile} alt="" className='rounded-full h-16 w-16 md:h-20 md:w-20 ' />
-                                <h5 className='font-semibold md:text-xl my-3'>Raymond Gary</h5>
-                                <img src={rating} alt="" className='mb-4' />
-                                <p className='md:w-[85%] text-xs md:text-base text-center '>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-                            </div></SwiperSlide>
-                            <SwiperSlide className='flex justify-center'><div className='border w-full py-12 border-gray-400 flex flex-col items-center p-5 rounded-xl'>
-                                <img src={testiProfile} alt="" className='rounded-full h-16 w-16 md:h-20 md:w-20 ' />
-                                <h5 className='font-semibold md:text-xl my-3'>Raymond Gary</h5>
-                                <img src={rating} alt="" className='mb-4' />
-                                <p className='md:w-[85%] text-xs md:text-base text-center '>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-                            </div></SwiperSlide>
-                            <SwiperSlide className='flex justify-center'><div className='border w-full py-12 border-gray-400 flex flex-col items-center p-5 rounded-xl'>
-                                <img src={testiProfile} alt="" className='rounded-full h-16 w-16 md:h-20 md:w-20 ' />
-                                <h5 className='font-semibold md:text-xl my-3'>Raymond Gary</h5>
-                                <img src={rating} alt="" className='mb-4' />
-                                <p className='md:w-[85%] text-xs md:text-base text-center '>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-                            </div></SwiperSlide>
-                            <SwiperSlide className='flex justify-center'><div className='border w-full py-12 border-gray-400 flex flex-col items-center p-5 rounded-xl'>
-                                <img src={testiProfile} alt="" className='rounded-full h-16 w-16 md:h-20 md:w-20 ' />
-                                <h5 className='font-semibold md:text-xl my-3'>Raymond Gary</h5>
-                                <img src={rating} alt="" className='mb-4' />
-                                <p className='md:w-[85%] text-xs md:text-base text-center '>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-                            </div></SwiperSlide>
+                            {
+                                Testimonials.map((elem) => (
+                                    <SwiperSlide className='flex justify-center'><div className='border w-full py-12 border-gray-400 flex flex-col items-center p-5 rounded-xl min-h-[22rem]'>
+                                        <img src={elem.img} alt="" className='rounded-full h-16 w-16 md:h-20 md:w-20 ' />
+                                        <h5 className='font-semibold md:text-xl my-3'>{elem.name}</h5>
+                                        <img src={rating} alt="" className='mb-4' />
+                                       <Review elem={elem}/>
+                                    </div></SwiperSlide>
+                                ))
+                            }
                         </Swiper>
                     </div>
                 </div>

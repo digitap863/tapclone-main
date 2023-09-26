@@ -3,6 +3,7 @@ import Footer from '../Components/Footer/Footer'
 import NavBar from '../Components/Home/NavBar'
 import Projects from '../Components/Projects/Projects'
 import SalesMain from '../Components/Sales/SalesMain';
+import FooterSales from '../Components/Footer/FooterSales';
 
 function Sales() {
   useEffect(() => {
@@ -12,7 +13,7 @@ function Sales() {
     <div className='bg-black'>
         {/* <NavBar></NavBar> */}
         <SalesMain/>
-        <Footer></Footer>
+        <FooterSales/>
     </div>
   )
 }

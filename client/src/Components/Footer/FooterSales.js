@@ -1,10 +1,11 @@
 import React from 'react'
 import './Footer.css'
-function Footer() {
+import logo from '../../assets/Shared/fulllogo.jpg'
+function FooterSales() {
     return (
         <div className='footerMain '>
             <div className="logoDiv">
-                <p>LOGO</p>
+               <img src={logo} className='w-[60%] h-auto object-contain' alt='logo'/>
             </div>
             <div className="addressDiv">
                 <h2>COMPANY NAME</h2>
@@ -14,27 +15,20 @@ function Footer() {
             </div>
             <div className="contactDiv">
                 <h2>BUSINESS</h2>
-                <p>INFO@TAPCLONE.IN</p>
-                <p>+91 9605130922</p>
+                {/* <p>INFO@TAPCLONE.IN</p>
+                <p>+91 9605130922</p> */}
+                <a href='mailto:info@tapclone.in' className='text-purple-100 text-sm'>info@tapclone.in</a>
+                <a href='tel:+91 9605130922' className='text-purple-100 text-sm mt-3' >+91 9605130922</a>
 
-            </div>
-            <div className="navLinksDiv">
-                <p>HOME</p>
-                <p>SERVICES</p>
-                <p>WORK</p>
-                <p>CAREER</p>
-                <p>BLOG</p>
-                <p>CONTACT</p>
             </div>
             <div className="socialLinks">
                 <p>Instagram</p>
                 <p>Twitter</p>
                 <p>Linkedin</p>
                 <p>Facebook</p>
-
             </div>
         </div>
     )
 }
 
-export default Footer
+export default FooterSales
