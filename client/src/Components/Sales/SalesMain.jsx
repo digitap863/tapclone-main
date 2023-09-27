@@ -316,7 +316,7 @@ function SalesMain() {
                 <div className="header">
                     <div className="logoSection">
                         {/* <h1 style={{ color: "white", margin: "0" }}>LOGO</h1> */}
-                        <img src={logo} alt='logotext' className='xl:w-[35%]' />
+                        <img src={logo} alt='logotext' className='xl:w-[35%] w-[85%] mt-2 xl:mt-0 md:w-[60%]' />
                     </div>
                 </div>
                 <div className='w-full flex justify-center items-center'>
@@ -327,7 +327,6 @@ function SalesMain() {
                 <div className='flex  flex-col lg:flex-row w-full lg:mx-[10%] gap-[5rem] xl:w-[89%] 2xl:w-[90%] justify-center'>
                     <div className='sales-text-2 lg:w-[45%] textcenter  mx-10'>
                         <p className='!text-xl md:!text-4xl xl:!text-5xl mt-12 mb-16 absolute w-[90%] lg:w-[45%] top-[23%] left-[5%] xl:left-[9%] 2xl:top-[47%] 2xl:left-[12%]'><TextTransition springConfig={presets.wobbly} className='text-center w-full' direction='up' >{TEXTS[index % TEXTS.length]}</TextTransition></p>
-                        {/* <p className='w-full !text-5xl text-center mt-12 mb-16'>Best Conversion <br />Value</p> */}
                         <img src={graph} alt="graph" className='md:w-full md:mt-24 lg:mt-52 w-[22rem]' />
                         <div className='flex items-center mt-5 gap-10'>
                             <h5 className='md:w-[70%] md:ml-7 text-2xl text-left w-full font-semibold'>See how we can market your brand</h5>
