@@ -24,8 +24,8 @@ import gsap from 'gsap';
 import MobileNavbar from '../Home/MobileNavbar';
 import NavBar from '../Home/NavBar';
 import { validateEmail, validateMobileNumber, validateName } from '../validations/validate';
-import { Tooltip } from '@nextui-org/react';
-import { useNavigate } from 'react-router-dom';
+import { Button, Tooltip } from '@nextui-org/react';
+import { Link, useNavigate } from 'react-router-dom';
 import img1 from '../../assets/testimonials/1.png'
 import img2 from '../../assets/testimonials/2.png'
 import img3 from '../../assets/testimonials/3.png'
@@ -33,6 +33,7 @@ import img4 from '../../assets/testimonials/4.png'
 import img5 from '../../assets/testimonials/5.png'
 import img6 from '../../assets/testimonials/6.png'
 import Review from './Review';
+import phoneicon from '../../assets/Sales/Group 438.svg'
 
 const TEXTS = ['500 leads delivered within in a Month', '20K monthly users in 50+ websites', 'Highly effective lead campaigns at ₹1 CPA.'];
 
@@ -220,7 +221,7 @@ function SalesMain() {
         );
         return () => clearTimeout(intervalId);
     }, []);
-    
+
 
     const Testimonials = [
         {
@@ -332,10 +333,18 @@ function SalesMain() {
                             <h5 className='md:w-[70%] md:ml-7 text-2xl text-left w-full font-semibold'>See how we can market your brand</h5>
                             <span className='text-3xl animate-pulse'><ion-icon name="arrow-forward-outline" /></span>
                         </div>
+                        <div className='absolute -bottom-[95%] md:-bottom-[60%] lg:-bottom-[45%] lg:ml-10 mt-8 z-10 flex flex-col justify-center items-center lg:items-start'>
+                            <h1 className='font-poppins text-[#E56FD2] font-semibold text-2xl'>Talk with a expert now</h1>
+                            <Link to='tel:+919037833933'>
+                            <Button className='bg-[#E52EC7] mt-5 rounded-xl text-white' size='lg' startContent={<img src={phoneicon} alt=""  className='w-9'/>} link>
+                                Call us now
+                            </Button>
+                            </Link>
+                        </div>
                     </div>
                     <div className='bg-[#0E0E0E] xl:w-[50%] 2xl:w-[42%] rounded-xl p-5 md:p-10 mx-2 md:mt-10 lg:mt-0'>
-                        <h2 className='font-bold text-3xl pb-5 drop-shadow-4xl shadow-pink-500'>
-                            Form Details
+                        <h2 className='font-bold text-3xl pb-5 drop-shadow-4xl shadow-pink-500 text-center'>
+                           Book Free Call With Us
                         </h2>
                         <form onSubmit={handleFormSubmit}>
                             <div className='flex justify-between my-7 gap-3 xl:gap-8 2xl:gap-0'>
@@ -537,7 +546,7 @@ function SalesMain() {
                         </form>
                     </div>
                 </div>
-                <div className='mx-[6%] w-[90%] pt-40 md:pt-64 relative'>
+                <div className='mx-[6%] w-[90%] pt-40 md:pt-64 mt-20 md:mt-0 relative '>
                     <div
                         onLoad={() => setLoaded(true)}
                         ref={myRefLong}
@@ -607,12 +616,16 @@ function SalesMain() {
                         >
                             {
                                 Testimonials.map((elem) => (
-                                    <SwiperSlide className='flex justify-center'><div className='border w-full py-12 border-gray-400 flex flex-col items-center p-5 rounded-xl min-h-[22rem]'>
-                                        <img src={elem.img} alt="" className='rounded-full h-16 w-16 md:h-20 md:w-20 ' />
-                                        <h5 className='font-semibold md:text-xl my-3'>{elem.name}</h5>
-                                        <img src={rating} alt="" className='mb-4' />
-                                       <Review elem={elem}/>
-                                    </div></SwiperSlide>
+                                    <SwiperSlide className='flex justify-center'>
+                                        <Link to='https://www.google.com/maps/place/Tapclone/@10.0078877,76.3033704,17z/data=!3m1!4b1!4m6!3m5!1s0x3b080da62bd15555:0x797f158c9a280eea!8m2!3d10.0078877!4d76.3059453!16s%2Fg%2F11frqhkwb1?entry=ttu' target='_blank'>
+                                            <div className='border w-full py-12 border-gray-400 flex flex-col items-center p-5 rounded-xl min-h-[22rem]'>
+                                                <img src={elem.img} alt="" className='rounded-full h-16 w-16 md:h-20 md:w-20 ' />
+                                                <h5 className='font-semibold md:text-xl my-3'>{elem.name}</h5>
+                                                <img src={rating} alt="" className='mb-4' />
+                                                <Review elem={elem} />
+                                            </div>
+                                        </Link>
+                                    </SwiperSlide>
                                 ))
                             }
                         </Swiper>
