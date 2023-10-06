@@ -322,18 +322,18 @@ function SalesMain() {
                 </div>
                 <div className='w-full flex justify-center items-center'>
                     <div className="sales-hero-text">
-                        <p className='font-poppins'>Sales</p>
+                        <p className='font-poppins'>Market your Brand</p>
                     </div>
                 </div>
                 <div className='flex  flex-col lg:flex-row w-full lg:mx-[10%] gap-[5rem] xl:w-[89%] 2xl:w-[90%] justify-center'>
                     <div className='sales-text-2 lg:w-[45%] textcenter  mx-10'>
-                        <p className='!text-xl md:!text-4xl xl:!text-5xl mt-12 mb-16 absolute w-[90%] lg:w-[45%] top-[23%] left-[5%] xl:left-[9%] 2xl:top-[47%] 2xl:left-[12%]'><TextTransition springConfig={presets.wobbly} className='text-center w-full' direction='up' >{TEXTS[index % TEXTS.length]}</TextTransition></p>
+                        <p className='!text-xl md:!text-4xl xl:!text-5xl md:mt-12 mb-16 absolute w-[90%] lg:w-[45%] top-[21%] md:top-[23%] left-[5%] xl:left-[9%] 2xl:top-[47%] 2xl:left-[12%]'><TextTransition springConfig={presets.wobbly} className='text-center w-full' direction='up' >{TEXTS[index % TEXTS.length]}</TextTransition></p>
                         <img src={graph} alt="graph" className='md:w-full md:mt-24 lg:mt-52 w-[22rem]' />
                         <div className='flex items-center mt-5 gap-10'>
                             <h5 className='md:w-[70%] md:ml-7 text-2xl text-left w-full font-semibold'>See how we can market your brand</h5>
                             <span className='text-3xl animate-pulse'><ion-icon name="arrow-forward-outline" /></span>
                         </div>
-                        <div className='absolute -bottom-[95%] md:-bottom-[60%] lg:-bottom-[45%] lg:ml-10 mt-8 z-10 flex flex-col justify-center items-center lg:items-start'>
+                        <div className='lg:ml-10 mt-8 z-10 flex flex-col justify-center items-center lg:items-start'>
                             <h1 className='font-poppins text-[#E56FD2] font-semibold text-2xl'>Talk with a expert now</h1>
                             <Link to='tel:+919037833933'>
                             <Button className='bg-[#E52EC7] mt-5 rounded-xl text-white' size='lg' startContent={<img src={phoneicon} alt=""  className='w-9'/>} link>
@@ -546,7 +546,7 @@ function SalesMain() {
                         </form>
                     </div>
                 </div>
-                <div className='mx-[6%] w-[90%] pt-40 md:pt-64 mt-20 md:mt-0 relative '>
+                <div className='mx-[6%] w-[90%] pt-20 md:pt-64 mt-20 md:mt-0 relative '>
                     <div
                         onLoad={() => setLoaded(true)}
                         ref={myRefLong}

@@ -435,7 +435,7 @@ margin-top: 1rem;
 }
 .sales-hero-text p{
   color: white;
-  font-size: 5rem;
+  font-size: 4rem;
   font-family: "poppins";
   font-weight: 800;
   font-stretch: normal;
@@ -450,7 +450,15 @@ margin-top: 1rem;
 
 @keyframes textStrokeSales {
   to {
-    text-shadow: #df51c7 -2px 7.9px 0, rgb(180 176 176) -2px 7.6px 1px;
+    text-shadow: #000000 -1.5px 1px 0, #df51c7 -6px 1px 0, rgb(142, 142, 143) -8px 1px 1px;
+  }
+}
+
+@media(max-width:480px){
+  .sales-hero-text p{
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 6rem;
   }
 }
 
