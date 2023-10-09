@@ -309,6 +309,13 @@ function SalesMain() {
         });
         observer.observe(myRefLong.current);
     }, [loaded]);
+    const targetDivRef = useRef(null);
+
+  // Step 2: Define an event handler for the scroll action
+  const scrollToDiv = () => {
+    // Step 3: Use scrollIntoView() to scroll the target div into view
+    targetDivRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
     return (
         <>
             <div style={{ width: "100%", overflowX: "hidden" }}>
@@ -331,18 +338,22 @@ function SalesMain() {
                         <img src={graph} alt="graph" className='md:w-full md:mt-24 lg:mt-52 w-[22rem]' />
                         <div className='flex items-center mt-5 gap-10'>
                             <h5 className='md:w-[70%] md:ml-7 text-2xl text-left w-full font-semibold'>See how we can market your brand</h5>
-                            <span className='text-3xl animate-pulse'><ion-icon name="arrow-forward-outline" /></span>
+                            <span className='text-3xl animate-pulse hidden lg:block'><ion-icon name="arrow-forward-outline" /></span>
+                            <span className='text-3xl animate-pulse rotate-90 lg:hidden' onClick={scrollToDiv}><ion-icon name="arrow-forward-outline" /></span>
                         </div>
-                        <div className='lg:ml-10 mt-8 z-10 flex flex-col justify-center items-center lg:items-start'>
+                        <div className='lg:ml-6 mt-8 z-10 flex flex-col justify-center items-center lg:items-start'>
                             <h1 className='font-poppins text-[#E56FD2] font-semibold text-2xl'>Talk with a expert now</h1>
                             <Link to='tel:+919037833933'>
-                            <Button className='bg-[#E52EC7] mt-5 rounded-xl text-white' size='lg' startContent={<img src={phoneicon} alt=""  className='w-9'/>} link>
+                            <Button className='bg-[#E52EC7] mt-5 lg:hidden rounded-xl text-white' size='lg' startContent={<img src={phoneicon} alt=""  className='w-9'/>} link>
                                 Call us now
                             </Button>
                             </Link>
+                            <div className='bg-[#E52EC7] hidden lg:block p-2 mt-3 rounded-xl'>
+                                <h4 className='text-white'>9037833933</h4>
+                            </div>
                         </div>
                     </div>
-                    <div className='bg-[#0E0E0E] xl:w-[50%] 2xl:w-[42%] rounded-xl p-5 md:p-10 mx-2 md:mt-10 lg:mt-0'>
+                    <div className='bg-[#0E0E0E] xl:w-[50%] 2xl:w-[42%] rounded-xl p-5 md:p-10 mx-2 md:mt-10 lg:mt-0' ref={targetDivRef}>
                         <h2 className='font-bold text-3xl pb-5 drop-shadow-4xl shadow-pink-500 text-center'>
                            Book Free Call With Us
                         </h2>
