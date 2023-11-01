@@ -14,15 +14,13 @@ import image6 from '../../assets/Sales/6.png';
 import image7 from '../../assets/Sales/7.png';
 import image8 from '../../assets/Sales/8.png';
 import image9 from '../../assets/Sales/9.png';
-import testiProfile from '../../assets/Sales/testiimage.png'
 import rating from '../../assets/Sales/rating.png'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper';
+import 'swiper/css';
 import astroHi from "../../assets/svg/astroHi.svg";
 import TextTransition, { presets } from 'react-text-transition';
 import gsap from 'gsap';
-import MobileNavbar from '../Home/MobileNavbar';
-import NavBar from '../Home/NavBar';
 import { validateEmail, validateMobileNumber, validateName } from '../validations/validate';
 import { Button, Tooltip } from '@nextui-org/react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -34,6 +32,8 @@ import img5 from '../../assets/testimonials/5.png'
 import img6 from '../../assets/testimonials/6.png'
 import Review from './Review';
 import phoneicon from '../../assets/Sales/Group 438.svg'
+import { servicesSale } from '../../assets/constants';
+import rightarrow from '../../assets/Sales/rightarrow.png'
 
 const TEXTS = ['500 leads delivered within in a Month', '20K monthly users in 50+ websites', 'Highly effective lead campaigns at ₹1 CPA.'];
 
@@ -221,7 +221,13 @@ function SalesMain() {
         );
         return () => clearTimeout(intervalId);
     }, []);
+    const [openStates, setOpenStates] = useState(Array(servicesSale.length).fill(false));
 
+    const toggleServiceOpen = (index) => {
+        const newOpenStates = [...openStates];
+        newOpenStates[index] = !newOpenStates[index];
+        setOpenStates(newOpenStates);
+    };
 
     const Testimonials = [
         {
@@ -311,11 +317,11 @@ function SalesMain() {
     }, [loaded]);
     const targetDivRef = useRef(null);
 
-  // Step 2: Define an event handler for the scroll action
-  const scrollToDiv = () => {
-    // Step 3: Use scrollIntoView() to scroll the target div into view
-    targetDivRef.current.scrollIntoView({ behavior: 'smooth' });
-  };
+    // Step 2: Define an event handler for the scroll action
+    const scrollToDiv = () => {
+        // Step 3: Use scrollIntoView() to scroll the target div into view
+        targetDivRef.current.scrollIntoView({ behavior: 'smooth' });
+    };
     return (
         <>
             <div style={{ width: "100%", overflowX: "hidden" }}>
@@ -344,9 +350,9 @@ function SalesMain() {
                         <div className='lg:ml-6 mt-8 z-10 flex flex-col justify-center items-center lg:items-start'>
                             <h1 className='font-poppins text-[#E56FD2] font-semibold text-2xl'>Talk with a expert now</h1>
                             <Link to='tel:+919037833933'>
-                            <Button className='bg-[#E52EC7] mt-5 lg:hidden rounded-xl text-white' size='lg' startContent={<img src={phoneicon} alt=""  className='w-9'/>} link>
-                                Call us now
-                            </Button>
+                                <Button className='bg-[#E52EC7] mt-5 lg:hidden rounded-xl text-white' size='lg' startContent={<img src={phoneicon} alt="" className='w-9' />} link>
+                                    Call us now
+                                </Button>
                             </Link>
                             <div className='bg-[#E52EC7] hidden lg:block p-2 mt-3 rounded-xl'>
                                 <h4 className='text-white'>9037833933</h4>
@@ -355,7 +361,7 @@ function SalesMain() {
                     </div>
                     <div className='bg-[#0E0E0E] xl:w-[50%] 2xl:w-[42%] rounded-xl p-5 md:p-10 mx-2 md:mt-10 lg:mt-0' ref={targetDivRef}>
                         <h2 className='font-bold text-3xl pb-5 drop-shadow-4xl shadow-pink-500 text-center'>
-                           Book Free Call With Us
+                            Book Free Call With Us
                         </h2>
                         <form onSubmit={handleFormSubmit}>
                             <div className='flex justify-between my-7 gap-3 xl:gap-8 2xl:gap-0'>
@@ -555,6 +561,102 @@ function SalesMain() {
                                 </button>
                             </div>
                         </form>
+                    </div>
+                </div>
+                <div className='flex flex-col items-center my-20'>
+                    <h1 className='text-center text-[#ff41df] font-bold text-3xl md:text-5xl mb-16'>Our Services</h1>
+                    <div className='hidden  grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-16 md:grid'>
+                        {servicesSale.map((elem, index) => (
+                            <div
+                                key={index}
+                                className={`border flex w-full rounded-3xl h-[14rem] relative justify-center items-center bg-slate-600 overflow-hidden bg-opacity-30 border-[#db32c2a1]  services-hero-text`}
+                            >
+                                <div
+                                    className={`absolute rounded-3xl bg-[#ff41df] h-full w-full z-[1] flex justify-center items-center  ease-in-out duration-500 p-5 ${openStates[index] ? 'translate-x-0' : 'translate-x-[25rem]'
+                                        }`}
+                                >
+                                    <h5 className='text-justify'>
+                                        As experts in digital marketing services, we have succeeded in securing top-ranking position for a company within just 4 months using primary keywords
+                                    </h5>
+                                    <button
+                                        className='rounded-3xl bg-[#FFFCFF] p-2 absolute bottom-4 right-4'
+                                        onClick={() => toggleServiceOpen(index)}
+                                    >
+                                        <img src={rightarrow} alt="" />
+                                    </button>
+                                </div>
+                                <p className='w-[70%]'>{elem.title}</p>
+                                <Button
+                                    className='bg-[#ff41df] text-white absolute bottom-4 right-2'
+                                    onClick={() => toggleServiceOpen(index)}
+                                    radius='lg'
+                                    size='sm'
+                                >
+                                    Read More
+                                </Button>
+                            </div>
+                        ))}
+                    </div>
+                    <div className='w-[95%] md:hidden'>
+                        <Swiper
+                            loop={true}
+                            centeredSlides={true}
+                            autoplay
+                            loopedSlides={false}
+                            slidesPerView={1.3}
+                            spaceBetween={30}
+                            breakpoints={{
+                                480: {
+                                    slidesPerView: 1.2,
+                                    spaceBetween: 30,
+                                },
+                                // When screen width is less than 768px (typical for mobile devices)
+                                992: {
+                                    slidesPerView: 1.2,
+                                    spaceBetween: 30,
+                                },
+                                // For larger screens, use your original settings
+                                1200: {
+                                    slidesPerView: 2.25,
+                                    spaceBetween: 150,
+                                },
+                            }}
+                        >
+                            {
+                                servicesSale.map((elem,index) => (
+                                    <SwiperSlide className='flex justify-center'>
+                                        <div
+                                            key={index}
+                                            className={`border flex w-full rounded-3xl h-[14rem] relative justify-center items-center bg-slate-600 overflow-hidden bg-opacity-30 border-[#db32c2a1]  services-hero-text`}
+                                        >
+                                            <div
+                                                className={`absolute rounded-3xl bg-[#ff41df] h-full w-full z-[1] flex justify-center items-center  ease-in-out duration-500 p-5 ${openStates[index] ? 'translate-x-0' : 'translate-x-[25rem]'
+                                                    }`}
+                                            >
+                                                <h5 className='text-justify'>
+                                                    As experts in digital marketing services, we have succeeded in securing top-ranking position for a company within just 4 months using primary keywords
+                                                </h5>
+                                                <button
+                                                    className='rounded-3xl bg-[#FFFCFF] p-2 absolute bottom-4 right-4'
+                                                    onClick={() => toggleServiceOpen(index)}
+                                                >
+                                                    <img src={rightarrow} alt="" />
+                                                </button>
+                                            </div>
+                                            <p className='w-[70%]'>{elem.title}</p>
+                                            <Button
+                                                className='bg-[#ff41df] text-white absolute bottom-4 right-2'
+                                                onClick={() => toggleServiceOpen(index)}
+                                                radius='lg'
+                                                size='sm'
+                                            >
+                                                Read More
+                                            </Button>
+                                        </div>
+                                    </SwiperSlide>
+                                ))
+                            }
+                        </Swiper>
                     </div>
                 </div>
                 <div className='mx-[6%] w-[90%] pt-20 md:pt-64 mt-20 md:mt-0 relative '>

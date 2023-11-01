@@ -26,6 +26,11 @@ function App() {
           {/* <Route exact path="/" element={<HomePage></HomePage>}></Route> */}
           <Route
             exact
+            path="/"
+            element={<Sale></Sale>}
+          ></Route>
+          <Route
+            exact
             path="/services"
             element={<ServicePage></ServicePage>}
           ></Route>
@@ -43,7 +48,7 @@ function App() {
           ></Route>
           <Route
             exact
-            path="/"
+            path="/sales"
             element={<Sale></Sale>}
           ></Route>
            <Route

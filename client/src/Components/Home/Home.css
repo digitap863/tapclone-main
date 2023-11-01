@@ -1994,3 +1994,23 @@ section {
     font-size: 0.8rem;
   }
 }
+
+@keyframes textStrokeSales123 {
+  to {
+    text-shadow: #000000 -1px 1px 0, #df51c7 -5px 1px 0, rgb(142, 142, 143) -6px 1px 1px;
+  }
+}
+.services-hero-text p{
+  color: white;
+  font-size: 2rem;
+  font-family: "poppins";
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  animation: textStrokeSales123 ease-out forwards;
+  animation-duration: 0.5s;
+  animation-delay: 2.5s;
+  display: inline-block;
+  text-align: center;
+}
