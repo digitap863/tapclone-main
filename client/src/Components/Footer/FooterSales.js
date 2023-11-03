@@ -18,7 +18,7 @@ function FooterSales() {
                 {/* <p>INFO@TAPCLONE.IN</p>
                 <p>+91 9605130922</p> */}
                 <a href='mailto:info@tapclone.in' className='text-purple-100 text-sm'>info@tapclone.in</a>
-                <a href='tel:+91 9605130922' className='text-purple-100 text-sm mt-3' >+91 9605130922</a>
+                <a href='tel:+91 9037833933' className='text-purple-100 text-sm mt-3' >+91 9037 833 933</a>
 
             </div>
             <div className="socialLinks">

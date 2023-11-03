@@ -23,12 +23,12 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          {/* <Route exact path="/" element={<HomePage></HomePage>}></Route> */}
-          <Route
+        <Route
             exact
             path="/"
             element={<Sale></Sale>}
           ></Route>
+          <Route exact path="/test" element={<HomePage></HomePage>}></Route>
           <Route
             exact
             path="/services"

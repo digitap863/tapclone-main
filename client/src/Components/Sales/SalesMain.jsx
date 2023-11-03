@@ -572,11 +572,11 @@ function SalesMain() {
                                 className={`border flex w-full rounded-3xl h-[14rem] relative justify-center items-center bg-slate-600 overflow-hidden bg-opacity-30 border-[#db32c2a1]  services-hero-text`}
                             >
                                 <div
-                                    className={`absolute rounded-3xl bg-[#ff41df] h-full w-full z-[1] flex justify-center items-center  ease-in-out duration-500 p-5 ${openStates[index] ? 'translate-x-0' : 'translate-x-[25rem]'
+                                    className={`absolute rounded-3xl bg-[#ff41df] h-full w-full z-[1] flex justify-center items-center ease-in-out duration-500 p-5 ${openStates[index] ? 'translate-x-0' : 'translate-x-[25rem]'
                                         }`}
                                 >
                                     <h5 className='text-justify'>
-                                        As experts in digital marketing services, we have succeeded in securing top-ranking position for a company within just 4 months using primary keywords
+                                        {elem.content}
                                     </h5>
                                     <button
                                         className='rounded-3xl bg-[#FFFCFF] p-2 absolute bottom-4 right-4'
@@ -633,8 +633,8 @@ function SalesMain() {
                                                 className={`absolute rounded-3xl bg-[#ff41df] h-full w-full z-[1] flex justify-center items-center  ease-in-out duration-500 p-5 ${openStates[index] ? 'translate-x-0' : 'translate-x-[25rem]'
                                                     }`}
                                             >
-                                                <h5 className='text-justify'>
-                                                    As experts in digital marketing services, we have succeeded in securing top-ranking position for a company within just 4 months using primary keywords
+                                                <h5 className='text-left'>
+                                                    {elem.content}
                                                 </h5>
                                                 <button
                                                     className='rounded-3xl bg-[#FFFCFF] p-2 absolute bottom-4 right-4'

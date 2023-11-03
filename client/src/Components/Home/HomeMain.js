@@ -40,6 +40,7 @@ import useMediaQuery from "../../hook/useMediaQuery";
 import MobileNavbar from "./MobileNavbar";
 import HeroCircle from "./HeroCircle";
 import logoText from "../../assets/Shared/logoName.png";
+import ServicesHome from "./ServicesHome";
 
 // const MobileNavbar = lazy(() => import("./MobileNavbar"));
 // const HeroCircle = lazy(() => import("./HeroCircle"));
@@ -639,7 +640,8 @@ function HomeMain() {
           </div>
         </section>
 
-        <ServiceSection />
+        {/* <ServiceSection /> */}
+        <ServicesHome/>
         <div className="ufoPlanet-section ">
           <img className="ufoPlanet" src={ufo2} ref={ufoRef} alt="" />
           <svg
