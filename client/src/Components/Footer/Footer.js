@@ -9,7 +9,6 @@ function Footer() {
                 <img src={logo} alt='logo'/>
             </div>
             <div className="addressDiv">
-                <h2>COMPANY NAME</h2>
                 <p>House No 32/2517A Adwaitham <br />
                     PJ Antony Rd, Palarivattom <br />
                     Kerala 682025</p>
@@ -28,10 +27,10 @@ function Footer() {
                 <a href='/contact'>CONTACT</a>
             </div>
             <div className="socialLinks">
-                <a href='https://www.instagram.com/tapclone_official/'>Instagram</a>
+                <a href='https://www.instagram.com/tapclone_official/' target="_blank">Instagram</a>
                 {/* <p>Twitter</p> */}
-                <a href='https://www.linkedin.com/company/82332328/admin/feed/posts/'>Linkedin</a>
-                <a href='https://www.facebook.com/Tapclone'>Facebook</a>
+                <a href='https://www.linkedin.com/company/82332328/admin/feed/posts/' target="_blank">Linkedin</a>
+                <a href='https://www.facebook.com/Tapclone' target="_blank">Facebook</a>
 
             </div>
         </div>

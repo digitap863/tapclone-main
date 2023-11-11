@@ -13,9 +13,7 @@ function HomePage() {
 
   return (
         <div>
-          <Suspense fallback={<PreLoader />}>
             <HomeMain />
-          </Suspense>
         </div>
   );
 }

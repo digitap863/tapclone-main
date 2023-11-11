@@ -67,7 +67,7 @@ function AboutMain() {
         <div className="header">
           <div className="logoSection">
             {/* <h1 style={{ color: "white", margin: "0" }}>LOGO</h1> */}
-            <img src={logoText} />
+            {/* <img src={logoText} /> */}
           </div>
         </div>
         <div className="aboutMain ">
@@ -91,8 +91,8 @@ function AboutMain() {
                 <span className="white-stroke">PACKAGE!</span>
               </h1>
             </div>
-            <div className="video-play ">
-              <img src={playBtn} alt="" />
+            <div className="video-play">
+              {/* <img src={playBtn} alt="" /> */}
             </div>
             <div className="about-desc ">
               <div

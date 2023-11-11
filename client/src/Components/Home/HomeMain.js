@@ -1,16 +1,13 @@
-import { React, useEffect, useRef, useState, lazy, Suspense } from "react";
+import { React, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { RemoveScroll } from "react-remove-scroll";
 import SwipeButton from "./SwipeButton";
 import Footer from "../Footer/Footer";
-import ServiceSection from "./ServiceSection";
 import NavBar from "./NavBar";
 import ProjectSection from "./ProjectSection";
-import ProjectSlider2 from "./ProjectSlider2";
-import ProjectSlider from "./ProjectsSlider";
 import "./Home.css";
 import "./Animation.css";
 import layer from "../../assets/Layer 3.png";
-import layer2 from "../../assets/Layer 2.png";
 import ASTRO42 from "../../assets/svg/ASTRO42.svg";
 import ufo from "../../assets/svg/ufo.svg";
 import ufoPlanet from "../../assets/Asset 4@3002 28.png";
@@ -24,26 +21,16 @@ import brandLogo1 from "../../assets/logo1.png";
 import brandLogo2 from "../../assets/logo2.png";
 import brandLogo3 from "../../assets/logo3.png";
 import planet1 from "../../assets/svg/globe 2.svg";
-import planet2 from "../../assets/svg/globe 3.svg";
-import planet3 from "../../assets/svg/globe 4.svg";
-import orangePlanet from "../../assets/svg/globe 7.svg";
-import violetCircle from "../../assets/svg/globe 6.svg";
-import planet6 from "../../assets/svg/globe 5.svg";
-import planet7 from "../../assets/svg/globe.svg";
-import planet8 from "../../assets/svg/Ellipse 5.svg";
-import planet9 from "../../assets/svg/Ellipse 6.svg";
-import button from "../../assets/svg/right arrow.svg";
-import button2 from "../../assets/svg/right arrow 2.svg";
 import { createPortal } from "react-dom";
 import worldMap from "../../assets/worldMap.svg";
 import useMediaQuery from "../../hook/useMediaQuery";
 import MobileNavbar from "./MobileNavbar";
 import HeroCircle from "./HeroCircle";
-import logoText from "../../assets/Shared/logoName.png";
 import ServicesHome from "./ServicesHome";
-
-// const MobileNavbar = lazy(() => import("./MobileNavbar"));
-// const HeroCircle = lazy(() => import("./HeroCircle"));
+import planetPre from '../../assets/Shared/planetPre.svg'
+import shipPre from '../../assets/Shared/shipPre.svg'
+import logo1 from '../../assets/Shared/favicon.png'
+import logoText from '../../assets/Shared/logoName.png'
 
 function HomeMain() {
   const navigate = useNavigate();
@@ -292,21 +279,125 @@ function HomeMain() {
       // observer.unobserve(ufoStartRef.current);
     };
   }, []);
+
   const StarPortal = ({ children }) => {
     const portalRoot = document.getElementById("star-root");
     return createPortal(children, portalRoot);
   };
+  const [splash, setSplash] = useState(true);
+  const [logoanim, setlogoanim] = useState(false);
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    setTimeout(() => {
+      setlogoanim(true)
+    }, 1000);
+    setTimeout(() => {
+      setSplash(false);
+      document.body.style.overflow = "auto";
+    }, 3000);
+  }, []);
+  const [starsLoader, setstarsLoader] = useState([]);
+  const [state, setState] = useState(true);
+  const [line1Style, setLine1Style] = useState({
+    width: "2px",
+    height: "35px",
+    backgroundColor: "white",
+  });
 
+  const [line2Style, setLine2Style] = useState({
+    width: "2px",
+    height: "35px",
+    backgroundColor: "white",
+  });
+  const handleButtonClick = () => {
+    setState(!state);
+    if (state) {
+      setLine1Style({
+        ...line1Style,
+        transform: "",
+      });
+      setLine2Style({
+        ...line2Style,
+        transform: "",
+      });
+    } else {
+      setLine1Style({
+        ...line1Style,
+        transform: "translate(1.5px,-2px) rotate(225deg)",
+        transition: "0.3s ease-in",
+      });
+      setLine2Style({
+        ...line2Style,
+        transform: "translate(-8.5px,-0.5px) rotate(-225deg)",
+        transition: "0.3s ease-in",
+      });
+    }
+  };
+  useEffect(() => {
+    if (state) {
+      const newStars = [];
+      for (let i = 0; i < 80; i++) {
+        let leftDir = Math.floor(Math.random() * 100);
+        let topDir = Math.floor(Math.random() * 100);
+        let starSize =
+          Math.random() > 0.2
+            ? Math.random() * 1 + 0.5
+            : Math.random() * 1 + 1.2;
+        let animationDuration = Math.floor(Math.random() * (7 - 3 + 1) + 3);
+        let animationDir = Math.random() > 0.5 ? "alternate" : "reverse";
+        const newStar = {
+          size: starSize,
+          left: leftDir + "%",
+          top: topDir + "%",
+          animationDir,
+          animationDuration: animationDuration + "s",
+        };
+        newStars.push(newStar);
+      }
+      setstarsLoader(newStars);
+    } else {
+      setstarsLoader([]);
+    }
+  }, [state]);
   return (
     <>
-      <div className="homeMain" onLoad={() => setLoaded(true)}>
+      <div
+        className={`h-screen bg-black  z-50 absolute duration-500 flex justify-center items-center overflow-hidden ${
+          splash ? "translate-y-0" : "-translate-y-full"
+        } w-full`}
+      >
+        <img src={planetPre} alt="planet" className="absolute rotate-[-20deg] right-[10%] top-[20%]"/>
+        <img src={shipPre} alt="planet" className="absolute left-[10%] top-[60%]"/>
+       <div className="h-20 w-[70%] lg:w-[30%] flex justify-center items-center bg-transparent">
+        <img src={logo1} alt="logo" className="animate-fade-in w-[10%] lg:w-auto" />
+        <div className="w-[70%] lg:w-full h-full overflow-hidden relative">
+        <img src={logoText} alt="logotext" className={`absolute w-[90%] lg:w-auto top-[30%] lg:top-[15%] left-3 duration-[1200ms] ease-in ${logoanim?'translate-x-0':'-translate-x-[110%]'}`} />
+        </div>
+       </div>
+        {starsLoader.map((star, index) => (
+          <div
+            key={index}
+            className="star-nav"
+            style={{
+              "--size": `${star.size}vmin`,
+              left: star.left,
+              top: star.top,
+              animation: `GFG ${star.animationDuration} infinite linear ${star.animationDir}`,
+            }}
+          />
+        ))}
+      </div>
+      <div
+        className={`homeMain ${splash ? "" : ""}`}
+        onLoad={() => setLoaded(true)}
+      >
         <MobileNavbar />
         <NavBar />
 
         <div className="header">
           <div className="logoSection">
             {/* <h1 style={{ color: "white", margin: "0" }}>LOGO</h1> */}
-            <img src={logoText} />
+            {/* <img src={logoText} /> */}
           </div>
           {/* <div className='dateSection'>
           <p style={{ margin: '0' }}> Mon 22.07</p>
@@ -596,10 +687,14 @@ function HomeMain() {
         </section>
 
         {/* <ServiceSection /> */}
-        <ServicesHome/>
+        <ServicesHome />
         <div className="ufoPlanet-section ">
           <img className="ufoPlanet" src={ufo2} ref={ufoRef} alt="" />
-          <img src={ufoLight} alt="" className={`ufolight ${isVisible ? 'visible' : ''}`}/>
+          <img
+            src={ufoLight}
+            alt=""
+            className={`ufolight ${isVisible ? "visible" : ""}`}
+          />
           <svg
             // style={{ opacity: 0 }}
             className="ufoPath "

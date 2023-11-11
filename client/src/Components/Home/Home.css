@@ -262,6 +262,7 @@
   height: 100vh;
   /* height: 100%; */
   overflow-y: hidden;
+  overflow-x: hidden;
   width: 4%;
   background-color: #140d19;
   position: fixed;
@@ -270,10 +271,8 @@
   padding-left: 1%;
   z-index: 10;
   transition: all linear 0.5s;
-  overflow-x: hidden;
 }
 .navBar .logoIcon{
-  margin-left: ;
 width: 3rem;
 margin-top: 1rem;
 }
@@ -1325,11 +1324,13 @@ section {
 .navs p a {
   text-decoration: none;
 }
-.navs p:hover {
+.navs p:hover { 
   transform: scale(1.05);
 }
 .connectLinks {
   /* margin-top: 13rem; */
+  position: relative;
+  z-index: 10;
   margin-top: 20rem;
   margin-left: 33rem;
   display: flex;
@@ -2055,4 +2056,17 @@ section {
 }
 .ufolight.visible {
   opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-in-out;
 }

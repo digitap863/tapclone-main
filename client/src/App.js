@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import HomeMain from "./Components/Home/HomeMain";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ServicePage from "./pages/ServicePage";
@@ -12,12 +11,12 @@ import Sale from "./pages/Sale";
 import Thankyou from "./pages/Thankyou";
 
 function App() {
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, []);
+  // const [loading, setLoading] = useState(false);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, 2000);
+  // }, []);
 
   return (
     <div className="overflow-hidden">

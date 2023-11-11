@@ -4,6 +4,7 @@ import navOval from "../../assets/navbar_oval.png";
 import navPlanet from "../../assets/navbar_planet.png";
 import navOrbPlanet from "../../assets/navOrbit_planet.svg";
 import logoIcon from '../../assets/Shared/favicon.png'
+import logoTitle from '../../assets/Shared/logoName.png'
 
 function NavBar() {
   const navigate = useNavigate();
@@ -73,8 +74,15 @@ function NavBar() {
     }
   }, [state]);
 
+    const getCurrentDay = () => {
+      const today = new Date();
+      return today.getDate();
+    };
+    const [titlevis,setTitleVis] = useState(false)
+
   return (
     <>
+        <img src={logoTitle} alt="logoText" className={`absolute top-1 duration-500 ${titlevis?'translate-x-[6rem]':'translate-x-[-17rem]'}`}/>
       <div className="navBar lg:!flex !hidden" style={{ width: state ? "100%" : "5%" }}>
         <div
           style={{
@@ -83,13 +91,13 @@ function NavBar() {
             flexDirection: "column",
           }}
         >
-          <img src={logoIcon} alt="logicon" className="xl:w-9 xl:mt-3"/>
+          <img src={logoIcon} alt="logicon" className="xl:w-9 xl:mt-3 cursor-pointer" onClick={()=>navigate('/')} onMouseEnter={()=>setTitleVis(!titlevis)} onMouseLeave={()=>setTitleVis(!titlevis)}/>
           {/* <h1>L</h1> */}
           <div className="navBtn" onClick={() => handleButtonClick()}>
             <div className="line1" style={line1Style}></div>
             <div className="line2" style={line2Style}></div>
           </div>
-          <p style={{ fontSize: "1.5rem" }}>01</p>
+          <p style={{ fontSize: "1.5rem" }}>{getCurrentDay()}</p>
         </div>
 
         <div className="navs ">
@@ -135,7 +143,7 @@ function NavBar() {
           </p> */}
 
           {/* <p onClick={()=>navigate('/packages')}>PACKAGES</p> */}
-          <p>
+          {/* <p>
             <NavLink
               to="/team"
               style={({ isActive }) => ({
@@ -144,7 +152,7 @@ function NavBar() {
             >
               TEAM
             </NavLink>
-          </p>
+          </p> */}
           <p>
             <NavLink
               to="/contact"
@@ -156,12 +164,12 @@ function NavBar() {
             </NavLink>
           </p>
         </div>
-        <div className="connectLinks ">
+        <div className="connectLinks">
           <p style={{ fontWeight: "600" }}>CONNECT</p>
-          <a href="https://www.instagram.com/tapclone_official/">Instagram</a>
+          <a href="https://www.instagram.com/tapclone_official/" target="_blank">Instagram</a>
           {/* <p>Twitter</p> */}
-          <a href="https://www.linkedin.com/company/82332328/admin/feed/posts/">Linkedin</a>
-          <a href="https://www.facebook.com/Tapclone">Facebook</a>
+          <a href="https://www.linkedin.com/company/82332328/admin/feed/posts/" target="_blank">Linkedin</a>
+          <a href="https://www.facebook.com/Tapclone" target="_blank">Facebook</a>
         </div>
         <div>
           <span className="menuTyping">MENU</span>

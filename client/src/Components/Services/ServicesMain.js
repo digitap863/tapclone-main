@@ -22,31 +22,30 @@ import MobileNavbar from "../Home/MobileNavbar";
 function ServicesMain() {
   const servicesArr = [
     {
-      title:"Web Development",
-      img:service1
+      title: "Web Development",
+      img: service1,
     },
     {
-      title:"UI/UX Development",
-      img:service2
+      title: "UI/UX Development",
+      img: service2,
     },
     {
-      title:"Branding",
-      img:service3
+      title: "Branding",
+      img: service3,
     },
     {
-      title:"Social Media Management",
-      img:service4
+      title: "Social Media Management",
+      img: service4,
     },
     {
-      title:"Organic SEO",
-      img:service5
+      title: "Organic SEO",
+      img: service5,
     },
     {
-      title:"Google My Business",
-      img:service6
+      title: "Google My Business",
+      img: service6,
     },
-    
-  ]
+  ];
   const [stars, setStars] = useState([]);
   const phoneNumber = "+1234567890";
   const doPhoneCallClick = () => {
@@ -94,31 +93,13 @@ function ServicesMain() {
     return createPortal(children, portalRoot);
   };
 
-  // function addStar() {
-  //     var s = document.createElement("div");
-  //     s.className = "star";
-  //     s.style.setProperty("--size", Math.random() * 2 + 2 + "vmin");
-  //     s.style.left = Math.floor(Math.random() * 100) + "%";
-  //     s.style.top = Math.floor(Math.random() * 100) + "%";
-  //     s.onanimationend = function () {
-  //         this.remove();
-  //     };
-  //     document.querySelector(".star-space").appendChild(s);
-  // }
-  // let timeout = setInterval(addStar, 100);
-
-  // window.addEventListener("beforeunload", () => {
-  //     clearInterval(timeout);
-  // });
   return (
     <>
       <div style={{ width: "100%", overflowX: "hidden" }}>
-      <MobileNavbar />
-                <NavBar />
+        <MobileNavbar />
+        <NavBar />
         <div className="header">
-          <div className="logoSection">
-            <img src={logoText} />
-          </div>
+          <div className="logoSection">{/* <img src={logoText} /> */}</div>
           {/* <div className="dateSection">
             <p style={{ margin: "0" }}> Mon 22.07</p>
           </div> */}
@@ -158,13 +139,15 @@ function ServicesMain() {
                 },
               }}
             >
-              {servicesArr.map((elem)=>(
+              {servicesArr.map((elem) => (
                 <SwiperSlide>
-                <div className=" w-full flex justify-center flex-col items-center">
-                  <img src={elem.img} alt="" className="w-[70%] h-40"/>
-                  <h5 className="text-2xl font-semibold mt-5">{elem.title}</h5>
-                </div>
-              </SwiperSlide>
+                  <div className=" w-full flex justify-center flex-col items-center">
+                    <img src={elem.img} alt="" className="w-[70%] h-40" />
+                    <h5 className="text-2xl font-semibold mt-5">
+                      {elem.title}
+                    </h5>
+                  </div>
+                </SwiperSlide>
               ))}
             </Swiper>
           </div>

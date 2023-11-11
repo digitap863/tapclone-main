@@ -34,6 +34,8 @@ import Review from './Review';
 import phoneicon from '../../assets/Sales/Group 438.svg'
 import { servicesSale } from '../../assets/constants';
 import rightarrow from '../../assets/Sales/rightarrow.png'
+import MobileNavbar from '../Home/MobileNavbar';
+import NavBar from '../Home/NavBar';
 
 const TEXTS = ['500 leads delivered within in a Month', '20K monthly users in 50+ websites', 'Highly effective lead campaigns at ₹1 CPA.'];
 
@@ -325,12 +327,12 @@ function SalesMain() {
     return (
         <>
             <div style={{ width: "100%", overflowX: "hidden" }}>
-                {/* <MobileNavbar />
-                <NavBar /> */}
+                <MobileNavbar />
+                <NavBar />
                 <div className="header">
                     <div className="logoSection">
                         {/* <h1 style={{ color: "white", margin: "0" }}>LOGO</h1> */}
-                        <img src={logo} alt='logotext' className='xl:w-[35%] w-[85%] mt-2 xl:mt-0 md:w-[60%]' />
+                        {/* <img src={logo} alt='logotext' className='xl:w-[35%] w-[85%] mt-2 xl:mt-0 md:w-[60%]' /> */}
                     </div>
                 </div>
                 <div className='w-full flex justify-center items-center'>

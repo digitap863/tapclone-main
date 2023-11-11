@@ -191,7 +191,7 @@ function Contact() {
         <MobileNavbar/>
         <div className="header">
           <div className="logoSection">
-          <img src={logoText} alt="logoText" />
+          {/* <img src={logoText} alt="logoText" /> */}
           </div>
           {/* <div className="dateSection">
                     <p style={{ margin: "0" }}> Mon 22.07</p>

@@ -16,6 +16,7 @@
 }
 
 .addressDiv {
+  padding-top:1rem;
   width: 28%;
   display: flex;
   flex-direction: column;
