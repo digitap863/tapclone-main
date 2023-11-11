@@ -123,7 +123,7 @@ function NavBar() {
               SERVICES
             </NavLink>
           </p>
-          <p>
+          {/* <p>
             <NavLink
               to="/projects"
               style={({ isActive }) => ({
@@ -132,7 +132,7 @@ function NavBar() {
             >
               PROJECTS
             </NavLink>
-          </p>
+          </p> */}
 
           {/* <p onClick={()=>navigate('/packages')}>PACKAGES</p> */}
           <p>
@@ -158,10 +158,10 @@ function NavBar() {
         </div>
         <div className="connectLinks ">
           <p style={{ fontWeight: "600" }}>CONNECT</p>
-          <p>Instagram</p>
-          <p>Twitter</p>
-          <p>Linkedin</p>
-          <p>Facebook</p>
+          <a href="https://www.instagram.com/tapclone_official/">Instagram</a>
+          {/* <p>Twitter</p> */}
+          <a href="https://www.linkedin.com/company/82332328/admin/feed/posts/">Linkedin</a>
+          <a href="https://www.facebook.com/Tapclone">Facebook</a>
         </div>
         <div>
           <span className="menuTyping">MENU</span>

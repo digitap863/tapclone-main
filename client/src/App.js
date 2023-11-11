@@ -20,15 +20,15 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <BrowserRouter>
         <Routes>
-        <Route
+        {/* <Route
             exact
             path="/"
             element={<Sale></Sale>}
-          ></Route>
-          <Route exact path="/test" element={<HomePage></HomePage>}></Route>
+          ></Route> */}
+          <Route exact path="/" element={<HomePage></HomePage>}></Route>
           <Route
             exact
             path="/services"

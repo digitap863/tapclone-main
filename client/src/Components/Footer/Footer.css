@@ -36,8 +36,8 @@
 
 .addressDiv p,
 .contactDiv p,
-.navLinksDiv p,
-.socialLinks p {
+.navLinksDiv a,
+.socialLinks a {
   margin: 0;
   color: #fcddec;
   font-size: 0.8rem;
@@ -61,10 +61,10 @@
   color: #fcddec;
   margin-bottom: 1.2rem;
 }
-.logoDiv p {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: 700;
+.logoDiv img {
+  margin-top: -3rem;
+  object-fit: contain;
+  width: 12rem;
 }
 .socialLinks {
   /* width: 15%; */
@@ -73,7 +73,7 @@
   justify-content: start;
   flex-direction: column;
 }
-.socialLinks p,
-.navLinksDiv p {
+.socialLinks a,
+.navLinksDiv a {
   margin-bottom: 1rem;
 }

@@ -48,6 +48,7 @@ import ServicesHome from "./ServicesHome";
 function HomeMain() {
   const navigate = useNavigate();
   const [imageIndex, setImageIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
   const [stars, setStars] = useState([]);
   const [activeMapButton, setActiveMapButton] = useState(1);
   const imgRef = useRef(null);
@@ -154,53 +155,6 @@ function HomeMain() {
     }
     setStars(newStars);
   };
-
-  // heroText oneAfter another animation
-
-  // const heroHeaders = ["Message 1", "Message 2", "Message 3", "Message 4"];
-  // const [heroText1, setHeroText1] = useState("");
-  // const [heroText2, setHeroText2] = useState("");
-  // const [heroText3, setHeroText3] = useState("");
-  // const [heroText4, setHeroText4] = useState("");
-
-  // useEffect(() => {
-  //   animHeroHeaders(heroHeaders[0], setHeroText1, 0);
-  // }, []);
-
-  // const animHeroHeaders = (heroHeader, setTextFunction, index) => {
-  //   let currentIndex = 0;
-  //   const interval = setInterval(() => {
-  //     if (currentIndex === heroHeader.length) {
-  //       clearInterval(interval);
-  //       if (index < heroHeaders.length - 1) {
-  //         const nextIndex = index + 1;
-  //         const nextMessage = heroHeaders[nextIndex];
-  //         switch (nextIndex) {
-  //           case 1:
-  //             setTextFunction(nextMessage);
-  //             animHeroHeaders(nextMessage, setHeroText2, nextIndex);
-  //             break;
-  //           case 2:
-  //             setTextFunction(nextMessage);
-  //             animHeroHeaders(nextMessage, setHeroText3, nextIndex);
-  //             break;
-  //           case 3:
-  //             setTextFunction(nextMessage);
-  //             animHeroHeaders(nextMessage, setHeroText4, nextIndex);
-  //             break;
-  //           default:
-  //             break;
-  //         }
-  //       }
-  //       return;
-  //     }
-
-  //     setTextFunction((prevText) => prevText + heroHeader[currentIndex]);
-  //     currentIndex++;
-  //   }, 100);
-  // };
-
-  // end of hero text animation
 
   useEffect(() => {
     if (window.innerWidth >= 768) {
@@ -325,6 +279,7 @@ function HomeMain() {
           })
           .then(() => {
             clearTimeout(enableScroll);
+            setIsVisible(true);
             observer.unobserve(ufoStartRef.current);
           });
       }
@@ -644,6 +599,7 @@ function HomeMain() {
         <ServicesHome/>
         <div className="ufoPlanet-section ">
           <img className="ufoPlanet" src={ufo2} ref={ufoRef} alt="" />
+          <img src={ufoLight} alt="" className={`ufolight ${isVisible ? 'visible' : ''}`}/>
           <svg
             // style={{ opacity: 0 }}
             className="ufoPath "

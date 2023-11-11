@@ -104,7 +104,7 @@ input:-webkit-autofill:focus {
   left: 2%;
 }
 .sendButton {
-  margin-top: -15rem;
+  margin-top: -3rem;
   margin-left: -2%;
   animation: orbitSpin 0.7s ease-in-out infinite alternate-reverse;
 }
@@ -217,91 +217,153 @@ input:-webkit-autofill:focus {
   right: 5rem;
 }
 
-
-@media(max-width:992px){
-  .getIntouch p{
+@media (max-width: 992px) {
+  .getIntouch p {
     font-size: 3.5rem;
   }
-  .address1 .address-1{
+  .address1 .address-1 {
     top: 30%;
   }
-  .address1 .address-2{
+  .address1 .address-2 {
     margin-top: 0.5rem;
     line-height: 1rem;
     font-size: 0.8rem;
     top: 45%;
   }
-  .sendButton img{
-    width:18rem
+  .sendButton img {
+    width: 18rem;
   }
-  .address1 .kochi-address{
+  .address1 .kochi-address {
     font-size: 1.1rem;
-    left:-4rem;
+    left: -4rem;
   }
-  .address1 .Kozhikode-address{
+  .address1 .Kozhikode-address {
     font-size: 1.1rem;
     right: -3rem;
-
   }
 }
-@media(max-width:480px){
-  .getIntouch p{
-    margin-left: 0!important;
-
+@media (max-width: 480px) {
+  .getIntouch p {
+    margin-left: 0 !important;
   }
-  .contactInputs{
+  .contactInputs {
     margin-left: 0;
   }
-  .contactInputs input{
+  .contactInputs input {
     width: auto;
   }
-  .subContact{
+  .subContact {
     /* align-items: center; */
     justify-content: center;
   }
-  .sendButton{
+  .sendButton {
     margin-top: -3rem;
   }
   .sendButton img {
     width: 14rem;
   }
-  .address1{
+  .address1 {
     margin-top: 5rem;
   }
-  .address1 .address-1{
+  .address1 .address-1 {
     font-size: 1.2rem;
   }
-  .address1 span{
+  .address1 span {
     position: absolute;
     font-size: 1rem;
     top: 12.5rem;
   }
-  .phone-contact{
+  .phone-contact {
     margin-top: 1rem;
   }
-  .detailSection .bg-image-2{
+  .detailSection .bg-image-2 {
     flex-direction: column;
   }
-  .address1{
+  .address1 {
     width: 65% !important;
   }
-  .address1 .address-2{
+  .address1 .address-2 {
     font-size: 0.65rem;
   }
-  .Ellipse{
+  .Ellipse {
     bottom: 6rem;
-    right: 0rem
+    right: 0rem;
   }
   .Ellipse1 {
     top: 0;
   }
-  .Ellipse2{
-    left: 2rem ;
+  .Ellipse2 {
+    left: 2rem;
   }
-  .address1 .kochi-address{
+  .address1 .kochi-address {
     font-size: 0.9rem;
   }
-  .address1 .Kozhikode-address{
+  .address1 .Kozhikode-address {
     font-size: 0.9rem;
   }
+}
+
+
+@keyframes ripple {
+  0% {
+    transform: translate3d(-50%, 50%, 0) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(-50%, 50%, 0) scale(30);
+    opacity: 0;
+  }
+}
+
+.ripple-6a{
+  position: absolute;
+  border-radius: 100%;
+  height: 8px;
+  width: 8px;
+  background-color: rgb(0, 250, 8);
+  left: 37.2%;
+  top:86%;
+}
+
+.ripple-6 {
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  left: 38%;
+  top:87%;
+  background-color: rgb(0, 250, 8);
+  border-radius: 50%;
+  transform: translate3d(-50%, 50%, 0);
+  animation-name: ripple;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  will-change: transform, opacity;
+}
+
+
+.ripple-7a{
+  position: absolute;
+  border-radius: 100%;
+  height: 8px;
+  width: 8px;
+  background-color: rgb(0, 250, 8);
+  left: 35.2%;
+  top:83%;
+}
+
+.ripple-7 {
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  left: 36%;
+  top:84%;
+  background-color: rgb(0, 250, 8);
+  border-radius: 50%;
+  transform: translate3d(-50%, 50%, 0);
+  animation-name: ripple;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  will-change: transform, opacity;
 }

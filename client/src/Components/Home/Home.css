@@ -853,6 +853,7 @@ body::-webkit-scrollbar {
   display: none;
 }
 .ufoPlanet-section {
+  position: relative;
   height: 32rem;
 }
 
@@ -868,6 +869,13 @@ body::-webkit-scrollbar {
 .ufoPlanet {
   position: absolute;
   left: -2%;
+}
+
+@media(max-width:1400px){
+  .ufoPath {
+   margin-top: 3.5rem;
+   right: 3%;
+  }
 }
 
 @keyframes shake {
@@ -1153,7 +1161,7 @@ body::-webkit-scrollbar {
   margin-left: 6%;
   margin-top: 6rem;
   perspective: 1000px;
-  margin-bottom: 18rem;
+  margin-bottom: 8rem;
 }
 .contactSection h1 {
   font-size: 5.5rem;
@@ -1324,6 +1332,8 @@ section {
   /* margin-top: 13rem; */
   margin-top: 20rem;
   margin-left: 33rem;
+  display: flex;
+  flex-direction: column;
 }
 .menuTyping {
   font-size: 8.5rem;
@@ -1375,7 +1385,7 @@ section {
     margin-top: 17rem;
   }
 
-  .connectLinks p {
+  .connectLinks a {
     margin: 0.7rem;
   }
 
@@ -2034,4 +2044,15 @@ section {
   to {
     text-shadow: black 0px 9.9px 0, rgb(180 176 176) 0px 10.6px 1px;
   }
+}
+
+.ufolight{
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  position: absolute;
+  left: 43%;
+  top: 88%;
+}
+.ufolight.visible {
+  opacity: 1;
 }

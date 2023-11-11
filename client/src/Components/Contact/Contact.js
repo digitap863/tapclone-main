@@ -2,7 +2,8 @@ import React, { useCallback, useEffect, useState } from "react";
 import "./Contact.css";
 import contactHeading from "../../assets/contact/contact.svg";
 import grid from "../../assets/contact/grid.svg";
-import map from "../../assets/contact/kerala.svg";
+// import map from "../../assets/contact/kerala.svg";
+import map from '../../assets/contact/india.png'
 import button from "../../assets/contact/button.svg";
 import location from "../../assets/contact/location.svg";
 import box1 from "../../assets/contact/bg box.svg";
@@ -270,10 +271,14 @@ function Contact() {
             >
               <img style={{ width: "65%" }} src={grid} alt="" />
               <img
-                style={{ position: "absolute", width: "46%" }}
+                style={{ position: "absolute", width: "70%" }}
                 src={map}
                 alt=""
               />
+              {/* <div className="ripple-6"></div>
+              <div className="ripple-6a"></div>
+              <div className="ripple-7"></div>
+              <div className="ripple-7a"></div> */}
             </div>
           </div>
         </div>
@@ -386,7 +391,7 @@ function Contact() {
                 <p>
                   {" "}
                   KOCHI:
-                  <br /> +91 4354353435 <br></br>+91 4354353435{" "}
+                  <br /> +91 9037833933 <br></br>+91 9020442445{" "}
                 </p>
               </div>
               <div className="Kozhikode-address">

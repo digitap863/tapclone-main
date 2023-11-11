@@ -1,10 +1,12 @@
+
 import React from 'react'
+import logo from '../../assets/logomain.png'
 import './Footer.css'
 function Footer() {
     return (
         <div className='footerMain '>
             <div className="logoDiv">
-                <p>LOGO</p>
+                <img src={logo} alt='logo'/>
             </div>
             <div className="addressDiv">
                 <h2>COMPANY NAME</h2>
@@ -19,18 +21,17 @@ function Footer() {
 
             </div>
             <div className="navLinksDiv">
-                <p>HOME</p>
-                <p>SERVICES</p>
-                <p>WORK</p>
-                <p>CAREER</p>
-                <p>BLOG</p>
-                <p>CONTACT</p>
+                <a href='/'>HOME</a>
+                <a href='/services'>SERVICES</a>
+                {/* <p>CAREER</p> */}
+                {/* <p>BLOG</p> */}
+                <a href='/contact'>CONTACT</a>
             </div>
             <div className="socialLinks">
-                <p>Instagram</p>
-                <p>Twitter</p>
-                <p>Linkedin</p>
-                <p>Facebook</p>
+                <a href='https://www.instagram.com/tapclone_official/'>Instagram</a>
+                {/* <p>Twitter</p> */}
+                <a href='https://www.linkedin.com/company/82332328/admin/feed/posts/'>Linkedin</a>
+                <a href='https://www.facebook.com/Tapclone'>Facebook</a>
 
             </div>
         </div>

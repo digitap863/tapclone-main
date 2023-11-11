@@ -44,7 +44,7 @@ const MobileNavbar = () => {
               SERVICES
             </NavLink>{" "}
           </li>
-          <li>
+          {/* <li>
             <NavLink
               to="/projects"
               style={({ isActive }) => ({
@@ -53,7 +53,7 @@ const MobileNavbar = () => {
             >
               PROJECTS
             </NavLink>{" "}
-          </li>
+          </li> */}
           <li>
             <NavLink
               to="/team"

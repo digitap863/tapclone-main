@@ -113,10 +113,10 @@ function AboutMain() {
                   Focused
                 </h1>
                 <p>
-                  Lorem Ipsum is simply dummy text of the printing and
+                  {/* Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
                   standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
+                  printer took a galley of type and scrambled it to make a type */}
                 </p>
               </div>
             </div>
@@ -140,10 +140,10 @@ function AboutMain() {
                   Creators
                 </h1>
                 <p>
-                  Lorem Ipsum is simply dummy text of the printing and
+                  {/* Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
                   standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
+                  printer took a galley of type and scrambled it to make a type */}
                 </p>
               </div>
             </div>
@@ -166,10 +166,10 @@ function AboutMain() {
                   Digital <br />
                 </h1>
                 <p>
-                  Lorem Ipsum is simply dummy text of the printing and
+                  {/* Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
                   standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
+                  printer took a galley of type and scrambled it to make a type */}
                 </p>
               </div>
             </div>
@@ -192,10 +192,10 @@ function AboutMain() {
                   Digital <br />
                 </h1>
                 <p>
-                  Lorem Ipsum is simply dummy text of the printing and
+                  {/* Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
                   standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
+                  printer took a galley of type and scrambled it to make a type */}
                 </p>
               </div>{" "}
             </div>
