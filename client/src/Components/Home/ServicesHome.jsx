@@ -6,16 +6,18 @@ import { servicesArr } from '../../assets/constants';
 import { Button } from '@nextui-org/react';
 import leftarrow from '../../assets/services/arrowleft.png'
 import rightarrow from '../../assets/services/arrowright.png'
+import { useNavigate } from 'react-router-dom';
 
 function ServicesHome() {
+    const navigate = useNavigate()
     return (
-        <div className='ml-20 flex justify-end'>
-            <div className='w-1/3 heroTextServiceHome flex flex-col items-start'>
+        <div className='lg:ml-20 flex flex-col lg:flex-row items-center lg:justify-end'>
+            <div className='lg:w-1/3 heroTextServiceHome flex flex-col items-center lg:items-start'>
                 <h1>Our <br /> <span className='text-[#AEEF24]'>Services</span></h1>
-                <p className='w-[50%] mb-5 text-lg text-gray-300 '>We’re brand builders at heart, creators by design, tech enthusiasts in practice, and integrated at our core.</p>
-                <Button className='rounded-[3rem] bg-transparent text-white border px-16 py-4'>OUR SERVICES</Button>
+                <p className='w-[70%] lg:w-[50%] mb-5 text-lg text-gray-300 text-justify'>We’re brand builders at heart, creators by design, tech enthusiasts in practice, and integrated at our core.</p>
+                <Button onClick={()=>navigate('/services')} className='rounded-[3rem] bg-transparent text-white border px-16 py-4'>OUR SERVICES</Button>
             </div>
-            <div className='w-1/2 relative'>
+            <div className='w-[90%] lg:w-1/2 relative'>
                 <Swiper
                 modules={[Autoplay,Navigation]}
                     loop={true}
@@ -37,7 +39,7 @@ function ServicesHome() {
                                     key={index}
                                     className={`flex h[14rem] relative justify-center items-center`}
                                 >
-                                    <img src={elem.img} alt="" />
+                                    <img src={elem.img} alt="" className='w-[60%] lg:w-auto' />
                                 </div>
                             </SwiperSlide>
                         ))

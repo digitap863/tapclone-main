@@ -666,6 +666,12 @@ margin-top: 1rem;
   align-items: center;
 }
 
+@media(max-width:480px){
+  .section3 .ufoPlanet {
+    width: 25%;
+  }
+}
+
 .section3 .ufoPlanet img {
   width: 35%;
   margin-left: 15%;
@@ -2044,6 +2050,12 @@ section {
 @keyframes textStroke {
   to {
     text-shadow: black 0px 9.9px 0, rgb(180 176 176) 0px 10.6px 1px;
+  }
+}
+
+@media(max-width:480px){
+  .heroTextServiceHome h1{
+    font-size:3.2rem;
   }
 }
 
