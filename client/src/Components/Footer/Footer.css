@@ -37,6 +37,7 @@
 
 .addressDiv p,
 .contactDiv p,
+.contactDiv a,
 .navLinksDiv a,
 .socialLinks a {
   margin: 0;

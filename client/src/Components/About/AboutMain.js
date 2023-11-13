@@ -17,7 +17,7 @@ import logoText from "../../assets/Shared/logoName.png";
 function AboutMain() {
   const [stars, setStars] = useState([]);
   const navigate = useNavigate();
-  const phoneNumber = "+1234567890";
+  const phoneNumber = "+919037833933";
   const doPhoneCallClick = () => {
     window.open(`tel:${phoneNumber}`);
   };

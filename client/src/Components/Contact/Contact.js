@@ -387,19 +387,20 @@ function Contact() {
               />
               <p className="address-1 addressContact">CONTACT</p>
 
-              <div className="kochi-address">
-                <p>
-                  {" "}
-                  KOCHI:
-                  <br /> +91 9037833933 <br></br>+91 9020442445{" "}
-                </p>
+              <div className="absolute text-[1.3rem] text-center font-[500] bottom-0 left-[5%] flex flex-col justify-center p-[2rem]">
+                <p>KOCHI:</p>
+                <a href="tel:+919037833933">+91 9037&nbsp; 833 &nbsp; 933</a>
+                <a href="tel:+919020442445">+91 9020&nbsp; 442&nbsp; 445</a>
+                
+                {/* <br /> +91 9037833 933 <br></br>+91 9020 442 445{" "} */}
+                
               </div>
-              <div className="Kozhikode-address">
-                <p>
+              <div className="absolute text-[1.3rem] text-center font-[500] bottom-0 right-[5%] flex flex-col justify-center p-[2rem]">
+                <a href="tel:+914354353435">
                   {" "}
                   CALICUT:
-                  <br /> +91 4354353435 <br></br> +91 4354353435 <br />
-                </p>
+                  <br /> +91 435&nbsp; 435&nbsp; 3435 <br></br> +91 435&nbsp; 435&nbsp; 3435 <br />
+                </a>
               </div>
             </div>
           </div>
