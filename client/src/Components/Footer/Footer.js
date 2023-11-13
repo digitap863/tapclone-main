@@ -16,7 +16,7 @@ function Footer() {
             <div className="contactDiv">
                 <h2>BUSINESS</h2>
                 <p>INFO@TAPCLONE.IN</p>
-                <p>+91 9605130922</p>
+                <p>+91 9037833933</p>
 
             </div>
             <div className="navLinksDiv">

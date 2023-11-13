@@ -47,7 +47,7 @@ function ServicesMain() {
     },
   ];
   const [stars, setStars] = useState([]);
-  const phoneNumber = "+1234567890";
+  const phoneNumber = "+919037833933";
   const doPhoneCallClick = () => {
     window.open(`tel:${phoneNumber}`);
   };
