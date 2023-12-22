@@ -138,14 +138,14 @@ function SalesMain() {
             };
             const formBody = new URLSearchParams(params).toString();
             const response = await fetch(
-                'https://script.google.com/macros/s/AKfycbya9yaYVzvK6bEjs3b2KjKdKtzSxKIH8lwMYCGmZCNUiOeJVPX4h0G8TJR2_IrssWae/exec',
+                'https://script.google.com/macros/s/AKfycbxaAhHYec_6wjix0oodJ0PxdJnojWOMyYyJrKXSd1sNJIFoFvcOCcZRQsSn783HI6QC/exec',
                 {
                     method: 'POST',
                     mode: 'no-cors', // Important for cross-origin requests to Google Apps Script
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
                     },
-                    body: new URLSearchParams(formBody).toString(),
+                    body: new URLSearchParams({formBody}).toString(),
                 }
             );
             setFormData({

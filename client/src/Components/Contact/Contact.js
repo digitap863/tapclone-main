@@ -23,6 +23,11 @@ function Contact() {
   const [stars, setStars] = useState([]);
   const [shakeTrigger, setShakeTrigger] = useState(false);
 
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const createStars = () => {
     const newStars = [];
     for (let i = 0; i < 100; i++) {
@@ -80,20 +85,32 @@ function Contact() {
         setShakeTrigger(false);
       }, 600);
       try {
-        const response = await fetch(
-          // "http://localhost:8000/api/contact-form/",
-          "http://16.170.249.40/api/contact-form/",
+        // const response = await fetch(
+        //   // "http://localhost:8000/api/contact-form/",
+        //   "http://16.170.249.40/api/contact-form/",
 
+        //   {
+        //     method: "POST",
+        //     mode: "cors",
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify(form),
+        //   }
+        // );
+        // const data = await response.json();
+        const response = await fetch(
+          "https://script.google.com/macros/s/AKfycbzVviIZIzclZp1mtM4YzaUhdvYyyB_aYrsTIarbO5E9pUGoJbeCdDwuMZwegvfeDS0_XA/exec",
           {
-            method: "POST",
-            mode: "cors",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(form),
+              method: 'POST',
+              mode: 'no-cors', // Important for cross-origin requests to Google Apps Script
+              headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              body: new URLSearchParams({Name:form.name,Email:form.email,Message:form.message}).toString(),
           }
-        );
-        const data = await response.json();
+      );
+      // AKfycbzF2vBXlQCRQv14k8F97221GfNiHRM4Ku-0kXkS506v4Su-mqIcHMQvnu7BbmHXsPDYVA
         setForm({
           name: "",
           email: "",
@@ -114,11 +131,6 @@ function Contact() {
     }
   };
 
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
 
   const [err, setErr] = useState({
     nameErr: "",
