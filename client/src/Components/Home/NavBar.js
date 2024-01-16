@@ -97,7 +97,7 @@ function NavBar() {
             <div className="line1" style={line1Style}></div>
             <div className="line2" style={line2Style}></div>
           </div>
-          <p style={{ fontSize: "1.5rem" }}>{getCurrentDay()}</p>
+          <p style={{ fontSize: "1.5rem" }}></p>
         </div>
 
         <div className="navs ">

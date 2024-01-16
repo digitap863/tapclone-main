@@ -27,10 +27,10 @@ import useMediaQuery from "../../hook/useMediaQuery";
 import MobileNavbar from "./MobileNavbar";
 import HeroCircle from "./HeroCircle";
 import ServicesHome from "./ServicesHome";
-import planetPre from '../../assets/Shared/planetPre.svg'
-import shipPre from '../../assets/Shared/shipPre.svg'
-import logo1 from '../../assets/Shared/favicon.png'
-import logoText from '../../assets/Shared/logoName.png'
+import planetPre from "../../assets/Shared/planetPre.svg";
+import shipPre from "../../assets/Shared/shipPre.svg";
+import logo1 from "../../assets/Shared/favicon.png";
+import logoText from "../../assets/Shared/logoName.png";
 
 function HomeMain() {
   const navigate = useNavigate();
@@ -289,7 +289,7 @@ function HomeMain() {
   useEffect(() => {
     document.body.style.overflow = "hidden";
     setTimeout(() => {
-      setlogoanim(true)
+      setlogoanim(true);
     }, 1000);
     setTimeout(() => {
       setSplash(false);
@@ -366,14 +366,32 @@ function HomeMain() {
           splash ? "translate-y-0" : "-translate-y-full"
         } w-full`}
       >
-        <img src={planetPre} alt="planet" className="absolute rotate-[-20deg] right-[10%] top-[20%]"/>
-        <img src={shipPre} alt="planet" className="absolute left-[10%] top-[60%]"/>
-       <div className="h-20 w-[70%] lg:w-[30%] flex justify-center items-center bg-transparent">
-        <img src={logo1} alt="logo" className="animate-fade-in w-[10%] lg:w-auto" />
-        <div className="w-[70%] lg:w-full h-full overflow-hidden relative">
-        <img src={logoText} alt="logotext" className={`absolute w-[90%] lg:w-auto top-[30%] lg:top-[15%] left-3 duration-[1200ms] ease-in ${logoanim?'translate-x-0':'-translate-x-[110%]'}`} />
+        <img
+          src={planetPre}
+          alt="planet"
+          className="absolute rotate-[-20deg] right-[10%] top-[20%]"
+        />
+        <img
+          src={shipPre}
+          alt="planet"
+          className="absolute left-[10%] top-[60%]"
+        />
+        <div className="h-20 w-[70%] lg:w-[30%] flex justify-center items-center bg-transparent">
+          <img
+            src={logo1}
+            alt="logo"
+            className="animate-fade-in w-[10%] lg:w-auto"
+          />
+          <div className="w-[70%] lg:w-full h-full overflow-hidden relative">
+            <img
+              src={logoText}
+              alt="logotext"
+              className={`absolute w-[90%] lg:w-auto top-[30%] lg:top-[15%] left-3 duration-[1200ms] ease-in ${
+                logoanim ? "translate-x-0" : "-translate-x-[110%]"
+              }`}
+            />
+          </div>
         </div>
-       </div>
         {starsLoader.map((star, index) => (
           <div
             key={index}
@@ -664,7 +682,7 @@ function HomeMain() {
                 Direct <br /> results.
               </span>
             </h1>
-            <p style={{ textAlign: "justify" }} className="mt-5">
+            <p className="mt-5 max-w-md">
               it is tough to make things simple. We aren't different just for
               the sake of being different. We are here to make a difference to
               brands.
@@ -681,7 +699,7 @@ function HomeMain() {
           <div className="ufo">
             <img src={ufo} alt="" />
           </div>
-          <div className="ufoPlanet ">
+          <div className="ufoPlanet  ">
             <img src={ufoPlanet} alt="" />
           </div>
         </section>

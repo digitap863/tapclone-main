@@ -212,7 +212,7 @@ function Contact() {
         <div className="contactSection ">
           <img
             className="contactImage"
-            style={{ width: "50%" }}
+            style={{ width: "30%" }}
             src={contactHeading}
             alt=""
           />

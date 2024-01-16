@@ -414,7 +414,7 @@ margin-top: 1rem;
 
 .heroText p {
   color: white;
-  font-size: 5rem;
+  font-size: 3.5rem;
   font-family: "Monument Extended Ultrabold";
   font-weight: 800;
   font-stretch: normal;
@@ -614,16 +614,17 @@ margin-top: 1rem;
 
 .section2 .Contents h1 {
   color: white;
-  font-size: 6rem;
+  font-size: 3.5rem;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  line-height: 0.83;
+  line-height: 0.93;
   letter-spacing: 0.96px;
 }
 
 .section2 .Contents p {
-  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 300;
   letter-spacing: 0.24px;
   text-align: left;
@@ -862,6 +863,7 @@ body::-webkit-scrollbar {
   height: 32rem;
 }
 
+
 .ufoPath {
   position: absolute;
   width: 56.5%;
@@ -881,7 +883,10 @@ body::-webkit-scrollbar {
    margin-top: 3.5rem;
    right: 3%;
   }
+
 }
+
+
 
 @keyframes shake {
   10%,
@@ -964,9 +969,9 @@ body::-webkit-scrollbar {
   width: 90%;
   position: absolute;
   right: 2%;
-  top: -98%;
+  top: 0%;
   z-index: -2;
-  opacity: 0.15;
+  opacity: 0.5;
   transform: rotateX(40deg);
 }
 
@@ -1177,7 +1182,7 @@ body::-webkit-scrollbar {
 .contactSection .contactButton {
   background-color: #e0e673;
   /* width: 30%; */
-  width: 35.81rem;
+  width: 22rem;
   font-size: 3rem;
   height: 7.5rem;
   display: flex;
@@ -2034,7 +2039,7 @@ section {
 
 .heroTextServiceHome h1 {
   color: white;
-  font-size: 5rem;
+  font-size: 3.5rem;
   font-family: "poppins";
   font-weight: 800;
   font-stretch: normal;
@@ -2081,4 +2086,13 @@ section {
 
 .animate-fade-in {
   animation: fadeIn 1s ease-in-out;
+}
+@media only screen and (min-width: 1536px) {
+  /* .ufoPlanet-section .ufoPlanet {
+    top: -95%;
+  } */
+  .ufolight{
+    left: 45%;
+  }
+
 }

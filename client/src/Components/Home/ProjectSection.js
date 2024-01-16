@@ -82,6 +82,23 @@ function ProjectSection() {
           id="eT28IepvEXN1"
           className="astroHiPath"
           xmlns="http://www.w3.org/2000/svg"
+          width="1132"
+          height="244"
+          viewBox="0 0 1132 244"
+          fill="none"
+        >
+          <path
+            id="astroHiPath"
+            d="M1969 1.85742C1878.33 103.191 1570.6 264.257 1065 97.8574C559.4 -68.5426 145 124.524 1 241.857"
+            stroke="white"
+            stroke-width="3"
+            stroke-dasharray="19 19"
+          />
+        </svg>
+        {/* <svg
+          id="eT28IepvEXN1"
+          className="astroHiPath"
+          xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
           viewBox="0 0 800 800"
           shape-rendering="geometricPrecision"
@@ -95,7 +112,7 @@ function ProjectSection() {
             stroke="#BFBFBF"
             stroke-width="2.6"
           />
-        </svg>
+        </svg> */}
       </div>
       <img className="orangePlanet" src={orangePlanet} alt="" />
       {/* <img className='violetCircle' src={violetCircle} alt="" /> */}

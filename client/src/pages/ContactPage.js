@@ -9,8 +9,8 @@ function ContactPage() {
   }, []);
   return (
     <div style={{backgroundColor:"black",width:'100%',overflowX:'hiden'}}>
-      <Contact></Contact>
-      <Footer></Footer>
+      <Contact/>
+      <Footer/>
     </div>
   )
 }

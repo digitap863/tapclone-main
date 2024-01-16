@@ -1,6 +1,5 @@
 .footerMain {
-  display: flex;
-  justify-content: space-around;
+
   margin-left: 6%;
   padding-bottom: 3rem;
   padding-top: 5rem;
@@ -10,11 +9,11 @@
   z-index: 1;
 }
 
-.logoDiv {
-  width: 25%;
+/* .logoDiv {
+
   display: flex;
   justify-content: center;
-}
+} */
 
 .addressDiv {
   padding-top:1rem;
@@ -64,11 +63,11 @@
   color: #fcddec;
   margin-bottom: 1.2rem;
 }
-.logoDiv img {
+/* .logoDiv img {
   margin-top: -3rem;
   object-fit: contain;
-  width: 20rem;
-}
+
+} */
 .socialLinks {
   /* width: 15%; */
   display: flex;
