@@ -11,7 +11,7 @@ function AboutPage() {
   }, []);
   return (
     <>
-      <div className="homeM                          in" style={{ backgroundColor: "black" }}>
+      <div className="homeMin" style={{ backgroundColor: "black" }}>
         <MobileNavbar />
         <NavBar />
         <AboutMain />

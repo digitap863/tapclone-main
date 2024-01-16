@@ -664,7 +664,7 @@ function HomeMain() {
                 Direct <br /> results.
               </span>
             </h1>
-            <p style={{ textAlign: "justify" }}>
+            <p style={{ textAlign: "justify" }} className="mt-5">
               it is tough to make things simple. We aren't different just for
               the sake of being different. We are here to make a difference to
               brands.

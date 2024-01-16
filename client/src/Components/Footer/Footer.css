@@ -1,5 +1,6 @@
 .footerMain {
   display: flex;
+  justify-content: space-around;
   margin-left: 6%;
   padding-bottom: 3rem;
   padding-top: 5rem;
@@ -66,7 +67,7 @@
 .logoDiv img {
   margin-top: -3rem;
   object-fit: contain;
-  width: 12rem;
+  width: 20rem;
 }
 .socialLinks {
   /* width: 15%; */

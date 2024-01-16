@@ -164,13 +164,13 @@ function NavBar() {
             </NavLink>
           </p>
         </div>
-        <div className="connectLinks">
+        {/* <div className="connectLinks">
           <p style={{ fontWeight: "600" }}>CONNECT</p>
           <a href="https://www.instagram.com/tapclone_official/" target="_blank">Instagram</a>
-          {/* <p>Twitter</p> */}
+          <p>Twitter</p>
           <a href="https://www.linkedin.com/company/82332328/admin/feed/posts/" target="_blank">Linkedin</a>
           <a href="https://www.facebook.com/Tapclone" target="_blank">Facebook</a>
-        </div>
+        </div> */}
         <div>
           <span className="menuTyping">MENU</span>
         </div>
