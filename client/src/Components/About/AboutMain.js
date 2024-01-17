@@ -73,8 +73,8 @@ function AboutMain() {
         <div className="aboutMain ">
           <div className="about-planetsWrap " style={{ width: "45%" }}>
             <img
-              className="aboutHeading"
-              style={{ width: "100%" }}
+              className="aboutHeading mx-auto"
+              style={{ width: "70%" }}
               src={aboutHeading}
               alt=""
             />
@@ -202,7 +202,7 @@ function AboutMain() {
           </div>
         </div>
 
-        <div className="service-team-btn ">
+        {/* <div className="service-team-btn ">
           <img src={Ellipse1} className="Ellipse1"></img>
           <img src={Ellipse2} className="Ellipse2"></img>
           <img src={Ellipse} className="Ellipse"></img>
@@ -224,7 +224,7 @@ function AboutMain() {
               />
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="knowMoreServices " style={{ marginTop: "4rem" }}>
           <span className="knowMoreText">

@@ -238,6 +238,11 @@
     font-size: 0.9rem;
   }
 }
+@media (min-width:1536px) {
+  .aboutDetails .about-desc {
+    max-width: 70%;
+  }  
+}
 
 @media(max-width:480px){
   .aboutDetails{
