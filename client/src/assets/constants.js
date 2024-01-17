@@ -1,10 +1,10 @@
 import image1 from './our team/Rectangle 44.png'
-import service1 from "./services/Asset 11web development 1.svg";
-import service2 from "./services/Asset 12UI ux.svg";
-import service3 from "./services/Asset 16branding 1.svg";
-import service4 from "./services/Asset 17SOCIAL MEDIA 1.svg";
-import service5 from "./services/Asset 18SEO 1.svg";
-import service6 from "./services/Asset 20GMP 1.svg";
+import service1 from "./services/web.png"
+import service2 from "./services/uiux.png";
+import service3 from "./services/brand.png";
+import service4 from "./services/social.png";
+import service5 from "./services/seo.png";
+import service6 from "./services/google.png";
 
 
 export const team=[

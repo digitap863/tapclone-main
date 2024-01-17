@@ -70,8 +70,8 @@
   align-items: center;
   justify-content: center; */
   /* width: 90%; */
-  width: 25rem;
-  height: 25rem;
+  width: 26rem;
+  height: 26rem;
   background-position: center center;
   background-size: cover;
   aspect-ratio: 1;
@@ -94,7 +94,6 @@
   font-size: 1.5rem;
   line-height: 1.5rem;
   letter-spacing: 0.36px;
-
   text-align: center;
 }
 .serviceDetails .serv-4 .socialMedia {

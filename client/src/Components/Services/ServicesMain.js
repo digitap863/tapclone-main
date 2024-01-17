@@ -34,11 +34,7 @@ function ServicesMain() {
       In the elaborated process of web development we keep it simple for you
       <br/>
       <br/>
-     <ul>
-     <li>Front End , Back End , Full Stack </li>
-     
-      
-     </ul> 
+    
       `,
       isFlipped: false,
     },
@@ -250,44 +246,17 @@ function ServicesMain() {
                     <h5 className="mb-10">{items.title}</h5>
                   </div>
                   <div
-                    className=" w-[80%]   bg-slate-700/30 backdrop-blur-md rounded-2xl border border-gray-600 cursor-pointer px-6 py-10"
+                    className=" w-[80%]   bg-slate-700/30 backdrop-blur-md rounded-2xl border border-gray-600 cursor-pointer px-6 py-6  2xl:py-10"
                     onMouseLeave={() => handleClick(items.id)}
                   >
-                    {/* <div className="flex flex-col "> */}
                     <h4 className="">{items.title}</h4>
                     <p
-                      className="text-[0.780rem] 2xl:text-[0.900rem] mt-5"
+                      className="text-[0.780rem]  2xl:text-[0.900rem] mt-3 2xl:mt-5"
                       dangerouslySetInnerHTML={{ __html: items.para }}
                     ></p>
-                    {/* </div> */}
                   </div>
                 </ReactCardFlip>
               ))}
-
-            {/* <div className="serv-2 md:!flex !hidden">
-              <img src={service2} alt="" />
-              <h5 className="mb-10">UI/UX DEVELOPEMENT</h5>
-            </div>
-            <div className="serv-3 md:!flex !hidden">
-              <img src={service3} alt="" />
-              <h5 className="mb-10">BRANDING</h5>
-            </div>
-            <div className="serv-4 md:!flex !hidden">
-              <img src={service4} alt="" className="socialMedia" />
-              <h5 className="mb-10">
-                SOCIAL MEDIA <br></br>MANAGEMENT
-              </h5>
-            </div>
-            <div className="serv-5 md:!flex !hidden">
-              <img src={service5} alt="" />
-              <h5 className="mb-10">ORGANIC SEO</h5>
-            </div>
-            <div className="serv-6 md:!flex !hidden">
-              <img src={service6} alt="" />
-              <h5 className="mb-10">
-                GOOGLE MY <br></br> BUSINESS
-              </h5>
-            </div> */}
 
             <img
               className="planetImage1"
