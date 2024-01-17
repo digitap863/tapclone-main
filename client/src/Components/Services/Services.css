@@ -66,11 +66,12 @@
   position: relative;
 }
 .serviceDetails div {
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
-  width: 90%;
-  background: url("../../assets/services/grid\ behind\ icons.svg");
+  justify-content: center; */
+  /* width: 90%; */
+  width: 25rem;
+  height: 25rem;
   background-position: center center;
   background-size: cover;
   aspect-ratio: 1;
@@ -84,6 +85,16 @@
   line-height: 1.5rem;
   letter-spacing: 0.36px;
   bottom: 0;
+  text-align: center;
+}
+.serviceDetails h4 {
+
+  font-family: "Poppins";
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.36px;
+
   text-align: center;
 }
 .serviceDetails .serv-4 .socialMedia {
@@ -214,8 +225,19 @@
   .knowMoreLayer{
     margin-left: 0;
   }
+  /* .serviceDetails div {
+    width: 20rem;
+    height: 25rem;
+  } */
 }
 
+@media (min-width:1536px) {
+  .serviceDetails div {
+    width: 31rem;
+    height: 31rem;
+  }
+
+}
 @media(max-width:480px){
   .serviceDetails{
     margin-bottom: 0;
