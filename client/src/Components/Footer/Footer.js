@@ -15,9 +15,9 @@ function Footer() {
 
   return (
     <div className="py-6 flex flex-col">
-      <div className="footerMain flex flex-col xl:flex-row flex-wrap  justify-around">
-        <div className="logoDiv w-full xl:w-[25%] flex items-center mt-12 ">
-          <img src={footerlogo} alt="logo" className="w-full xl:w-[20rem]" />
+      <div className="footerMain flex flex-col md:flex-row flex-wrap  justify-around gap-10">
+        <div className="logoDiv w-full md:w-[25%] flex items-center mt-12 ">
+          <img src={footerlogo} alt="logo" className="w-full md:w-[20rem]" />
         </div>
         <div>
           <h4 className="text-[1.125rem] font-[500]">KOCHI</h4>
@@ -41,7 +41,7 @@ function Footer() {
             <li>Mob: +91 9037 833 933</li>
           </ul>
         </div>
-        <div>
+        <div className="relative">
           <h4 className="text-[1.125rem] font-[500]">LETS&nbsp; CONNECT</h4>
           <ul className="mt-8 flex gap-5">
             <li>
@@ -125,7 +125,7 @@ function Footer() {
               </a>
             </li>
           </ul>
-          <button className="mt-10" onClick={scrollToTop}>
+          <button className="mt-10 absolute right-0 -top-5 md:static" onClick={scrollToTop}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="64"
@@ -142,7 +142,7 @@ function Footer() {
           </button>
         </div>
       </div>
-      <h2 className="xl:text-center  text-[1rem] ml-12 pt-8 text-[#dbdada] ">
+      <h2 className="md:text-center  text-[1rem] ml-12 pt-8 text-[#dbdada] ">
         © 2022 | Tapclone | All Rights Reserved
       </h2>
 

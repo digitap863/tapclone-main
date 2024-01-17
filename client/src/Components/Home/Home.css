@@ -1724,13 +1724,13 @@ section {
   .navLinksDiv {
     display: none;
   }
-  .footerMain {
+  /* .footerMain {
     margin-left: 0;
     padding-top: 2.2rem;
     display: grid;
     grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
     grid-gap: 1rem;
-  }
+  } */
 
   .logoDiv,
   .addressDiv,

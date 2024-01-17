@@ -3,7 +3,7 @@ import "./Contact.css";
 import contactHeading from "../../assets/contact/contact.svg";
 import grid from "../../assets/contact/grid.svg";
 // import map from "../../assets/contact/kerala.svg";
-import map from '../../assets/contact/india.png'
+import map from "../../assets/contact/india.png";
 import button from "../../assets/contact/button.svg";
 import location from "../../assets/contact/location.svg";
 import box1 from "../../assets/contact/bg box.svg";
@@ -12,7 +12,7 @@ import box2 from "../../assets/contact/bg box 2.svg";
 import Ellipse1 from "../../assets/contact/Ellipse 17.png";
 import Ellipse2 from "../../assets/contact/Ellipse 18.png";
 import Ellipse from "../../assets/contact/Group 203.png";
-import {  toast } from "react-toastify";
+import { toast } from "react-toastify";
 import logoText from "../../assets/Shared/logoName.png";
 import "react-toastify/dist/ReactToastify.css";
 import { createPortal } from "react-dom";
@@ -102,15 +102,19 @@ function Contact() {
         const response = await fetch(
           "https://script.google.com/macros/s/AKfycbzVviIZIzclZp1mtM4YzaUhdvYyyB_aYrsTIarbO5E9pUGoJbeCdDwuMZwegvfeDS0_XA/exec",
           {
-              method: 'POST',
-              mode: 'no-cors', // Important for cross-origin requests to Google Apps Script
-              headers: {
-                  'Content-Type': 'application/x-www-form-urlencoded',
-              },
-              body: new URLSearchParams({Name:form.name,Email:form.email,Message:form.message}).toString(),
+            method: "POST",
+            mode: "no-cors", // Important for cross-origin requests to Google Apps Script
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams({
+              Name: form.name,
+              Email: form.email,
+              Message: form.message,
+            }).toString(),
           }
-      );
-      // AKfycbzF2vBXlQCRQv14k8F97221GfNiHRM4Ku-0kXkS506v4Su-mqIcHMQvnu7BbmHXsPDYVA
+        );
+        // AKfycbzF2vBXlQCRQv14k8F97221GfNiHRM4Ku-0kXkS506v4Su-mqIcHMQvnu7BbmHXsPDYVA
         setForm({
           name: "",
           email: "",
@@ -130,7 +134,6 @@ function Contact() {
       }
     }
   };
-
 
   const [err, setErr] = useState({
     nameErr: "",
@@ -199,11 +202,11 @@ function Contact() {
   return (
     <>
       <div style={{ width: "100%" }}>
-        <NavBar/>
-        <MobileNavbar/>
+        <NavBar />
+        <MobileNavbar />
         <div className="header">
           <div className="logoSection">
-          {/* <img src={logoText} alt="logoText" /> */}
+            {/* <img src={logoText} alt="logoText" /> */}
           </div>
           {/* <div className="dateSection">
                     <p style={{ margin: "0" }}> Mon 22.07</p>
@@ -211,8 +214,8 @@ function Contact() {
         </div>
         <div className="contactSection ">
           <img
-            className="contactImage"
-            style={{ width: "30%" }}
+            className="contactImage "
+            style={{ width: "28%" }}
             src={contactHeading}
             alt=""
           />
@@ -281,11 +284,12 @@ function Contact() {
                 marginTop: "2rem",
               }}
             >
-              <img style={{ width: "65%" }} src={grid} alt="" />
+              <img className="w-[65%] 2xl:w-[52%]" src={grid} alt="" />
               <img
-                style={{ position: "absolute", width: "70%" }}
+                // style={{ position: "absolute", width: "70%" }}
                 src={map}
                 alt=""
+                className="absolute w-[70%] 2xl:w-[55%]"
               />
               {/* <div className="ripple-6"></div>
               <div className="ripple-6a"></div>
@@ -307,7 +311,7 @@ function Contact() {
         >
           <img src={button} alt="" />
         </div>
-        <div className="detailSection ">
+        <div className="detailSection py-10 ">
           <div
             className="bg-image-2"
             style={{
@@ -321,14 +325,14 @@ function Contact() {
             <img src={Ellipse} className="Ellipse"></img>
             <div className="address1">
               <img
-                className=" w-[15%] md:w-[20%] lg:w-[28%] z-10"
+                className=" w-[15%] md:w-[20%] lg:w-[25%] z-10"
                 src={location}
                 alt=""
               />
               <img
-                style={{ width: "85%", marginTop: "-30%" }}
                 src={box1}
                 alt=""
+                className="w-[85%] mt-[-30%] 2xl:w-[75%] "
               />
               <p className="address-1">KOCHI</p>
               <p className="address-2">
@@ -352,12 +356,12 @@ function Contact() {
             </div>
             <div className="address1">
               <img
-                className=" w-[15%] md:w-[20%] lg:w-[28%] z-[1]"
+                className=" w-[15%] md:w-[20%] lg:w-[25%] z-[1]"
                 src={location}
                 alt=""
               />
               <img
-                style={{ width: "85%", marginTop: "-30%" }}
+                className="w-[85%] mt-[-30%] 2xl:w-[75%] "
                 src={box1}
                 alt=""
               />
@@ -383,37 +387,37 @@ function Contact() {
             </div>
           </div>
 
-          <div className="phone-contact"
+          <div
+            className="phone-contact"
             style={{
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            <div className="address1 contact-width">
-              <img style={{ width: "28%", zIndex: "3" }} src={call} alt="" />
+            <div className="address1 contact-width ">
+              <img className="w-[28%] z-[3] xl:w-[20%]" src={call} alt="" />
               <img
-                className="w-[130%] md:mt-[-23%] lg:mt-[-18%]"
+                className="w-full md:mt-[-23%] lg:mt-[-18%] 2xl:w-[80%]"
                 src={box2}
                 alt=""
               />
-              <p className="address-1 addressContact">CONTACT</p>
 
-              <div className="absolute text-[1.3rem] text-center font-[500] bottom-0 left-[5%] flex flex-col justify-center p-[2rem]">
+              <p className="address-1 mt-5 2xl:mt-10">CONTACT</p>
+
+              <div className="absolute  text-[0.65rem] md:text-[1.2rem] text-center font-[500] bottom-0 left-0 md:left-[5%] 2xl:left-[10%] flex flex-col justify-center p-4 md:p-[2rem] ">
                 <p>KOCHI:</p>
                 <a href="tel:+919037833933">+91 9037&nbsp; 833 &nbsp; 933</a>
                 <a href="tel:+919020442445">+91 9020&nbsp; 442&nbsp; 445</a>
-                
-                {/* <br /> +91 9037833 933 <br></br>+91 9020 442 445{" "} */}
-                
               </div>
-              <div className="absolute text-[1.3rem] text-center font-[500] bottom-0 right-[5%] flex flex-col justify-center p-[2rem]">
+              <div className="absolute text-[0.65rem] md:text-[1.2rem] text-center font-[500] bottom-0 right-0 md:right-[5%] 2xl:right-[10%] flex flex-col justify-center p-4 md:p-[2rem]">
                 <a href="tel:+914354353435">
                   {" "}
                   CALICUT:
-                  <br /> +91 435&nbsp; 435&nbsp; 3435 <br></br> +91 435&nbsp; 435&nbsp; 3435 <br />
+                  <br /> +91 435&nbsp; 435&nbsp; 3435 <br></br> +91 435&nbsp;
+                  435&nbsp; 3435 <br />
                 </a>
-              </div>
+              </div> 
             </div>
           </div>
         </div>
