@@ -107,10 +107,11 @@ function ServicesMain() {
         <div className="serviceMain">
           <div className="service-head-wrap " style={{ width: "55%" }}>
             <img
-              className="header-1 "
-              style={{ width: "100%" }}
+              className="header-1 w-[50%] mx-auto "
+              style={{ width: "50%" }}
               src={heading}
               alt=""
+              
             />
             {/* <img className="servPath" src={servicePath} alt="" /> */}
             <img className="blue-planet" src={bluePlanet} alt="" />
@@ -154,29 +155,29 @@ function ServicesMain() {
           <div className="serviceDetails ">
             <div className="serv-1 md:!flex !hidden">
               <img src={service1} alt="" />
-              <h5>WEB DEVELOPMENT</h5>
+              <h5 className="mb-10">WEB DEVELOPMENT</h5>
             </div>
             <div className="serv-2 md:!flex !hidden">
               <img src={service2} alt="" />
-              <h5>UI/UX DEVELOPEMENT</h5>
+              <h5 className="mb-10">UI/UX DEVELOPEMENT</h5>
             </div>
             <div className="serv-3 md:!flex !hidden">
               <img src={service3} alt="" />
-              <h5>BRANDING</h5>
+              <h5 className="mb-10">BRANDING</h5>
             </div>
             <div className="serv-4 md:!flex !hidden">
               <img src={service4} alt="" className="socialMedia" />
-              <h5>
+              <h5 className="mb-10">
                 SOCIAL MEDIA <br></br>MANAGEMENT
               </h5>
             </div>
             <div className="serv-5 md:!flex !hidden">
               <img src={service5} alt="" />
-              <h5>ORGANIC SEO</h5>
+              <h5 className="mb-10">ORGANIC SEO</h5>
             </div>
             <div className="serv-6 md:!flex !hidden">
               <img src={service6} alt="" />
-              <h5>
+              <h5 className="mb-10">
                 GOOGLE MY <br></br> BUSINESS
               </h5>
             </div>

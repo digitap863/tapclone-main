@@ -10,8 +10,8 @@ function ServicePage() {
   return (
     <div style={{backgroundColor:"black"}}>
       {/* <NavBar></NavBar> */}
-      <ServicesMain></ServicesMain>
-      <Footer></Footer>
+      <ServicesMain/>
+      <Footer/>
     </div>
   )
 }
