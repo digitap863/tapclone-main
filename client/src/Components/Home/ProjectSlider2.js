@@ -1,21 +1,31 @@
-import React, { useRef } from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import "./Slider.css";
-import previewProject from "../../assets/previewProject.png";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay, Navigation } from "swiper";
-import yellowNext from "../../assets/yellowNext.svg";
-import violetPrev from "../../assets/violetPrev.svg";
+import React from "react";
+import { Autoplay, Navigation, Pagination } from "swiper";
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
+import previewProject from "../../assets/previewProject.png";
+import project_1 from "../../assets/home/project_1.png"
+import project_2 from "../../assets/home/project_2.png"
+import project_3 from "../../assets/home/project_3.png"
+import project_4 from "../../assets/home/project_4.png"
+import project_5 from "../../assets/home/project_5.png"
+import project_6 from "../../assets/home/project_6.png"
+import project_7 from "../../assets/home/project_7.png"
+import violetPrev from "../../assets/violetPrev.svg";
+import yellowNext from "../../assets/yellowNext.svg";
+import "./Slider.css";
 
 function ProjectSlider2() {
   const imgArr = [
-    { image: previewProject },
-    { image: previewProject },
-    { image: previewProject },
+    { image: project_1 },
+    { image: project_2 },
+    { image: project_3 },
+    { image: project_4 },
+    { image: project_5 },
+    { image: project_6 },
+    { image: project_7 },
+ 
   ];
 
   return (
@@ -42,7 +52,7 @@ function ProjectSlider2() {
       >
         {imgArr.map(({ image }, idx) => (
           <SwiperSlide className="projectsPrevCarousel ">
-            <img src={image} />
+            <img src={image} className="mx-auto" />
           </SwiperSlide>
         ))}
       </Swiper>
