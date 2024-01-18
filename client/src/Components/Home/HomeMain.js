@@ -714,7 +714,7 @@ function HomeMain() {
             className={`ufolight ${isVisible ? "visible" : ""}`}
           />
           <svg
-            // style={{ opacity: 0 }}
+            // style={{ opacity: 100 }}
             className="ufoPath "
             id="erFka5b34HB1"
             xmlns="http://www.w3.org/2000/svg"

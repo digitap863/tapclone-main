@@ -885,7 +885,11 @@ body::-webkit-scrollbar {
   }
 
 }
-
+@media (min-width:1536px) {
+  .ufoPath {
+    top: -23.6%;
+  }  
+}
 
 
 @keyframes shake {
