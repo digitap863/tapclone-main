@@ -637,14 +637,14 @@ margin-top: 1rem;
   position: absolute;
   top: 0px;
   left: 0px;
-  transition-delay: 1.5s !important;
-  transition: all ease 1s;
+  transition-delay: 0.5s !important;
+  transition: all ease 0.5s;
 }
 
 .section3 {
   margin-left: 6%;
   height: 5%;
-  aspect-ratio: 1/0.5;
+  aspect-ratio: 1/0.3;
   display: flex;
 }
 
@@ -1178,7 +1178,7 @@ body::-webkit-scrollbar {
   margin-bottom: 8rem;
 }
 .contactSection h1 {
-  font-size: 5.5rem;
+  font-size: 4.5rem;
   /* font-family: "Poppins"; */
   line-height: 1;
   margin-bottom: 5rem;
@@ -1238,8 +1238,8 @@ section {
 } */
 .logoSlider .brandSliderDiv img {
   /* width: 9rem; */
-  width: 11.8rem;
-  aspect-ratio: 1/0.5;
+  width: 10rem;
+  aspect-ratio: 1/0.8;
   object-fit: contain;
 }
 .logoSlider .brandSliderDiv {
@@ -1267,8 +1267,9 @@ section {
   width: 40%;
   height: 5px;
   position: absolute;
-  top: 6rem;
+  top: 8rem;
   opacity: 0.2;
+
 }
 .orangePlanet {
   position: absolute;
@@ -2091,12 +2092,50 @@ section {
 .animate-fade-in {
   animation: fadeIn 1s ease-in-out;
 }
-@media only screen and (min-width: 1536px) {
-  /* .ufoPlanet-section .ufoPlanet {
-    top: -95%;
-  } */
-  .ufolight{
-    left: 45%;
+
+
+
+
+.floating {
+  /* transition: 1s ease-in-out; */
+  animation: float 15s ease-in-out infinite  alternate;
+
+
+
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(1em) ;
+  }
+  50% {
+    transform: translateY(-1.5rem);
+  }
+  100%{
+    transform: translateY(1rem);
+  }
+}
+
+
+.rotate {
+  animation: rotate  20s ease-in infinite forwards  ;
+}
+
+@keyframes rotate {
+  0% {
+    transform: translateY(2em) ;
+  }
+  25% {
+    transform: translateX(2rem);
+  }
+  50% {
+    transform: translateY(-2rem);
+  }
+  50% {
+    transform: translateX(-2rem);
+  }
+  100%{
+    transform: translateY(2rem);
   }
 
 }

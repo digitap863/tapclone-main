@@ -12,18 +12,19 @@ import ASTRO42 from "../../assets/svg/ASTRO42.svg";
 import ufo from "../../assets/svg/ufo.svg";
 import ufoPlanet from "../../assets/Asset 4@3002 28.png";
 import rocket from "../../assets/svg/rocket.svg";
+import blueplanet from "../../assets/bluePlanet.png";
 import gsap from "gsap";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import ufo2 from "../../assets/svg/Layer 4.svg";
 import ufoLight from "../../assets/svg/light.svg";
 import Slider from "react-slick";
-import logo_1 from"../../assets/home/logo_1.png"
-import logo_2 from"../../assets/home/logo_2.png"
-import logo_3 from"../../assets/home/logo_3.png"
-import logo_4 from"../../assets/home/logo_4.png"
-import logo_5 from"../../assets/home/logo_5.png"
-import logo_6 from"../../assets/home/logo_6.png"
-import logo_7 from"../../assets/home/logo_7.png"
+import logo_1 from "../../assets/home/logo_1.png";
+import logo_2 from "../../assets/home/logo_2.png";
+import logo_3 from "../../assets/home/logo_3.png";
+import logo_4 from "../../assets/home/logo_4.png";
+import logo_5 from "../../assets/home/logo_5.png";
+import logo_6 from "../../assets/home/logo_6.png";
+import logo_7 from "../../assets/home/logo_7.png";
 
 import planet1 from "../../assets/svg/globe 2.svg";
 import { createPortal } from "react-dom";
@@ -79,15 +80,7 @@ function HomeMain() {
     setActiveMapButton(index);
   };
 
-  const images = [
-    logo_1,
-    logo_2,
-    logo_3,
-    logo_4,
-    logo_5,
-    logo_6,
-    logo_7,
-  ];
+  const images = [logo_1, logo_2, logo_3, logo_4, logo_5, logo_6, logo_7];
   const settings = {
     infinite: true,
     slidesToShow: 3,
@@ -702,8 +695,14 @@ function HomeMain() {
         )}
 
         <section className="section3 " style={{ position: "relative" }}>
-          <div className="ufo">
-            <img src={ufo} alt="" />
+          <div className="">
+            <img
+              src={ufo}
+              alt=""
+              className="absolute right-[10%] top-[50%]  floating"
+            />
+
+            <img src={blueplanet} className="absolute right-[40%] top-[60%] rotate" />
           </div>
           <div className="ufoPlanet  ">
             <img src={ufoPlanet} alt="" />
@@ -712,7 +711,7 @@ function HomeMain() {
 
         {/* <ServiceSection /> */}
         <ServicesHome />
-        <div className="ufoPlanet-section ">
+        {/* <div className="ufoPlanet-section ">
           <img className="ufoPlanet" src={ufo2} ref={ufoRef} alt="" />
           <img
             src={ufoLight}
@@ -739,37 +738,31 @@ function HomeMain() {
               strokeWidth="0.2"
             />
           </svg>
-        </div>
-        <section className="brandSection " ref={ufoStartRef}>
+        </div> */}
+        <section className="brandSection pt-28 " ref={ufoStartRef}>
           <h1>
             We believe in brands. <br />
             brands <span style={{ color: "#70ff00" }}>believe in us</span>
           </h1>
-          {/* <div className="brandSectionUfo">
-            <img src={ufo2} alt="" />
-            <img src={ufoLight} alt="" />
-          </div> */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <div className="logoSlider">
-              <Slider {...settings}>
-                {images.map((item, idx) => (
-                  <div
-                    className={
-                      idx === imageIndex
-                        ? "brandSliderDiv activeSlide"
-                        : "brandSliderDiv"
-                    }
-                  >
-                    <img src={item} alt="" />
-                  </div>
-                ))}
-              </Slider>
+          <div className="brandSectionUfo relative ">
+            <img src={ufo2} alt="" className="floating" />
+            <img src={ufoLight} alt="" className="floating" />
+            <div className="flex items-center justify-center">
+              <div className="logoSlider absolute top-[60%]">
+                <Slider {...settings}>
+                  {images.map((item, idx) => (
+                    <div
+                      className={
+                        idx === imageIndex
+                          ? "brandSliderDiv activeSlide"
+                          : "brandSliderDiv"
+                      }
+                    >
+                      <img src={item} alt="" />
+                    </div>
+                  ))}
+                </Slider>
+              </div>
             </div>
           </div>
 
@@ -1008,7 +1001,7 @@ function HomeMain() {
             <span
               style={{
                 color: "transparent",
-                WebkitTextStroke: " 3px rgb(255 255 255 / 100%)",
+                WebkitTextStroke: " 2px rgb(255 255 255 / 100%)",
               }}
             >
               we always seek for <br />
