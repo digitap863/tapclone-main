@@ -107,16 +107,15 @@ function AboutMain() {
                     color: "#70ff00",
                   }}
                 >
-                  <span>We're</span>
+                  <span>Team of</span>
                   <br />
-                  Technology <br />
-                  Focused
+                  Teach & <br /> Creativity
                 </h1>
-                <p>
-                  {/* Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type */}
+                <p className="mt-2">
+                  We have maintained our statement as a beacon since 2018. Here
+                  we foster a culture of creativity, while exploring and
+                  discovering our own story. a community committed to the dream
+                  of positive Digitalization
                 </p>
               </div>
             </div>
@@ -133,17 +132,17 @@ function AboutMain() {
                     color: "#8E64E9",
                   }}
                 >
-                  <span>We're Not Just</span>
+                  <span>Our fulfillment</span>
                   <br />
-                  Advertisers <br />
-                  We're <br />
-                  Creators
+                  is found in
+                  <br />
+                  creativity.
                 </h1>
-                <p>
-                  {/* Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type */}
+                <p className="mt-2">
+                  our essence is intertwined with the pulse of impactful
+                  creativity. We don't merely exist; we come alive through the
+                  rush of creating something truly remarkable. Every project is
+                  fresh canvas for new ideas
                 </p>
               </div>
             </div>
@@ -160,16 +159,15 @@ function AboutMain() {
                     color: "#BCFF87",
                   }}
                 >
-                  <span>We're</span>
+                  <span>Beginning</span>
                   <br />
-                  Design and <br />
-                  Digital <br />
+                  relations in detail
+                 
                 </h1>
-                <p>
-                  {/* Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type */}
+                <p className="mt-2">
+                  For us each connection is a bespoke experience. From the very
+                  first handshake we lay the foundation for lasting partnerships
+                  built on trust, transparency, and mutual success
                 </p>
               </div>
             </div>
@@ -186,16 +184,12 @@ function AboutMain() {
                     color: "#A53954",
                   }}
                 >
-                  <span>We're</span>
+                  <span>Our</span>
                   <br />
-                  Design and <br />
-                  Digital <br />
+                  Future of dreams
                 </h1>
-                <p>
-                  {/* Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type */}
+                <p className="mt-2">
+                anchored in the pursuit of ambitious goals. We navigate through challenges and triumphs In every project, venture, and endeavor, we infuse the spirit of our dreams
                 </p>
               </div>{" "}
             </div>

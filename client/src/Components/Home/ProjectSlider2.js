@@ -19,13 +19,13 @@ import "./Slider.css";
 
 function ProjectSlider2() {
   const imgArr = [
-    { image: project_1 ,link:"" },
+    { image: project_1 ,link:"https://www.continentaloverseaseducation.com/" },
     { image: project_2 ,link:""},
-    { image: project_3 ,link:""},
+    { image: project_3 ,link:"https://www.metrends.in/"},
     { image: project_4 ,link:""},
     { image: project_5 ,link:""},
     { image: project_6 ,link:""},
-    { image: project_7 ,link:"https://ahalia.vercel.app/"},
+    { image: project_7 ,link:""},
     { image: project_8 ,link:""},
  
   ];

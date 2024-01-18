@@ -25,6 +25,21 @@ import logo_4 from "../../assets/home/logo_4.png";
 import logo_5 from "../../assets/home/logo_5.png";
 import logo_6 from "../../assets/home/logo_6.png";
 import logo_7 from "../../assets/home/logo_7.png";
+import logo_8 from "../../assets/home/logo_8.png";
+import logo_9 from "../../assets/home/logo_9.png";
+import logo_10 from "../../assets/home/logo_10.png";
+import logo_11 from "../../assets/home/logo_11.png";
+import logo_12 from "../../assets/home/logo_12.png";
+import logo_13 from "../../assets/home/logo_13.png";
+import logo_14 from "../../assets/home/logo_14.png";
+import logo_15 from "../../assets/home/logo_16.png";
+import logo_16 from "../../assets/home/logo_16.png";
+import logo_17 from "../../assets/home/logo_17.png";
+import logo_18 from "../../assets/home/logo_18.png";
+import logo_19 from "../../assets/home/logo_19.png";
+import logo_20 from "../../assets/home/logo_20.png";
+import logo_21 from "../../assets/home/logo_21.png";
+import logo_22 from "../../assets/home/logo_22.png";
 
 import planet1 from "../../assets/svg/globe 2.svg";
 import { createPortal } from "react-dom";
@@ -80,7 +95,30 @@ function HomeMain() {
     setActiveMapButton(index);
   };
 
-  const images = [logo_1, logo_2, logo_3, logo_4, logo_5, logo_6, logo_7];
+  const images = [
+    logo_1,
+    logo_2,
+    logo_3,
+    logo_4,
+    // logo_5,
+    logo_6,
+    logo_7,
+    logo_8,
+    logo_9,
+    logo_10,
+    logo_11,
+    logo_12,
+    logo_13,
+    logo_14,
+    logo_15,
+    logo_16,
+    logo_17,
+    logo_18,
+    logo_19,
+    logo_20,
+    logo_21,
+    logo_22,
+  ];
   const settings = {
     infinite: true,
     slidesToShow: 3,
@@ -702,7 +740,10 @@ function HomeMain() {
               className="absolute right-[10%] top-[50%]  floating"
             />
 
-            <img src={blueplanet} className="absolute right-[40%] top-[60%] rotate" />
+            <img
+              src={blueplanet}
+              className="absolute right-[40%] top-[60%] rotate"
+            />
           </div>
           <div className="ufoPlanet  ">
             <img src={ufoPlanet} alt="" />
@@ -748,7 +789,7 @@ function HomeMain() {
             <img src={ufo2} alt="" className="floating" />
             <img src={ufoLight} alt="" className="floating" />
             <div className="flex items-center justify-center">
-              <div className="logoSlider absolute top-[60%]">
+              <div className="logoSlider absolute top-[55%]">
                 <Slider {...settings}>
                   {images.map((item, idx) => (
                     <div

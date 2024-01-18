@@ -1,23 +1,24 @@
 import React, { useCallback, useEffect, useState } from "react";
-import "./Contact.css";
 import contactHeading from "../../assets/contact/contact.svg";
 import grid from "../../assets/contact/grid.svg";
-// import map from "../../assets/contact/kerala.svg";
-import map from "../../assets/contact/india.png";
-import button from "../../assets/contact/button.svg";
-import location from "../../assets/contact/location.svg";
-import box1 from "../../assets/contact/bg box.svg";
-import call from "../../assets/contact/call.svg";
-import box2 from "../../assets/contact/bg box 2.svg";
+import "./Contact.css";
+import { createPortal } from "react-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Ellipse1 from "../../assets/contact/Ellipse 17.png";
 import Ellipse2 from "../../assets/contact/Ellipse 18.png";
 import Ellipse from "../../assets/contact/Group 203.png";
-import { toast } from "react-toastify";
-import logoText from "../../assets/Shared/logoName.png";
-import "react-toastify/dist/ReactToastify.css";
-import { createPortal } from "react-dom";
-import NavBar from "../Home/NavBar";
+import box2 from "../../assets/contact/bg box 2.svg";
+import box1 from "../../assets/contact/bg box.svg";
+import button from "../../assets/contact/button.svg";
+import call from "../../assets/contact/call.svg";
+import map from "../../assets/contact/india.png";
+import location from "../../assets/contact/location.svg";
 import MobileNavbar from "../Home/MobileNavbar";
+import NavBar from "../Home/NavBar";
+import orangeplanet from "../../assets/Asset 6@30 1.png"
+import blueplanet from "../../assets/Asset 4@3002 28.png"
+
 
 function Contact() {
   const [stars, setStars] = useState([]);
@@ -212,13 +213,15 @@ function Contact() {
                     <p style={{ margin: "0" }}> Mon 22.07</p>
                 </div> */}
         </div>
-        <div className="contactSection ">
+        <div className="contactSection relative">
           <img
             className="contactImage "
-            style={{ width: "28%" }}
+            style={{ width: "30%" }}
             src={contactHeading}
             alt=""
           />
+          <img src={orangeplanet} className="absolute top-[10%] left-[10%] moving_2"/>
+          <img src={blueplanet} className="absolute top-0 right-[10%] moving_1"/>
           <div
             className="subContact "
             style={{ display: "flex", width: "100%" }}
@@ -396,14 +399,14 @@ function Contact() {
             }}
           >
             <div className="address1 contact-width ">
-              <img className="w-[28%] z-[3] xl:w-[20%]" src={call} alt="" />
+              <img className="w-[28%] z-[3] xl:w-[20%] relative top-7 md:static" src={call} alt="" />
               <img
                 className="w-full md:mt-[-23%] lg:mt-[-18%] 2xl:w-[80%]"
                 src={box2}
                 alt=""
               />
 
-              <p className="address-1 mt-5 2xl:mt-10">CONTACT</p>
+              <p className="address-1 mt-[3rem] md:mt-5 2xl:mt-10">CONTACT</p>
 
               <div className="absolute  text-[0.65rem] md:text-[1.2rem] text-center font-[500] bottom-0 left-0 md:left-[5%] 2xl:left-[10%] flex flex-col justify-center p-4 md:p-[2rem] ">
                 <p>KOCHI:</p>
@@ -414,8 +417,8 @@ function Contact() {
                 <a href="tel:+914354353435">
                   {" "}
                   CALICUT:
-                  <br /> +91 435&nbsp; 435&nbsp; 3435 <br></br> +91 435&nbsp;
-                  435&nbsp; 3435 <br />
+                  <br /> 0495&nbsp; 460&nbsp; 5549 <br></br> +91 9037&nbsp;
+                  833&nbsp; 933 <br />
                 </a>
               </div> 
             </div>
