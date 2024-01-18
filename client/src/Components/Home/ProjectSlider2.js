@@ -12,19 +12,21 @@ import project_4 from "../../assets/home/project_4.png"
 import project_5 from "../../assets/home/project_5.png"
 import project_6 from "../../assets/home/project_6.png"
 import project_7 from "../../assets/home/project_7.png"
+import project_8 from "../../assets/home/project_8.png"
 import violetPrev from "../../assets/violetPrev.svg";
 import yellowNext from "../../assets/yellowNext.svg";
 import "./Slider.css";
 
 function ProjectSlider2() {
   const imgArr = [
-    { image: project_1 },
-    { image: project_2 },
-    { image: project_3 },
-    { image: project_4 },
-    { image: project_5 },
-    { image: project_6 },
-    { image: project_7 },
+    { image: project_1 ,link:"" },
+    { image: project_2 ,link:""},
+    { image: project_3 ,link:""},
+    { image: project_4 ,link:""},
+    { image: project_5 ,link:""},
+    { image: project_6 ,link:""},
+    { image: project_7 ,link:"https://ahalia.vercel.app/"},
+    { image: project_8 ,link:""},
  
   ];
 
@@ -50,9 +52,12 @@ function ProjectSlider2() {
         slidesPerView={1}
         spaceBetween={8}
       >
-        {imgArr.map(({ image }, idx) => (
+        {imgArr.map(({ image,link }, idx) => (
           <SwiperSlide className="projectsPrevCarousel ">
-            <img src={image} className="mx-auto" />
+            <a href={link} target="_blank">
+
+            <img src={image} className="mx-auto cursor-pointer" />
+            </a>
           </SwiperSlide>
         ))}
       </Swiper>
