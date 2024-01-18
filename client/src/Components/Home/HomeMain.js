@@ -17,9 +17,14 @@ import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import ufo2 from "../../assets/svg/Layer 4.svg";
 import ufoLight from "../../assets/svg/light.svg";
 import Slider from "react-slick";
-import brandLogo1 from "../../assets/logo1.png";
-import brandLogo2 from "../../assets/logo2.png";
-import brandLogo3 from "../../assets/logo3.png";
+import logo_1 from"../../assets/home/logo_1.png"
+import logo_2 from"../../assets/home/logo_2.png"
+import logo_3 from"../../assets/home/logo_3.png"
+import logo_4 from"../../assets/home/logo_4.png"
+import logo_5 from"../../assets/home/logo_5.png"
+import logo_6 from"../../assets/home/logo_6.png"
+import logo_7 from"../../assets/home/logo_7.png"
+
 import planet1 from "../../assets/svg/globe 2.svg";
 import { createPortal } from "react-dom";
 import worldMap from "../../assets/worldMap.svg";
@@ -75,12 +80,13 @@ function HomeMain() {
   };
 
   const images = [
-    brandLogo1,
-    brandLogo2,
-    brandLogo3,
-    brandLogo1,
-    brandLogo2,
-    brandLogo3,
+    logo_1,
+    logo_2,
+    logo_3,
+    logo_4,
+    logo_5,
+    logo_6,
+    logo_7,
   ];
   const settings = {
     infinite: true,
