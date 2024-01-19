@@ -131,28 +131,6 @@ function NavBar() {
               SERVICES
             </NavLink>
           </p>
-          {/* <p>
-            <NavLink
-              to="/projects"
-              style={({ isActive }) => ({
-                color: isActive ? "#aeef24" : "#fff",
-              })}
-            >
-              PROJECTS
-            </NavLink>
-          </p> */}
-
-          {/* <p onClick={()=>navigate('/packages')}>PACKAGES</p> */}
-          {/* <p>
-            <NavLink
-              to="/team"
-              style={({ isActive }) => ({
-                color: isActive ? "#aeef24" : "#fff",
-              })}
-            >
-              TEAM
-            </NavLink>
-          </p> */}
           <p>
             <NavLink
               to="/contact"
@@ -164,13 +142,6 @@ function NavBar() {
             </NavLink>
           </p>
         </div>
-        {/* <div className="connectLinks">
-          <p style={{ fontWeight: "600" }}>CONNECT</p>
-          <a href="https://www.instagram.com/tapclone_official/" target="_blank">Instagram</a>
-          <p>Twitter</p>
-          <a href="https://www.linkedin.com/company/82332328/admin/feed/posts/" target="_blank">Linkedin</a>
-          <a href="https://www.facebook.com/Tapclone" target="_blank">Facebook</a>
-        </div> */}
         <div>
           <span className="menuTyping">MENU</span>
         </div>

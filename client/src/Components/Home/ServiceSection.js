@@ -1,11 +1,11 @@
-import { React, useRef, useEffect, useState } from "react";
+import gsap from "gsap";
+import { React, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import servicePlanet from "../../assets/Asset 5@30 1.png";
-import "./Animation.css";
-import gsap from "gsap";
 import arrowSvg from "../../assets/svg/arrowSvg.svg";
-import textRotateSvg from "../../assets/svg/textRotateSvg.svg";
 import planet from "../../assets/svg/planet.svg";
+import textRotateSvg from "../../assets/svg/textRotateSvg.svg";
+import "./Animation.css";
 
 function ServiceSection() {
   const [serviceState, setServiceState] = useState(false);

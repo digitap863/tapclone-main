@@ -522,10 +522,10 @@ margin-top: 1rem;
   border-radius: 50%;
   top: -18%;
   left: 11%;
-  animation: rotate 15s linear infinite;
+  animation: rotate2 15s linear infinite;
 }
 
-@keyframes rotate {
+@keyframes rotate2 {
   to {
     transform: rotate(360deg);
   }

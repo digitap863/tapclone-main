@@ -19,7 +19,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import NavBar from "../Home/NavBar";
 import MobileNavbar from "../Home/MobileNavbar";
-import grid from "../../assets/services/grid behind icons.svg";
+import grid from "../../assets/services/grid_behind_icons.svg";
 
 function ServicesMain() {
   const servicesArr = [
@@ -238,7 +238,7 @@ function ServicesMain() {
                     className=" serv-1 md:!flex !hidden  cursor-pointer  items-center justify-center mx-auto"
                     onMouseEnter={() => handleClick(items.id)}
                     style={{
-                      backgroundImage: `url('${encodeURIComponent(grid)}')`,
+                      backgroundImage: `url('${grid}')`,
                       backgroundSize: "cover",
                     }}
                   >

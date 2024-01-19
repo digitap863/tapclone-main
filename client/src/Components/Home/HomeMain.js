@@ -1,6 +1,5 @@
 import { React, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { RemoveScroll } from "react-remove-scroll";
 import SwipeButton from "./SwipeButton";
 import Footer from "../Footer/Footer";
 import NavBar from "./NavBar";
@@ -22,7 +21,6 @@ import logo_1 from "../../assets/home/logo_1.png";
 import logo_2 from "../../assets/home/logo_2.png";
 import logo_3 from "../../assets/home/logo_3.png";
 import logo_4 from "../../assets/home/logo_4.png";
-import logo_5 from "../../assets/home/logo_5.png";
 import logo_6 from "../../assets/home/logo_6.png";
 import logo_7 from "../../assets/home/logo_7.png";
 import logo_8 from "../../assets/home/logo_8.png";
@@ -269,22 +267,9 @@ function HomeMain() {
 
   useEffect(() => {
     const ufoThing = ufoRef.current;
-    let count = 0;
-
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0];
-      // console.log("entry", entry);
-      // setUfoVisible(entry.isIntersecting);
-
       if (entry.isIntersecting && window.innerWidth >= 768) {
-        count++;
-        if (count === 1) {
-          document.body.style.overflow = "hidden";
-          var enableScroll = setTimeout(() => {
-            document.body.style.overflow = "auto";
-          }, 1200);
-        }
-
         gsap
           .timeline()
           .fromTo(ufoThing, { opacity: 0 }, { opacity: 1 })
@@ -302,19 +287,12 @@ function HomeMain() {
             },
           })
           .then(() => {
-            clearTimeout(enableScroll);
             setIsVisible(true);
             observer.unobserve(ufoStartRef.current);
           });
       }
     });
     observer.observe(ufoStartRef.current);
-
-    return () => {
-      // clearTimeout(enableScroll);
-      document.body.style.overflow = "auto";
-      // observer.unobserve(ufoStartRef.current);
-    };
   }, []);
 
   const StarPortal = ({ children }) => {
@@ -749,37 +727,7 @@ function HomeMain() {
             <img src={ufoPlanet} alt="" />
           </div>
         </section>
-
-        {/* <ServiceSection /> */}
         <ServicesHome />
-        {/* <div className="ufoPlanet-section ">
-          <img className="ufoPlanet" src={ufo2} ref={ufoRef} alt="" />
-          <img
-            src={ufoLight}
-            alt=""
-            className={`ufolight ${isVisible ? "visible" : ""}`}
-          />
-          <svg
-            // style={{ opacity: 100 }}
-            className="ufoPath "
-            id="erFka5b34HB1"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-            viewBox="0 0 300 300"
-            shapeRendering="geometricPrecision"
-            textRendering="geometricPrecision"
-          >
-            <path
-              id="ufoPath"
-              d="M296.99571,49.35622c0,22.58294-17.97341,31.54776-33.61946,44.34907-66.21769,54.17811-112.24482,43.63376-188.8412,43.63376"
-              transform="matrix(1.05 0 0 1.41-15.053649-38.441179)"
-              fill="none"
-              stroke="#3f5787"
-              // stroke="#000000"
-              strokeWidth="0.2"
-            />
-          </svg>
-        </div> */}
         <section className="brandSection pt-28 " ref={ufoStartRef}>
           <h1>
             We believe in brands. <br />
@@ -806,47 +754,8 @@ function HomeMain() {
               </div>
             </div>
           </div>
-
-          {/* <div className="brandSectionLayer ">
-            <img src={layer2} alt="" />
-          </div> */}
         </section>
         <ProjectSection />
-
-        {/* <section className='projectSection' style={{ marginLeft: '6%' }} >
-        <img className='orangePlanet' src={orangePlanet} alt="" />
-        <img className='violetCircle' src={violetCircle} alt="" />
-        <div className='violetSmallCircle' style={{ background: '#b291e8' }}></div>
-        <svg className='rocketPath4' style={{ position: 'absolute', width: '100%' }} viewBox="0 300 1440 2311" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path id='pathWhite4' d="M-132 0C-132 250 64.4999 514.501 543 505.001C1086.5 487.001 1283 622.001 1283 986.501C1283 1351 868.5 1433 543 1433C293 1433 189.5 1619 189.5 1822.5C189.5 2090.5 378.167 2190.83 543 2205C803.833 2220.67 1346.5 2240 1532.5 2610" strokeWidth='0.4'  />
-          <path id='pathBlack4' d="M-132 0C-132 250 64.4999 514.501 543 505.001C1086.5 487.001 1283 622.001 1283 986.501C1283 1351 868.5 1433 543 1433C293 1433 189.5 1619 189.5 1822.5C189.5 2090.5 378.167 2190.83 543 2205C803.833 2220.67 1346.5 2240 1532.5 2610" stroke="black" strokeWidth='1' />
-        </svg>
-        <img className='rocket4' src={rocket} alt="" />
-
-        <h1>LATEST <br /><span style={{ color: '#ae46de' }}>PROJECTS</span></h1>
-        <div style={{ width: '100%', aspectRatio: '1/0.3', display: 'flex', alignItems: 'center', marginTop: '20%', paddingLeft: "10%" }}>
-          <div style={{ width: '75%', height: '100%', overflowX: 'hidden', perspective: '1000px' }}>
-
-            <ProjectSlider></ProjectSlider>
-          </div>
-
-        </div>
-
-        <div style={{ width: '100%', aspectRatio: '1/0.3', display: 'flex', alignItems: 'center', justifyContent: 'end', marginTop: '30%' }}>
-          <div style={{ width: '75%', height: '100%', overflowX: 'hidden', perspective: '1000px', marginRight: "5%" }}>
-
-            <ProjectSlider2></ProjectSlider2>
-          </div>
-
-        </div>
-
-        <div style={{ aspectRatio: "1/0.6", display: 'flex', flexDirection: 'column', justifyContent: "center", alignItems: 'center', marginTop: '30%', position: 'relative' }}>
-          <img className='planet7' src={planet7} alt="" />
-          <div style={{ width: '60%', height: '50%', backgroundColor: '#bbbaba', zIndex: '2' }}></div>
-          <img style={{ width: "3rem", marginTop: '5%' }} src={button2} alt="" />
-        </div>
-      </section> */}
-
         <section
           className="packagesSection"
           style={{
@@ -859,80 +768,6 @@ function HomeMain() {
           }}
         >
           <img className="planet1" src={planet1} alt="" />
-          {/* <h1
-            style={{
-              color: "white",
-              fontSize: "2.5rem",
-              textAlign: "center",
-            }}
-          >
-            <span
-              style={{
-                color: "transparent",
-                WebkitTextStroke: " 1px rgb(255 255 255 / 100%)",
-              }}
-            >
-              OUR
-            </span>{" "}
-            <br /> PACKAGES
-          </h1>
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              marginTop: "5%",
-            }}
-          >
-            <svg
-              className="warpedGrid"
-              width="1440"
-              height="298"
-              viewBox="0 0 1440 298"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M-32 1C172.667 47 1014 107 1442 1"
-                stroke="white"
-                strokeWidth="2"
-              />
-              <path
-                d="M-32 296.072C172.667 250.072 1014 190.072 1442 296.072"
-                stroke="white"
-                strokeWidth="2"
-              />
-              <path d="M-4 145H1450" stroke="white" strokeWidth="2" />
-            </svg>
-
-            <div
-              style={{
-                width: "40%",
-                aspectRatio: "1/0.6",
-                background: "#bbbaba",
-              }}
-            ></div>
-            <div
-              style={{
-                background: "#96f64a",
-                width: "40%",
-                height: "3rem",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginTop: "0.3rem",
-              }}
-            >
-              <span style={{ color: "black", fontWeight: "800" }}>BUY NOW</span>
-            </div>
-            <img
-              style={{ width: "3rem", marginTop: "5%" }}
-              src={button}
-              alt=""
-            />
-          </div> */}
         </section>
 
         <section
@@ -1063,13 +898,6 @@ function HomeMain() {
         <div className="knowMoreLayer "></div>
 
         <Footer />
-        {/* <section style={{ width: '100%', height: '200vh' }}>
-        <img src={planet2} alt="" />
-        <img src={planet3} alt="" />
-        <img src={planet6} alt="" />
-        <img src={planet8} alt="" />
-        <img src={planet9} alt="" />
-      </section> */}
       </div>
 
       <StarPortal>

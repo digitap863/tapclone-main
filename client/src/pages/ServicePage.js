@@ -9,7 +9,6 @@ function ServicePage() {
   }, []);
   return (
     <div style={{backgroundColor:"black"}}>
-      {/* <NavBar></NavBar> */}
       <ServicesMain/>
       <Footer/>
     </div>

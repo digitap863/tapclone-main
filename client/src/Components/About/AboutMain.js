@@ -1,18 +1,11 @@
 import React, { useEffect, useState } from "react";
-import aboutHeading from "../../assets/about/About.png";
-import playBtn from "../../assets/about/playBtn.svg";
-import services from "../../assets/about/services.png";
-import ourTeam from "../../assets/about/our-team.svg";
-import Ellipse1 from "../../assets/contact/Ellipse 17.png";
-import Ellipse2 from "../../assets/contact/Ellipse 18.png";
-import Ellipse from "../../assets/contact/Group 203.png";
-import curvPath from "../../assets/headCurvPath.png";
-import bubPlanet from "../../assets/bubblePlanet.svg";
-import tailPlanet from "../../assets/navbar_planet.png";
 import { createPortal } from "react-dom";
-import "./About.css";
 import { useNavigate } from "react-router-dom";
-import logoText from "../../assets/Shared/logoName.png";
+import aboutHeading from "../../assets/about/About.png";
+import bubPlanet from "../../assets/bubblePlanet.svg";
+import curvPath from "../../assets/headCurvPath.png";
+import tailPlanet from "../../assets/navbar_planet.png";
+import "./About.css";
 
 function AboutMain() {
   const [stars, setStars] = useState([]);
