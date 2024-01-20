@@ -46,13 +46,13 @@ function ProjectSlider2() {
 
   return (
     <div className="projectsPrevSlider ">
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange}  size="full" className=" w-[1400px]" placement="center">
+      <Modal radius="lg" isOpen={isOpen} onOpenChange={onOpenChange}  size="full" className=" w-[1400px]" placement="center">
         <ModalContent>
           {(onClose) => (
             <>
               {/* <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader> */}
               <ModalBody className="scrollbar-hide bg-black relative">
-                <Button className="absolute bg-black hover:!bg-gray-900 text-white bottom-10 right-10 animate-bounce flex items-center gap-4" size="lg" color="danger" variant="light" onPress={onClose}>
+                <Button className="absolute bg-black hover:!bg-gray-900 text-white top-10 right-10 animate-bounce flex items-center gap-4" size="lg" color="danger" variant="light" onPress={onClose}>
                 <FaLongArrowAltLeft /> Go Back
                 </Button>
 
