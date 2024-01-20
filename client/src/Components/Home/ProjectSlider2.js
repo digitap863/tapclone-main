@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Autoplay, Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -16,22 +16,53 @@ import project_8 from "../../assets/home/project_8.png"
 import violetPrev from "../../assets/violetPrev.svg";
 import yellowNext from "../../assets/yellowNext.svg";
 import "./Slider.css";
+import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from "@nextui-org/react";
+import { FaLongArrowAltLeft } from "react-icons/fa";
 
 function ProjectSlider2() {
+  const {isOpen, onOpen, onOpenChange} = useDisclosure();
+  const [swiperInstance, setSwiperInstance] = useState(null);
+  const [selected,setSelected] = useState(null)
+  function siteModal(link){
+    setSelected(link)
+    onOpen()
+    console.log(swiperInstance)
+    if (swiperInstance && swiperInstance.autoplay) {
+      swiperInstance.autoplay.stop();
+    }
+    console.log('ih')
+  }
   const imgArr = [
     { image: project_1 ,link:"https://www.continentaloverseaseducation.com/" },
-    { image: project_2 ,link:""},
+    { image: project_2 ,link:"https://wbc-project.vercel.app/"},
     { image: project_3 ,link:"https://www.metrends.in/"},
-    { image: project_4 ,link:""},
-    { image: project_5 ,link:""},
-    { image: project_6 ,link:""},
-    { image: project_7 ,link:""},
-    { image: project_8 ,link:""},
+    { image: project_4 ,link:"https://wbc-project.vercel.app/"},
+    { image: project_5 ,link:"https://wbc-project.vercel.app/"},
+    { image: project_6 ,link:"https://corepowergroup.com"},
+    { image: project_7 ,link:"https://wbc-project.vercel.app/"},
+    { image: project_8 ,link:"https://estatebuilders.in/"},
  
   ];
 
   return (
     <div className="projectsPrevSlider ">
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange}  size="full" className=" w-[1400px]" placement="center">
+        <ModalContent>
+          {(onClose) => (
+            <>
+              {/* <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader> */}
+              <ModalBody className="scrollbar-hide bg-black relative">
+                <Button className="absolute bg-black hover:!bg-gray-900 text-white bottom-10 right-10 animate-bounce flex items-center gap-4" size="lg" color="danger" variant="light" onPress={onClose}>
+                <FaLongArrowAltLeft /> Go Back
+                </Button>
+
+              <iframe src={selected} className="h-screen  bg-white" frameborder="0"></iframe>
+              </ModalBody>
+            
+            </>
+          )}
+        </ModalContent>
+      </Modal>
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
         pagination={{
@@ -45,17 +76,23 @@ function ProjectSlider2() {
         }}
         autoplay={{
           delay: 2500,
-          disableOnInteraction: false,
+          disableOnInteraction: true,
         }}
         loop={true}
         speed={3000}
         slidesPerView={1}
         spaceBetween={8}
+        onSwiper={(swiper) => {
+          // Save swiper instance
+          setSwiperInstance(swiper);
+        }}
       >
         {imgArr.map(({ image,link }, idx) => (
           <SwiperSlide className="projectsPrevCarousel ">
-            <a href={link} target="_blank">
-
+            <div onClick={()=>siteModal(link)} className="hidden xl:block">
+            <img src={image} className="mx-auto cursor-pointer" />
+            </div> 
+            <a href={link} target="_blank" className="xl:hidden">
             <img src={image} className="mx-auto cursor-pointer" />
             </a>
           </SwiperSlide>
