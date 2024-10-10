@@ -9,6 +9,7 @@ import ContactPage from "./pages/ContactPage";
 import ProjectPage from "./pages/ProjectPage";
 import Sale from "./pages/Sale";
 import Thankyou from "./pages/Thankyou";
+import HubspotTrackingCode from "./util/HubspotTrackingCode";
 
 function App() {
   // const [loading, setLoading] = useState(false);
@@ -57,6 +58,7 @@ function App() {
           ></Route>
         </Routes>
       </BrowserRouter>
+      <HubspotTrackingCode/>
     </div>
   );
 }
