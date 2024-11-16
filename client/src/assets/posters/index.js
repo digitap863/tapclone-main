@@ -24,6 +24,7 @@ import poster_23 from "./poster (23).png";
 import poster_24 from "./poster (24).png";
 import poster_25 from "./poster (25).png";
 import poster_26 from "./poster (26).png";
+import poster_27 from "./poster (27).png";
 
 export const imgArr1 = [
     { image1:  poster_1, text: "Fruistick" },
@@ -54,4 +55,5 @@ export const imgArr2 = [
     { image1:  poster_24, text: "Fruistick" },
     { image1:  poster_25, text: "Fruistick" },
     { image1:  poster_26, text: "Fruistick" },
+    { image1:  poster_27, text: "Fruistick" },
 ];
