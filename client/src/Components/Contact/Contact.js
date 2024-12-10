@@ -18,17 +18,14 @@ import MobileNavbar from "../Home/MobileNavbar";
 import NavBar from "../Home/NavBar";
 import orangeplanet from "../../assets/Asset 6@30 1.png"
 import blueplanet from "../../assets/Asset 4@3002 28.png"
-
+import { Input, Select, SelectItem, Textarea } from "@nextui-org/react";
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 function Contact() {
   const [stars, setStars] = useState([]);
   const [shakeTrigger, setShakeTrigger] = useState(false);
 
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
   const createStars = () => {
     const newStars = [];
     for (let i = 0; i < 100; i++) {
@@ -78,121 +75,72 @@ function Contact() {
     return createPortal(children, portalRoot);
   };
 
-  const notify = async () => {
-    if (doFormValidation()) {
-      toast("Thanks for submitting the form !");
-      setShakeTrigger(true);
-      setTimeout(() => {
-        setShakeTrigger(false);
-      }, 600);
-      try {
-        // const response = await fetch(
-        //   // "http://localhost:8000/api/contact-form/",
-        //   "http://16.170.249.40/api/contact-form/",
+  const validationSchema = Yup.object({
+    name: Yup.string()
+      .matches(/^[A-Za-z\s]+$/, 'Please enter a valid name')
+      .required('Name is required'),
+    email: Yup.string()
+      .email('Please enter a valid email address')
+      .required('Email is required'),
+    phone: Yup.string()
+      .required('Phone is required'),
+    service: Yup.array()
+      .min(1, 'Please select at least one service')
+      .required('Service is required'),
+    message: Yup.string()
+  });
 
-        //   {
-        //     method: "POST",
-        //     mode: "cors",
-        //     headers: {
-        //       "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify(form),
-        //   }
-        // );
-        // const data = await response.json();
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      phone: '',
+      service: [],
+      message: ''
+    },
+    validationSchema,
+    onSubmit: async (values) => {
+      try {
+        // Show loading state
+        toast.info("Submitting form...");
+
+        // Format services array to string
+        const servicesString = values.service.join(", ");
+
+        const formData = new URLSearchParams({
+          Name: values.name,
+          Email: values.email,
+          Phone: values.phone,
+          Service: servicesString,
+          Message: values.message || "No message provided",
+          Url: window.location.href
+        }).toString();
+
         const response = await fetch(
-          "https://script.google.com/macros/s/AKfycbzVviIZIzclZp1mtM4YzaUhdvYyyB_aYrsTIarbO5E9pUGoJbeCdDwuMZwegvfeDS0_XA/exec",
+          "https://script.google.com/macros/s/AKfycby9QcgSjFVVIIBLSjSmeCEXnvbGL5GCuzZ672pHR6Sm444nMoL5LciAWFwFKuidrFjL/exec",
           {
             method: "POST",
-            mode: "no-cors", // Important for cross-origin requests to Google Apps Script
+            mode: "no-cors",
             headers: {
               "Content-Type": "application/x-www-form-urlencoded",
             },
-            body: new URLSearchParams({
-              Name: form.name,
-              Email: form.email,
-              Message: form.message,
-            }).toString(),
+            body: formData,
           }
         );
-        // AKfycbzF2vBXlQCRQv14k8F97221GfNiHRM4Ku-0kXkS506v4Su-mqIcHMQvnu7BbmHXsPDYVA
-        setForm({
-          name: "",
-          email: "",
-          message: "",
-        });
+
+        // Since no-cors mode doesn't give us response details,
+        // we'll assume success if no error is thrown
+        toast.success("Thanks for submitting the form!");
+        setShakeTrigger(true);
+        setTimeout(() => setShakeTrigger(false), 600);
+        formik.resetForm();
+        
       } catch (error) {
-        toast.error(`${error.message}`, {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
+        console.error("Submission error:", error);
+        toast.error("Failed to submit form. Please try again.");
       }
     }
-  };
-
-  const [err, setErr] = useState({
-    nameErr: "",
-    emailErr: "",
-    messageErr: "",
   });
-
-  const doFormValidation = () => {
-    const { name, email } = form;
-    if (!name) {
-      setErr((err) => ({
-        ...err,
-        emailErr: "",
-        nameErr: "Name Is Required",
-      }));
-      return false;
-    } else if (!email) {
-      setErr((err) => ({
-        ...err,
-        nameErr: "",
-        emailErr: "Email Is Required",
-      }));
-      return false;
-    }
-
-    const namePattern = /^[A-Za-z\s]+$/;
-    const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-
-    if (!namePattern.test(name)) {
-      setErr((err) => ({
-        ...err,
-        nameErr: "Please enter a valid name.",
-        emailErr: "",
-      }));
-      return false;
-    }
-
-    if (!emailPattern.test(email)) {
-      setErr((err) => ({
-        ...err,
-        nameErr: "",
-        emailErr: "Please enter a valid email address.",
-      }));
-      return false;
-    }
-
-    setErr((err) => ({
-      nameErr: "",
-      emailErr: "",
-      messageErr: "",
-    }));
-    return true;
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
-  };
 
   const removeStars = useCallback(
     (idx) => {
@@ -200,6 +148,11 @@ function Contact() {
     },
     [stars]
   );
+
+  const notify = () => {
+    formik.handleSubmit();
+  };
+
   return (
     <>
       <div style={{ width: "100%" }}>
@@ -220,8 +173,8 @@ function Contact() {
             src={contactHeading}
             alt=""
           />
-          <img src={orangeplanet} className="absolute top-[10%] left-[10%] moving_2"/>
-          <img src={blueplanet} className="absolute top-0 right-[10%] moving_1"/>
+          <img src={orangeplanet} className="absolute top-[10%] left-[10%] moving_2" />
+          <img src={blueplanet} className="absolute top-0 right-[10%] moving_1" />
           <div
             className="subContact "
             style={{ display: "flex", width: "100%" }}
@@ -231,49 +184,86 @@ function Contact() {
                 GET <br /> IN TOUCH
               </p>
               <p style={{ margin: "0", color: "#AEEF24" }}>WITH US</p>
-              <div className="contactInputs ">
-                <div className="input-group">
-                  <input
-                    type="text"
-                    className="getIn-name"
-                    name="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    autoComplete="off"
-                    required
-                  />
-                  {err.nameErr && (
-                    <span className="getIn-nameErr">{err.nameErr}</span>
-                  )}
-                  <label htmlFor="name">Name</label>
-                </div>
-                <div className="input-group">
-                  <input
-                    type="text"
-                    className="getIn-email"
-                    value={form.email}
-                    name="email"
-                    onChange={handleChange}
-                    required
-                  />
-                  {err.emailErr && (
-                    <span className="getIn-emailErr">{err.emailErr}</span>
-                  )}
-                  <label htmlFor="mail">Email</label>
-                </div>
-                <div className="input-group">
-                  <input
-                    style={{ height: "8rem" }}
-                    type="text"
-                    name="message"
-                    className="getIn-message"
-                    value={form.message}
-                    onChange={handleChange}
-                    autoComplete="off"
-                    required
-                  />
-                  <label htmlFor="message">Message</label>
-                </div>
+              <div className="sm:min-w-[300px] lg:min-w-[400px] max-w-[400px] mx-auto space-y-6 mt-5">
+                <Input
+                  name="name"
+                  label="Name"
+                  variant="bordered"
+                  value={formik.values.name}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  isInvalid={formik.touched.name && formik.errors.name}
+                  errorMessage={formik.touched.name && formik.errors.name}
+                  className="max-w-full"
+                />
+
+                <Input
+                  name="email"
+                  label="Email"
+                  variant="bordered"
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  isInvalid={formik.touched.email && formik.errors.email}
+                  errorMessage={formik.touched.email && formik.errors.email}
+                  className="max-w-full"
+                />
+
+                <Input
+                  name="phone"
+                  label="Phone"
+                  variant="bordered"
+                  value={formik.values.phone}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  isInvalid={formik.touched.phone && formik.errors.phone}
+                  errorMessage={formik.touched.phone && formik.errors.phone}
+                  className="max-w-full"
+                />
+
+                <Select
+                  name="service"
+                  label="Service"
+                  variant="bordered"
+                  selectionMode="multiple"
+                  placeholder="Select services"
+                  selectedKeys={formik.values.service}
+                  onChange={(e) => formik.setFieldValue('service', e.target.value.split(','))}
+                  onBlur={formik.handleBlur}
+                  isInvalid={formik.touched.service && formik.errors.service}
+                  errorMessage={formik.touched.service && formik.errors.service}
+                  className="max-w-full"
+                >
+                  <SelectItem key="social-media" className="text-black" value="social-media">
+                    Social Media Management
+                  </SelectItem>
+                  <SelectItem key="ui-ux" className="text-black" value="ui-ux">
+                    UI/UX Development
+                  </SelectItem>
+                  <SelectItem key="web-dev" className="text-black" value="web-dev">
+                    Web Development
+                  </SelectItem>
+                  <SelectItem key="branding" className="text-black" value="branding">
+                    Branding
+                  </SelectItem>
+                  <SelectItem key="seo" className="text-black" value="seo">
+                    SEO
+                  </SelectItem>
+                  <SelectItem key="gmb" className="text-black" value="gmb">
+                    Google My Business
+                  </SelectItem>
+                </Select>
+
+                <Textarea
+                  name="message"
+                  label="Message"
+                  variant="bordered"
+                  value={formik.values.message}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  className="max-w-full"
+                  minRows={3}
+                />
               </div>
             </div>
             <div
@@ -420,7 +410,7 @@ function Contact() {
                   <br /> 0495&nbsp; 460&nbsp; 5549 <br></br> +91 9037&nbsp;
                   833&nbsp; 933 <br />
                 </a>
-              </div> 
+              </div>
             </div>
           </div>
         </div>

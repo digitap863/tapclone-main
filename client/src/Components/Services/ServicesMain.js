@@ -20,6 +20,7 @@ import { Autoplay } from "swiper";
 import NavBar from "../Home/NavBar";
 import MobileNavbar from "../Home/MobileNavbar";
 import grid from "../../assets/services/grid_behind_icons.svg";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function ServicesMain() {
   const servicesArr = [
@@ -107,10 +108,12 @@ function ServicesMain() {
       isFlipped: false,
     },
   ];
+  const navigate = useNavigate();
+  const location = useLocation();
   const [stars, setStars] = useState([]);
-  const phoneNumber = "+919037833933";
+
   const doPhoneCallClick = () => {
-    window.open(`tel:${phoneNumber}`);
+    navigate(`/contact/${location.search}`);
   };
 
   const createStars = () => {
@@ -215,8 +218,8 @@ function ServicesMain() {
                 },
               }}
             >
-              {servicesArr.map((elem) => (
-                <SwiperSlide>
+              {servicesArr.map((elem,index) => (
+                <SwiperSlide key={index}>
                   <div className=" w-full flex justify-center flex-col items-center">
                     <img src={elem.img} alt="" className="w-[70%] h-40" />
                     <h5 className="text-2xl font-semibold mt-5">
@@ -283,7 +286,7 @@ function ServicesMain() {
               Need to <br /> Know More
             </span>
             <div className="callBtn" onClick={() => doPhoneCallClick()}>
-              <span>call</span>
+              <span>Contact Us</span>
             </div>
           </div>
           <div className="knowMoreLayer"></div>

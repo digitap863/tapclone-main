@@ -400,3 +400,32 @@ input:-webkit-autofill:focus {
     transform: rotate(360deg) translate(10px, 20px) rotate(-360deg);
   }
 }
+
+.contactInputs select {
+  outline: none;
+  border: none;
+  margin-top: 2rem;
+  font-size: 1.3rem;
+  width: 32rem;
+  background: #130f0f;
+  color: white;
+  border-radius: 10px;
+  height: 4rem;
+  padding-left: 1rem;
+  border: solid 1px #392e2e;
+  appearance: none; /* Removes default dropdown arrow */
+}
+
+/* Style for select options */
+.contactInputs select option {
+  background: #130f0f;
+  color: white;
+  padding: 1rem;
+}
+
+/* For mobile responsiveness */
+@media (max-width: 480px) {
+  .contactInputs select {
+    width: auto;
+  }
+}
