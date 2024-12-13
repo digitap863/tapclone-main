@@ -277,3 +277,24 @@
     bottom: 5rem !important;
   }
 }
+
+.privacyContent {
+  color: #ffffff;
+}
+
+.privacyContent p {
+  margin-bottom: 1rem;
+}
+
+.privacyContent ul, .privacyContent ol {
+  margin-bottom: 1.5rem;
+}
+
+.privacyContent section {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 2rem;
+}
+
+.privacyContent section:last-child {
+  border-bottom: none;
+}

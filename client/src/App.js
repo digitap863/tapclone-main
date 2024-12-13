@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense,lazy } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import ServicePage from "./pages/ServicePage";
-import AboutPage from "./pages/AboutPage";
-import TeamPage from "./pages/TeamPage";
-import ContactPage from "./pages/ContactPage";
-import ProjectPage from "./pages/ProjectPage";
-import Sale from "./pages/Sale";
-import Thankyou from "./pages/Thankyou";
-import HubspotTrackingCode from "./util/HubspotTrackingCode";
+const ServicePage = lazy(() => import("./pages/ServicePage"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const TeamPage = lazy(() => import("./pages/TeamPage"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+const ProjectPage = lazy(() => import("./pages/ProjectPage"));
+const Sale = lazy(() => import("./pages/Sale"));
+const Thankyou = lazy(() => import("./pages/Thankyou"));
+const HubspotTrackingCode = lazy(() => import("./util/HubspotTrackingCode"));
+const Privacyandpolicy = lazy(() => import("./pages/Privacyandpolicy"));
 
 function App() {
   // const [loading, setLoading] = useState(false);
@@ -22,6 +23,7 @@ function App() {
   return (
     <div className="overflow-hidden">
       <BrowserRouter>
+      <Suspense fallback={<div>Loading...</div>}>
         <Routes>
         {/* <Route
             exact
@@ -56,7 +58,13 @@ function App() {
             path="/thankyou"
             element={<Thankyou/>}
           ></Route>
+          <Route
+            exact
+            path="/privacyandpolicy"
+            element={<Privacyandpolicy/>}
+          ></Route>
         </Routes>
+        </Suspense> 
       </BrowserRouter>
       <HubspotTrackingCode/>
     </div>
