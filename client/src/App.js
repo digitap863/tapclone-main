@@ -1,7 +1,10 @@
 import React, { Suspense,lazy } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import HomePage from "./pages/HomePage";
+const HomePage = lazy(() => import("./pages/HomePage"));
+const BlogPage = lazy(() => import("./pages/BlogPage"));
+const BlogDetailPage = lazy(() => import("./pages/BlogDetailPage"));
+const GalleryPage = lazy(() => import("./pages/GalleryPage"));
 const ServicePage = lazy(() => import("./pages/ServicePage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const TeamPage = lazy(() => import("./pages/TeamPage"));
@@ -11,6 +14,9 @@ const Sale = lazy(() => import("./pages/Sale"));
 const Thankyou = lazy(() => import("./pages/Thankyou"));
 const HubspotTrackingCode = lazy(() => import("./util/HubspotTrackingCode"));
 const Privacyandpolicy = lazy(() => import("./pages/Privacyandpolicy"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const CareerPage = lazy(() => import("./pages/CareerPage"));
+const CareerDetailPage = lazy(() => import("./pages/CareerDetailPage"));
 
 function App() {
   // const [loading, setLoading] = useState(false);
@@ -50,6 +56,16 @@ function App() {
           ></Route>
           <Route
             exact
+            path="/careers"
+            element={<CareerPage></CareerPage>}
+          ></Route>
+          <Route
+            exact
+            path="/careers/:id"
+            element={<CareerDetailPage></CareerDetailPage>}
+          ></Route>
+          <Route
+            exact
             path="/sales"
             element={<Sale></Sale>}
           ></Route>
@@ -62,6 +78,25 @@ function App() {
             exact
             path="/privacyandpolicy"
             element={<Privacyandpolicy/>}
+          ></Route>
+          <Route
+            exact
+            path="/blogs"
+            element={<BlogPage></BlogPage>}
+          ></Route>
+           <Route
+            exact
+            path="/blogs/:id"
+            element={<BlogDetailPage></BlogDetailPage>}
+          ></Route>
+          <Route
+            exact
+            path="/gallery"
+            element={<GalleryPage></GalleryPage>}
+          ></Route>
+          <Route
+            path="*"
+            element={<NotFound/>}
           ></Route>
         </Routes>
         </Suspense> 

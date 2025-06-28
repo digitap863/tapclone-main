@@ -50,6 +50,7 @@ import planetPre from "../../assets/Shared/planetPre.svg";
 import shipPre from "../../assets/Shared/shipPre.svg";
 import logo1 from "../../assets/Shared/favicon.png";
 import logoText from "../../assets/Shared/logoName.png";
+import Ourportfolio from "./Ourportfolio";
 
 function HomeMain() {
   const navigate = useNavigate();
@@ -721,14 +722,15 @@ function HomeMain() {
             <img
               src={blueplanet}
               className="absolute right-[40%] top-[60%] rotate"
+              alt=""
             />
           </div>
           <div className="ufoPlanet  ">
-            <img src={ufoPlanet} alt="" />
+            <img src={ufoPlanet} alt="" className=" " />
           </div>
         </section>
         <ServicesHome />
-        <section className="brandSection pt-28 " ref={ufoStartRef}>
+        <section className="brandSection pt-28  " ref={ufoStartRef}>
           <h1>
             We believe in brands. <br />
             brands <span style={{ color: "#70ff00" }}>believe in us</span>
@@ -755,6 +757,7 @@ function HomeMain() {
             </div>
           </div>
         </section>
+        <Ourportfolio/>
         <ProjectSection />
         <section
           className="packagesSection"
@@ -837,6 +840,7 @@ function HomeMain() {
               style={{ width: "100%" }}
               className="world-map "
               src={worldMap}
+              alt="world map"
             />
             {mapArr.map(({ country, mapIndex }) => (
               <div
@@ -886,13 +890,13 @@ function HomeMain() {
             <br />
             Lets's Do Business
           </h1>
-          <div
+          {/* <div
             className="contactButton "
             style={{ cursor: "pointer" }}
             onClick={() => navigate("/contact")}
           >
             <span>CONTACT</span>
-          </div>
+          </div> */}
         </section>
 
         <div className="knowMoreLayer "></div>
@@ -914,7 +918,7 @@ function HomeMain() {
               )}s linear forwards`,
             }}
             onAnimationEnd={() => {
-              console.log("iam getting called");
+
               setStars((prevStars) => prevStars.filter((_, i) => i !== index));
             }}
           />

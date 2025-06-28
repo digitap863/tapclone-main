@@ -74,15 +74,15 @@ function NavBar() {
     }
   }, [state]);
 
-    const getCurrentDay = () => {
-      const today = new Date();
-      return today.getDate();
-    };
-    const [titlevis,setTitleVis] = useState(false)
+  const getCurrentDay = () => {
+    const today = new Date();
+    return today.getDate();
+  };
+  const [titlevis, setTitleVis] = useState(false)
 
   return (
-    <>
-        <img src={logoTitle} alt="logoText" className={`absolute top-1 duration-500 ${titlevis?'translate-x-[6rem]':'translate-x-[-17rem]'}`}/>
+    <div className="relative z-50">
+      <img src={logoTitle} alt="logoText" className={`absolute top-1 duration-500 ${titlevis ? 'translate-x-[6rem]' : 'translate-x-[-17rem]'}`} />
       <div className="navBar lg:!flex !hidden" style={{ width: state ? "100%" : "5%" }}>
         <div
           style={{
@@ -91,7 +91,7 @@ function NavBar() {
             flexDirection: "column",
           }}
         >
-          <img src={logoIcon} alt="logicon" className="xl:w-9 xl:mt-3 cursor-pointer" onClick={()=>navigate('/')} onMouseEnter={()=>setTitleVis(!titlevis)} onMouseLeave={()=>setTitleVis(!titlevis)}/>
+          <img src={logoIcon} alt="logicon" className="xl:w-9 xl:mt-3 cursor-pointer" onClick={() => navigate('/')} onMouseEnter={() => setTitleVis(!titlevis)} onMouseLeave={() => setTitleVis(!titlevis)} />
           {/* <h1>L</h1> */}
           <div className="navBtn" onClick={() => handleButtonClick()}>
             <div className="line1" style={line1Style}></div>
@@ -100,7 +100,7 @@ function NavBar() {
           <p style={{ fontSize: "1.5rem" }}></p>
         </div>
 
-        <div className="navs ">
+        <div className="navs flex flex-col  justify-center  ">
           <p>
             <NavLink
               to="/"
@@ -129,6 +129,36 @@ function NavBar() {
               })}
             >
               SERVICES
+            </NavLink>
+          </p>
+          <p>
+            <NavLink
+              to="/careers"
+              style={({ isActive }) => ({
+                color: isActive ? "#aeef24" : "#fff",
+              })}
+            >
+              CAREERS
+            </NavLink>
+          </p>
+          <p>
+            <NavLink
+              to="/blogs"
+              style={({ isActive }) => ({
+                color: isActive ? "#aeef24" : "#fff",
+              })}
+            >
+              BLOGS
+            </NavLink>
+          </p>
+          <p>
+            <NavLink
+              to="/gallery"
+              style={({ isActive }) => ({
+                color: isActive ? "#aeef24" : "#fff",
+              })}
+            >
+              GALLERY
             </NavLink>
           </p>
           <p>
@@ -165,7 +195,7 @@ function NavBar() {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 
