@@ -131,7 +131,7 @@ function NavBar() {
               SERVICES
             </NavLink>
           </p>
-          <p>
+          {/* <p>
             <NavLink
               to="/careers"
               style={({ isActive }) => ({
@@ -150,7 +150,7 @@ function NavBar() {
             >
               BLOGS
             </NavLink>
-          </p>
+          </p> */}
           <p>
             <NavLink
               to="/gallery"
