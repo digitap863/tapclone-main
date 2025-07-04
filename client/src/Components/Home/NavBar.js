@@ -5,6 +5,8 @@ import navPlanet from "../../assets/navbar_planet.png";
 import navOrbPlanet from "../../assets/navOrbit_planet.svg";
 import logoIcon from '../../assets/Shared/favicon.png'
 import logoTitle from '../../assets/Shared/logoName.png'
+import "../../Components/Home/Home.css"
+
 
 function NavBar() {
   const navigate = useNavigate();
